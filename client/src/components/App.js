@@ -23,7 +23,13 @@ function App() {
     <div className="App">
       <NavBar user={user} setUser={setUser} />
       <Switch>
-        <Route path=''>
+        <Route path='/categories'>
+          
+        </Route>
+        <Route path='/tasks'>
+
+        </Route>
+        <Route path='/preferences'>
 
         </Route>
         <Route path='/'>

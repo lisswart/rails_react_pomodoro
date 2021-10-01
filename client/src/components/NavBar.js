@@ -8,7 +8,7 @@ function NavBar() {
       </div>
       <h3>Hello NavBar</h3>
     </div>
-  )
+  );
 }
 
-export default NavBar
+export default NavBar;
