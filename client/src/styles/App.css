@@ -1,0 +1,15 @@
+.App {
+  background-color: indianred;
+  color: cornsilk;
+  font-family: monospace;
+  position: relative;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+*, *::before, *::after {
+  margin: 0;
+}
