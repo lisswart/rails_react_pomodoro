@@ -6,10 +6,30 @@
   min-height: 100vh;
   box-sizing: border-box;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
 *, *::before, *::after {
   margin: 0;
+}
+
+.navbar {
+  height: 5rem;
+  background-color: grey;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+#logo > h1 {
+  font-size: 3em;
+  margin-left: 1rem;
+}
+
+.navbar > h3 {
+  padding: 2rem;
 }
