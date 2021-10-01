@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import '../styles/App.css';
 import NavBar from './NavBar';
+import Login from '../pages/Login';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -16,9 +17,19 @@ function App() {
       });
   }, []);
 
+  if (!user) return <Login onLogin={setUser} />
+
   return (
     <div className="App">
-      <NavBar />
+      <NavBar user={user} setUser={setUser} />
+      <Switch>
+        <Route path=''>
+
+        </Route>
+        <Route path='/'>
+
+        </Route>
+      </Switch>
     </div>
   );
 }
