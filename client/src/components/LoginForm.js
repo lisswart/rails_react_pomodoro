@@ -5,7 +5,7 @@ function LoginForm({ onLogin }) {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -19,14 +19,17 @@ function LoginForm({ onLogin }) {
       body: JSON.stringify({
         username,
         password,
-        passwordConfirmation: passwordConfirmation
+        password_confirmation: passwordConfirmation
       })
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((userObj) => onLogin(userObj))
       } else {
-        r.json().then((err) => setErrors(err.errors));
+        r.json().then((err) => {
+          console.log(err);
+          setErrors(err.error);
+        });
       }
     });
   }
@@ -49,14 +52,14 @@ function LoginForm({ onLogin }) {
         autoComplete="current-password"
         onChange={e => setPassword(e.target.value)}
       />
-      <label htmlFor="passwordConfirmation">Password Confirmation</label>
+      <label htmlFor="password_confirmation">Password Confirmation</label>
       <input
         type="password"
-        id="passwordConfirmation"
+        id="password_confirmation"
         value={passwordConfirmation}
         onChange={e => setPasswordConfirmation(e.target.value)}
       />
-      <button type="submit">
+      <button type="submit" style={{width: "fit-content", marginTop: "1em", padding: "0.5em", borderRadius: 5, border: "none"}}>
         {
           isLoading
           ? "Loading..."
@@ -64,9 +67,7 @@ function LoginForm({ onLogin }) {
         }
       </button>
       {
-        errors.map(err => (
-          <p key={err}>{err}</p>
-        ))
+        <p>{errors}</p>
       }
     </form>
   );

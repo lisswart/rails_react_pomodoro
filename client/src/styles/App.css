@@ -1,3 +1,6 @@
+html, body {
+  background-color: chocolate;
+}
 .App {
   background-color: chocolate;
   color: cornsilk;
@@ -55,9 +58,57 @@
   border-radius: 5px;
 }
 
+.navigation > button {
+  margin-left: 0.5em;
+  border-radius: 5px; 
+  border: 2px solid cornsilk; 
+  padding: 0 1em; 
+  background-color: transparent; 
+  color: cornsilk;
+}
+
 .page-on-view {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+}
+
+.login {
+  background-color: chocolate;
+  color: cornsilk;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3em 2em;
+}
+
+.form {
+  background-color: chocolate;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+label {
+  margin-top: 1em;
+}
+
+input {
+  line-height: 1.2em;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: none;
+}
+
+button {
+  background-color: navajowhite;
+  color: rgb(58, 57, 57);
+  border: 2px solid cornsilk;
+}
+
+.signup-login-question-container {
+  display: flex;
+  flex-direction: column;
 }

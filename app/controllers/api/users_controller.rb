@@ -1,7 +1,11 @@
 class Api::UsersController < ApplicationController
   def create
-    users = User.create(user_params)
-    render json: user, status: :created
+    user = User.create(user_params)
+    if user.valid?
+      render json: user, status: :created
+    else
+      render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -12,6 +16,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:firstname, :lastname, :username, :email, :password_digest)
+    params.permit(:firstname, :lastname, :username, :email, :password, :password_confirmation)
   end
 end
