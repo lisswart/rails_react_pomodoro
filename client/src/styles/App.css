@@ -1,4 +1,4 @@
-html, body {
+html {
   background-color: chocolate;
 }
 .App {
@@ -24,9 +24,15 @@ html, body {
   font-family: monospace;
 }
 
+h2 > a {
+  text-decoration: none;
+  color: rgb(78, 78, 78);
+  color: cornsilk;
+}
+
 #footer {
-  background-color: gray;
-  color: silver;
+  background-color: dimgray;
+  color: cornsilk;
   position: absolute;
   width: 100%;
   height: 2.5rem;
@@ -51,9 +57,12 @@ html, body {
   height: 115px;
   margin-left: 1rem;
   background-color: cornsilk;
-  color: rgb(78, 78, 78); 
+  background-color: transparent;
+  /* color: rgb(78, 78, 78);  */
+  color: cornsilk;
   border: 2px solid cornsilk;
   border-radius: 50%;
+  border: 3px solid cornsilk;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,6 +83,8 @@ html, body {
   background-color: cornsilk;
   color: rgb(78, 78, 78);
   border-radius: 5px;
+  display: flex;
+  align-items: center;
 }
 
 .navigation > button {
@@ -114,6 +125,7 @@ label {
 }
 
 input {
+  background-color: antiquewhite;
   line-height: 1.2em;
   padding: 0.5em;
   border-radius: 5px;
@@ -121,7 +133,7 @@ input {
 }
 
 button {
-  background-color: navajowhite;
+  background-color: cornsilk;
   color: rgb(58, 57, 57);
   border: 2px solid cornsilk;
 }

@@ -13,7 +13,7 @@ function NavBar({ user, setUser }) {
   return (
     <div className="navbar">
       <div id="logo">
-        <h2>Clockit</h2>
+        <h2><Link to="/">Clockit</Link></h2>
       </div>
       <div className="navigation">
         <h4>Time Entries</h4>
