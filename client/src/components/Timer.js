@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-function Timer() {
+function Timer({ setTimeEntry, onAddTime }) {
   const [sessionLength, setSessionLength] = useState(2);
   const [breakLength, setBreakLength] = useState(1);
   const [timerLabel, setTimerLabel] = useState('Session');
@@ -16,6 +16,7 @@ function Timer() {
       if (timerLabel === 'Session') {
         setTimerLabel('Break');
         setSecondsLeft(breakLength * 60);
+        onAddTime(sessionLength);
       } else if (timerLabel === 'Break') {
         setTimerLabel('Session');
         setSecondsLeft(sessionLength * 60);
@@ -32,14 +33,13 @@ function Timer() {
         setSecondsLeft(secondsLeft - 1);
       }, 1000);
       handleSwitch();
-      // fetch a post request to backend to persist session duration
     } else {
       clearInterval(intervalID);
     }
 
     return () => clearInterval(intervalID);
 
-  }, [sessionLength, breakLength, timerLabel, timerRunning, secondsLeft]);
+  }, [sessionLength, breakLength, timerLabel, timerRunning, secondsLeft, onAddTime]);
 
   function handleStart() {
     setTimerRunning(true);
@@ -50,9 +50,11 @@ function Timer() {
   }
 
   function handleReset() {
-    // if reset is clicked while in 'Session',
-    // fetch a POST request to save session duration
-    // to the user's time-entry records
+    
+    if (timerLabel === 'Session') {
+      onAddTime(sessionLength);
+    }
+
     setSessionLength(2);
     setBreakLength(1);
     setSecondsLeft(2 * 60);

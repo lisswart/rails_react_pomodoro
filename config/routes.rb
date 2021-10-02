@@ -6,6 +6,16 @@ Rails.application.routes.draw do
     
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
+
+    # route for adding/updating timer preferences
+    patch '/users/:id', to: 'users#update'
+
+    post '/time_entries', to: 'time_entries#create'
+    get '/time_entries', to: 'time_entries#index'
+
+    post '/tasks', to: 'tasks#create'
+
+    post '/categories', to: 'categories#create'
   end
 
   get '*path', to: 'fallback#index', constraints: ->(req) { !req.xhr? && req.format.html? }

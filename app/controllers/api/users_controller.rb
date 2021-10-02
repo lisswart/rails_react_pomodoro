@@ -13,6 +13,10 @@ class Api::UsersController < ApplicationController
     render json: user
   end
 
+  def update
+    # update user's timer preferences
+  end
+
   private
 
   def user_params
