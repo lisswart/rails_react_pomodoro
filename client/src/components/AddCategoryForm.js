@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Timer() {
+function AddCategoryForm() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function Timer() {
   );
 }
 
-export default Timer;
+export default AddCategoryForm;

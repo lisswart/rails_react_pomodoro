@@ -142,3 +142,39 @@ button {
   display: flex;
   flex-direction: column;
 }
+
+#timer-container {
+  border: 5px solid lemonchiffon;
+  height: 25em; 
+  width: 25em; 
+  border-radius: 50%; 
+  margin-top: 2em; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;
+}
+
+#timer-label {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+#time-left {
+  font-size: 3em;
+  margin-bottom: 30px;
+}
+
+#button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#start-stop, #reset {
+  width: fit-content;
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 5px 9px;
+  border: none;
+}
