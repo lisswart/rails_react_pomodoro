@@ -1,2 +1,2 @@
-class TimeEntriesController < ApplicationController
+class Api::TimeEntriesController < ApplicationController
 end

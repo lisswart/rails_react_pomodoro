@@ -1,2 +1,2 @@
-class CategoriesController < ApplicationController
+class Api::CategoriesController < ApplicationController
 end
