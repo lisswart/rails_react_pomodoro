@@ -1,5 +1,5 @@
 .App {
-  background-color: indianred;
+  background-color: chocolate;
   color: cornsilk;
   font-family: monospace;
   position: relative;
@@ -7,7 +7,7 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
 }
@@ -17,19 +17,47 @@
 }
 
 .navbar {
-  height: 5rem;
-  background-color: grey;
+  height: 8rem;
+  background-color: dimgray;
   display: flex;
   justify-content: space-between;
   width: 100%;
   align-items: center;
 }
 
-#logo > h1 {
-  font-size: 3em;
+#logo {
+  width: 115px;
+  height: 115px;
   margin-left: 1rem;
+  background-color: cornsilk;
+  color: rgb(78, 78, 78); 
+  border: 2px solid cornsilk;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.navbar > h3 {
-  padding: 2rem;
+#logo > h2 {
+  font-size: 1.5em;
+}
+
+.navbar > div.navigation {
+  display: flex;
+  padding-right: 1em;
+}
+
+.navigation > h4 {
+  padding: 1em;
+  margin-left: 0.5em;
+  background-color: cornsilk;
+  color: rgb(78, 78, 78);
+  border-radius: 5px;
+}
+
+.page-on-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 }

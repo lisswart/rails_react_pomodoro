@@ -22,20 +22,25 @@ function App() {
   return (
     <div className="App">
       <NavBar user={user} setUser={setUser} />
-      <Switch>
-        <Route path='/categories'>
-          
-        </Route>
-        <Route path='/tasks'>
+      <div className="page-on-view">
+        <Switch>
+          <Route path='/categories'>
+            
+          </Route>
+          <Route path='/tasks'>
 
-        </Route>
-        <Route path='/preferences'>
+          </Route>
+          <Route path='/preferences'>
 
-        </Route>
-        <Route path='/'>
-
-        </Route>
-      </Switch>
+          </Route>
+          <Route path='/'>
+            <div>
+              <div style={{border: "5px solid cornsilk",height: "35em", width: "35em", borderRadius: "50%", marginTop: "2em"}}></div>
+              <div style={{border: "5px solid cornsilk",height: "35em", width: "35em", borderRadius: "50%", marginTop: "2em"}}></div>
+            </div>
+          </Route>
+        </Switch>
+      </div>
     </div>
   );
 }

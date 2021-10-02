@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
   def create
     users = User.create(user_params)
     render json: user, status: :created
