@@ -5,7 +5,7 @@ function LoginForm({ onLogin }) {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [errors, setErrors] = useState("");
+  const [errors, setErrors] = useState([]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -28,7 +28,7 @@ function LoginForm({ onLogin }) {
       } else {
         r.json().then((err) => {
           console.log(err);
-          setErrors(err.error);
+          setErrors(err.traces['Application Trace']);
         });
       }
     });
@@ -67,7 +67,9 @@ function LoginForm({ onLogin }) {
         }
       </button>
       {
-        <p>{errors}</p>
+        errors.map(err => (
+          <p key={err.id}>{err.trace}</p>
+        ))
       }
     </form>
   );
