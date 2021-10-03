@@ -3,17 +3,23 @@ import AddCategoryForm from '../components/AddCategoryForm';
 import AddTaskForm from '../components/AddTaskForm';
 
 function TimeItPage({ 
-  setTask, setCategory, 
+  setTask, setTaskID,
+  setCategory, setCategoryID,
   sessionLength, setSessionLength,
   breakLength, setBreakLength,
   timerLabel, setTimerLabel,
   secondsLeft, setSecondsLeft,
   timerRunning, setTimerRunning,
   setTimeEntry, onAddTime }) {
+    
   return (
     <div id="timer-component">
-      <AddTaskForm setTask={setTask} />
-      <AddCategoryForm setCategory={setCategory}/>
+      <AddTaskForm 
+        setTask={setTask} 
+        setTaskID={setTaskID} />
+      <AddCategoryForm 
+        setCategory={setCategory}
+        setCategoryID={setCategoryID} />
       <Timer 
         sessionLength={sessionLength}
         setSessionLength={setSessionLength}

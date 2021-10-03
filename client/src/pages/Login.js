@@ -3,7 +3,7 @@ import { useState } from 'react';
 import LoginForm from '../components/LoginForm';
 import SignUpForm from '../components/SignUpForm';
 
-function Login({ onLogin }) {
+function Login({ onLogin, setUserID }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
@@ -12,7 +12,9 @@ function Login({ onLogin }) {
         showLogin
         ? (
           <>
-            <LoginForm onLogin={onLogin} />
+            <LoginForm 
+              onLogin={onLogin}
+              setUserID={setUserID} />
             <br />
             <div className="signup-login-question-container">
               <p>

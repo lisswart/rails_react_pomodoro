@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function AddCategoryForm({ setCategory }) {
+function AddCategoryForm({ setCategory, setCategoryID }) {
   const [categoryLabel, setCategoryLabel] = useState("");
 
   function handleSubmit(e) {
@@ -12,7 +12,10 @@ function AddCategoryForm({ setCategory }) {
       },
       body: JSON.stringify({categoryLabel})
     }).then((r) => r.json())
-      .then((category) => setCategory(category.category_label));
+      .then((category) => {
+        setCategory(category.category_label);
+        setCategoryID(category.id);
+      });
   }
 
   return (

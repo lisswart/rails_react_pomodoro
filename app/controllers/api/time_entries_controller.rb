@@ -1,8 +1,9 @@
 class Api::TimeEntriesController < ApplicationController
   def create
-    task = Task.find_by(task_name: params[:task])
-    category = Category.find_by(category_label: params[:category])
-    time_entry = TimeEntry.create!(user_id: @current_user.id, task_id: task.id, category_id: category.id)
+    user = User.find(params[:userID])
+    task = Task.find(params[:taskID])
+    category = Category.find(params[:categoryID])
+    time_entry = TimeEntry.create!(user_id: user.id, task_id: task.id, category_id: category.id, duration: params[:duration])
     render json: time_entry, status: :created
   end
 

@@ -1,6 +1,8 @@
 html {
   background-color: chocolate;
   background-color: rgb(73, 73, 73);
+  display: flex;
+  justify-content: center;
 }
 .App {
   background-color: chocolate;
@@ -10,6 +12,7 @@ html {
   font-family: monospace;
   position: relative;
   min-height: 100vh;
+  width: 745px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -34,11 +37,11 @@ h2 > a {
 }
 
 h2 > a:hover {
-  color: tomato;
+  color: bisque;
 }
 
 h2 > a:focus {
-  color: pink;
+  color: aliceblue;
 }
 
 h4 > a {

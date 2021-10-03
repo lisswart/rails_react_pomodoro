@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function LoginForm({ onLogin }) {
+function LoginForm({ onLogin, setUserID }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -24,7 +24,10 @@ function LoginForm({ onLogin }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((userObj) => onLogin(userObj))
+        r.json().then((userObj) => {
+          onLogin(userObj);
+          setUserID(userObj.id);
+        });
       } else {
         r.json().then((err) => {
           console.log(err);

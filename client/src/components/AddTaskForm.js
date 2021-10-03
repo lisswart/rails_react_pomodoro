@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function AddTaskForm({ setTask }) {
+function AddTaskForm({ setTask, setTaskID }) {
   const [taskname, setTaskname] = useState("");
 
   function handleSubmit(e) {
@@ -12,7 +12,11 @@ function AddTaskForm({ setTask }) {
       },
       body: JSON.stringify({taskname})
     }).then((r) => r.json())
-      .then((task) => setTask(task.task_name));
+      .then((task) => {
+        console.log(task);
+        setTask(task.task_name);
+        setTaskID(task.id);
+      });
   }
 
   return (

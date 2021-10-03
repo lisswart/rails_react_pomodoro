@@ -17,6 +17,7 @@ function Timer({
       if (timerLabel === 'Session') {
         setTimerLabel('Break');
         setSecondsLeft(breakLength * 60);
+        setTimeEntry(sessionLength);
         onAddTime(sessionLength);
       } else if (timerLabel === 'Break') {
         setTimerLabel('Session');
@@ -28,11 +29,11 @@ function Timer({
     if (timerRunning && secondsLeft > 0) {
       intervalID = setInterval(() => {
         setSecondsLeft(secondsLeft - 1);
-      }, 1000);
+      }, 100);
     } else if (timerRunning && secondsLeft === 0) {
       intervalID = setInterval(() => {
         setSecondsLeft(secondsLeft - 1);
-      }, 1000);
+      }, 100);
       handleSwitch();
     } else {
       clearInterval(intervalID);
@@ -42,7 +43,8 @@ function Timer({
 
   }, [sessionLength, breakLength, timerLabel, 
     setTimerLabel, setSecondsLeft,
-    timerRunning, secondsLeft, onAddTime]);
+    timerRunning, secondsLeft, 
+    setTimeEntry, onAddTime]);
 
   function handleStart() {
     setTimerRunning(true);
@@ -58,9 +60,9 @@ function Timer({
       onAddTime(sessionLength);
     }
 
-    setSessionLength(0.2);
-    setBreakLength(0.1);
-    setSecondsLeft(0.2 * 60);
+    setSessionLength(2);
+    setBreakLength(1);
+    setSecondsLeft(2 * 60);
     setTimerLabel('Session');
     setTimerRunning(false);
   }

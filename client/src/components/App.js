@@ -10,21 +10,27 @@ import TimeItPage from '../pages/TimeItPage';
 
 function App() {
   const [user, setUser] = useState(null);
+  const [userID, setUserID] = useState(null);
   const [task, setTask] = useState("");
+  const [taskID, setTaskID] = useState(null);
   const [category, setCategory] = useState("");
+  const [categoryID, setCategoryID] = useState(null);
   const [timeEntry, setTimeEntry] = useState(0);
 
-  const [sessionLength, setSessionLength] = useState(0.2);
-  const [breakLength, setBreakLength] = useState(0.1);
+  const [sessionLength, setSessionLength] = useState(2);
+  const [breakLength, setBreakLength] = useState(1);
 
   const [enableLongBreak, setEnableLongBreak] = useState(false);
   const [longBreakLength, setLongBreakLength] = useState(0);
 
   const [timerLabel, setTimerLabel] = useState('Session');
-  const [secondsLeft, setSecondsLeft] = useState(0.2 * 60);
+  const [secondsLeft, setSecondsLeft] = useState(2 * 60);
   const [timerRunning, setTimerRunning] = useState(false);
 
-  console.log(timeEntry);
+  // console.log("user id: ", userID);
+  // console.log("task id: ", taskID);
+  // console.log("category id: ", categoryID);
+  // console.log("time entry: ", sessionLength);
 
   useEffect(() => {
     fetch('/api/me')
@@ -35,22 +41,31 @@ function App() {
       });
   }, []);
 
-  function handleAddTime(duration) {
+  function handleAddTime(sessionLength) {
     fetch('/api/time_entries', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        task,
-        category,
-        duration
+        userID,
+        taskID,
+        categoryID,
+        duration: sessionLength
       })
     }).then((r) => r.json())
-      .then((timeAdded) => setTimeEntry(timeAdded.duration));
+      .then((timeAdded) => {
+        console.log(timeAdded);
+        setTimeEntry(timeAdded.duration);
+      });
   }
 
-  if (!user) return <Login onLogin={setUser} />
+  if (!user) {
+    return (
+      <Login onLogin={setUser} 
+        setUserID={setUserID} />
+    );
+  }
 
   return (
     <div className="App">
@@ -85,7 +100,9 @@ function App() {
               timerRunning={timerRunning}
               setTimerRunning={setTimerRunning}
               setTask={setTask} 
+              setTaskID={setTaskID}
               setCategory={setCategory} 
+              setCategoryID={setCategoryID}
               setTimeEntry={setTimeEntry} 
               onAddTime={handleAddTime} />
           </Route>
