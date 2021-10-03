@@ -1,11 +1,15 @@
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 function NavBar({ user, setUser }) {
+
+  let history = useHistory();
+
   function handleLogoutClick() {
     fetch('/api/logout', { method: "DELETE" })
       .then((r) => {
         if (r.ok) {
           setUser(null);
+          history.push("/");
         }
       });
   }
@@ -13,11 +17,16 @@ function NavBar({ user, setUser }) {
   return (
     <div className="navbar">
       <div id="logo">
-        <h2><Link to="/">Clockit</Link></h2>
+      <h2><Link to="/">Clockit</Link></h2>
       </div>
+      {
+        user
+        ? <div style={{margin: "0 10px"}}>{user.username}</div>
+        : <></>
+      }
       <div className="navigation">
-        <h4>Time Entries</h4>
-        <h4>Preferences</h4>
+        <h4><Link to="/time-entries">Time Entries</Link></h4>
+        <h4><Link to="/preferences">Preferences</Link></h4>
         <button onClick={handleLogoutClick}>
           Logout
         </button>

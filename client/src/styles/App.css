@@ -1,8 +1,10 @@
 html {
   background-color: chocolate;
+  background-color: rgb(73, 73, 73);
 }
 .App {
   background-color: chocolate;
+  background-color: rgb(73, 73, 73);
   color: cornsilk;
   font-family: monospace;
   position: relative;
@@ -28,6 +30,28 @@ h2 > a {
   text-decoration: none;
   color: rgb(78, 78, 78);
   color: cornsilk;
+}
+
+h2 > a:hover {
+  color: orange;
+}
+
+h2 > a:focus {
+  color: pink;
+}
+
+h4 > a {
+  text-decoration: none;
+  color: rgb(78, 78, 78);
+  color: cornsilk;
+}
+
+h4 > a:hover {
+  color: orange;
+}
+
+h4 > a:focus {
+  color: pink;
 }
 
 #footer {
@@ -81,7 +105,9 @@ h2 > a {
   padding: 1em;
   margin-left: 0.5em;
   background-color: cornsilk;
+  background-color: rgb(73, 73, 73);
   color: rgb(78, 78, 78);
+  color: cornsilk;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -94,6 +120,12 @@ h2 > a {
   padding: 0 1em; 
   background-color: transparent; 
   color: cornsilk;
+}
+
+form.preferences {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .page-on-view {
@@ -126,15 +158,20 @@ label {
 
 input {
   background-color: antiquewhite;
+  background-color: rgb(73, 73, 73);
+  color: cornsilk;
   line-height: 1.2em;
   padding: 0.5em;
   border-radius: 5px;
   border: none;
+  border: 1px solid cornsilk;
 }
 
 button {
   background-color: cornsilk;
+  background-color: rgb(78, 78, 78);
   color: rgb(58, 57, 57);
+  color: cornsilk;
   border: 2px solid cornsilk;
 }
 
@@ -188,5 +225,5 @@ button {
   margin-top: 10px;
   border-radius: 10px;
   padding: 5px 9px;
-  border: none;
+  /* border: none; */
 }

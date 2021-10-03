@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
-function Timer({ setTimeEntry, onAddTime }) {
-  const [sessionLength, setSessionLength] = useState(2);
-  const [breakLength, setBreakLength] = useState(1);
-  const [timerLabel, setTimerLabel] = useState('Session');
-  const [secondsLeft, setSecondsLeft] = useState(2 * 60);
-  const [timerRunning, setTimerRunning] = useState(false);
+function Timer({ 
+  sessionLength, setSessionLength,
+  breakLength, setBreakLength,
+  timerLabel, setTimerLabel,
+  secondsLeft, setSecondsLeft,
+  timerRunning, setTimerRunning,
+  setTimeEntry, onAddTime }) {
 
   let minutes = Math.floor(secondsLeft / 60);
   let seconds = secondsLeft % 60;
@@ -39,7 +40,9 @@ function Timer({ setTimeEntry, onAddTime }) {
 
     return () => clearInterval(intervalID);
 
-  }, [sessionLength, breakLength, timerLabel, timerRunning, secondsLeft, onAddTime]);
+  }, [sessionLength, breakLength, timerLabel, 
+    setTimerLabel, setSecondsLeft,
+    timerRunning, secondsLeft, onAddTime]);
 
   function handleStart() {
     setTimerRunning(true);
@@ -55,9 +58,9 @@ function Timer({ setTimeEntry, onAddTime }) {
       onAddTime(sessionLength);
     }
 
-    setSessionLength(2);
-    setBreakLength(1);
-    setSecondsLeft(2 * 60);
+    setSessionLength(0.2);
+    setBreakLength(0.1);
+    setSecondsLeft(0.2 * 60);
     setTimerLabel('Session');
     setTimerRunning(false);
   }

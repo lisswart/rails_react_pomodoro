@@ -11,4 +11,3 @@ function AllTimeEntries() {
 }
 
 export default AllTimeEntries;
-

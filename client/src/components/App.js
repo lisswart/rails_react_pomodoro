@@ -14,6 +14,16 @@ function App() {
   const [category, setCategory] = useState("");
   const [timeEntry, setTimeEntry] = useState(0);
 
+  const [sessionLength, setSessionLength] = useState(0.2);
+  const [breakLength, setBreakLength] = useState(0.1);
+
+  const [enableLongBreak, setEnableLongBreak] = useState(false);
+  const [longBreakLength, setLongBreakLength] = useState(0);
+
+  const [timerLabel, setTimerLabel] = useState('Session');
+  const [secondsLeft, setSecondsLeft] = useState(0.2 * 60);
+  const [timerRunning, setTimerRunning] = useState(false);
+
   console.log(timeEntry);
 
   useEffect(() => {
@@ -51,10 +61,33 @@ function App() {
             <AllTimeEntries task={task} category={category} timeEntry={timeEntry}/>
           </Route>
           <Route path='/preferences'>
-            <PreferenceForm />
+            <PreferenceForm 
+              sessionLength={sessionLength}
+              setSessionLength={setSessionLength}
+              breakLength={breakLength}
+              setBreakLength={setBreakLength}
+              enableLongBreak={enableLongBreak}
+              setEnableLongBreak={setEnableLongBreak}
+              longBreakLength={longBreakLength}
+              setLongBreakLength={setLongBreakLength}
+              setUser={setUser} />
           </Route>
           <Route path='/'>
-            <TimeItPage setTask={setTask} setCategory={setCategory} setTimeEntry={setTimeEntry} onAddTime={handleAddTime} />
+            <TimeItPage 
+              sessionLength={sessionLength}
+              setSessionLength={setSessionLength}
+              breakLength={breakLength}
+              setBreakLength={setBreakLength}
+              timerLabel={timerLabel}
+              setTimerLabel={setTimerLabel}
+              secondsLeft={secondsLeft}
+              setSecondsLeft={setSecondsLeft}
+              timerRunning={timerRunning}
+              setTimerRunning={setTimerRunning}
+              setTask={setTask} 
+              setCategory={setCategory} 
+              setTimeEntry={setTimeEntry} 
+              onAddTime={handleAddTime} />
           </Route>
           <Route path='*'>
             <div id="404-page">
