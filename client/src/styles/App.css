@@ -148,13 +148,14 @@ button {
   width: 500px;
 }
 
-#timer-component {
+.timer-component {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  min-width: 100%;
+  justify-content: center;
 }
 
-#timer-container {
+.timer-container {
   border: 5px solid lemonchiffon;
   height: 25em; 
   width: 25em; 
@@ -166,23 +167,23 @@ button {
   align-items: center;
 }
 
-#timer-label {
+.timer-label {
   font-size: 2em;
   margin-bottom: 20px;
 }
 
-#time-left {
+.time-left {
   font-size: 3em;
   margin-bottom: 30px;
 }
 
-#button-container {
+.button-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#start-stop, #reset {
+.start-stop, .reset {
   width: fit-content;
   margin-top: 10px;
   border-radius: 10px;

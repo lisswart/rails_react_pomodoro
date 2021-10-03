@@ -8,6 +8,9 @@ function TimeItPage({ setTask, setCategory, setTimeEntry, onAddTime }) {
       <AddTaskForm setTask={setTask} />
       <AddCategoryForm setCategory={setCategory}/>
       <Timer setTimeEntry={setTimeEntry} onAddTime={onAddTime} />
+      <Timer setTimeEntry={setTimeEntry} onAddTime={onAddTime} />
+      <Timer setTimeEntry={setTimeEntry} onAddTime={onAddTime} />
+      <Timer setTimeEntry={setTimeEntry} onAddTime={onAddTime} />
     </div>
   )
 }

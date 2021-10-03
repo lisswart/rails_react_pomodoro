@@ -64,9 +64,9 @@ function Timer({ setTimeEntry, onAddTime }) {
 
   return (
     <div className="timer-component">
-      <div id="timer-container">
-        <h2 id="timer-label">{timerLabel}</h2>
-        <h3 id="time-left">
+      <div className="timer-container">
+        <h2 className="timer-label">{timerLabel}</h2>
+        <h3 className="time-left">
           {
             minutes < 10
             ? ("0" + minutes).slice(-2)
@@ -78,13 +78,13 @@ function Timer({ setTimeEntry, onAddTime }) {
           }
         </h3>
       
-        <div id="button-container">
-          <button id="start-stop"
+        <div className="button-container">
+          <button className="start-stop"
             onClick={timerRunning ? handleStop : handleStart}
           >
             Start/Stop
           </button>
-          <button id="reset"
+          <button className="reset"
             onClick={handleReset}
           >
             Reset
