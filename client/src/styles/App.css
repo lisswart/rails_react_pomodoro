@@ -5,6 +5,7 @@ html {
 .App {
   background-color: chocolate;
   background-color: rgb(73, 73, 73);
+  background: linear-gradient(rgb(158, 158, 158), rgb(73, 73, 73), rgb(30, 30, 30 ));
   color: cornsilk;
   font-family: monospace;
   position: relative;
@@ -33,7 +34,7 @@ h2 > a {
 }
 
 h2 > a:hover {
-  color: orange;
+  color: tomato;
 }
 
 h2 > a:focus {
@@ -47,7 +48,7 @@ h4 > a {
 }
 
 h4 > a:hover {
-  color: orange;
+  color: thistle;
 }
 
 h4 > a:focus {
@@ -56,6 +57,7 @@ h4 > a:focus {
 
 #footer {
   background-color: dimgray;
+  background-color: rgb(59, 59, 59);
   color: cornsilk;
   position: absolute;
   width: 100%;
@@ -70,6 +72,7 @@ h4 > a:focus {
 .navbar {
   height: 8rem;
   background-color: dimgray;
+  background-color: rgba(31, 31, 31, 0.658);
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -77,8 +80,8 @@ h4 > a:focus {
 }
 
 #logo {
-  width: 115px;
-  height: 115px;
+  min-width: 115px;
+  min-height: 115px;
   margin-left: 1rem;
   background-color: cornsilk;
   background-color: transparent;
@@ -102,11 +105,12 @@ h4 > a:focus {
 }
 
 .navigation > h4 {
-  padding: 1em;
+  padding: 0 0.25em;
   margin-left: 0.5em;
-  background-color: cornsilk;
+  /* background-color: cornsilk;
   background-color: rgb(73, 73, 73);
-  color: rgb(78, 78, 78);
+  background-color: rgba(78, 78, 78, 0.432);
+  color: rgb(78, 78, 78); */
   color: cornsilk;
   border-radius: 5px;
   display: flex;
@@ -117,7 +121,6 @@ h4 > a:focus {
   margin-left: 0.5em;
   border-radius: 5px; 
   border: 2px solid cornsilk; 
-  padding: 0 1em; 
   background-color: transparent; 
   color: cornsilk;
 }
@@ -159,6 +162,7 @@ label {
 input {
   background-color: antiquewhite;
   background-color: rgb(73, 73, 73);
+  background-color: transparent;
   color: cornsilk;
   line-height: 1.2em;
   padding: 0.5em;
@@ -167,12 +171,17 @@ input {
   border: 1px solid cornsilk;
 }
 
+input:focus {
+  outline-color: lemonchiffon;
+}
+
+::placeholder {
+  color: silver;
+}
+
 button {
   background-color: cornsilk;
-  background-color: rgb(78, 78, 78);
-  color: rgb(58, 57, 57);
-  color: cornsilk;
-  border: 2px solid cornsilk;
+  color: rgb(43, 42, 42);
 }
 
 .signup-login-question-container {
@@ -220,10 +229,18 @@ button {
   align-items: center;
 }
 
-.start-stop, .reset {
+button.start-stop, button.reset {
   width: fit-content;
   margin-top: 10px;
   border-radius: 10px;
   padding: 5px 9px;
-  /* border: none; */
+  background-color: transparent;
+  color: cornsilk;
+}
+
+.reset-reminder {
+  border: 1px solid cornsilk;
+  padding: 4px 0;
+  margin-top: 35px;
+  background-color: maroon;
 }

@@ -27,6 +27,7 @@ function TimeItPage({
         setTimerRunning={setTimerRunning}
         setTimeEntry={setTimeEntry} 
         onAddTime={onAddTime} />
+      <p className="reset-reminder">Please reset the timer before logging out </p>
     </div>
   );
 }
