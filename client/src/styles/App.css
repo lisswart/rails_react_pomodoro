@@ -9,7 +9,6 @@ html {
   font-family: monospace;
   position: relative;
   min-height: 100vh;
-  min-width: 100vw;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -29,38 +28,35 @@ html {
 
 h2 > a {
   text-decoration: none;
-  color: rgb(78, 78, 78);
-  color: cornsilk;
+  color: deeppink;
 }
 
 h2 > a:hover {
-  color: bisque;
+  color: navy;
 }
 
 h2 > a:focus {
-  color: aliceblue;
+  color: dodgerblue;
 }
 
 h4 > a {
   text-decoration: none;
-  color: rgb(78, 78, 78);
-  color: cornsilk;
+  color: navy;
 }
 
 h4 > a:hover {
-  color: thistle;
+  color: maroon;
 }
 
 h4 > a:focus {
-  color: pink;
+  color: orangered;
 }
 
 #footer {
-  background-color: dimgray;
-  background-color: rgb(59, 59, 59);
+  /* background-color: dimgray;
+  background-color: rgb(59, 59, 59); */
   color: cornsilk;
   position: absolute;
-  min-width: 100vw;
   height: 2.5rem;
   bottom: 0;
   display: flex;
@@ -71,10 +67,10 @@ h4 > a:focus {
 
 .navbar {
   height: 8rem;
-  background-color: rgba(31, 31, 31, 0.658);
+  background-color: transparent;
+  color: navy;
   display: flex;
   justify-content: space-between;
-  width: 100%;
   align-items: center;
 }
 
@@ -82,13 +78,9 @@ h4 > a:focus {
   min-width: 115px;
   min-height: 115px;
   margin-left: 1rem;
-  background-color: cornsilk;
   background-color: transparent;
-  /* color: rgb(78, 78, 78);  */
-  color: cornsilk;
-  border: 2px solid cornsilk;
   border-radius: 50%;
-  border: 3px solid cornsilk;
+  border: 0.5rem solid deeppink;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -108,6 +100,7 @@ h4 > a:focus {
   margin-left: 0.5em;
   color: cornsilk;
   border-radius: 5px;
+  border-left: 0.25rem solid deeppink;
   display: flex;
   align-items: center;
 }
@@ -115,9 +108,9 @@ h4 > a:focus {
 .navigation > button {
   margin-left: 0.5em;
   border-radius: 5px; 
-  border: 2px solid cornsilk; 
+  border: 2px solid navy; 
   background-color: transparent; 
-  color: cornsilk;
+  color: navy;;
 }
 
 form.preferences {
