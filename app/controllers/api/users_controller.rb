@@ -22,6 +22,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:user, :id, :firstname, :lastname, :username, :email, :password, :password_confirmation, :session_length, :break_length, :enable_long_break, :no_of_sessions_before_long_break, :long_break_length)
+    params.permit(:user_id, :user, :id, :firstname, :lastname, :username, :email, :password, :password_confirmation, :session_length, :break_length, :enable_long_break, :no_of_sessions_before_long_break, :long_break_length)
   end
 end

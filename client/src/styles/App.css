@@ -1,6 +1,5 @@
 html {
-  background-color: chocolate;
-  background-color: rgb(73, 73, 73);
+  background: linear-gradient(lightpink,pink, deeppink);
   display: flex;
   justify-content: center;
 }
@@ -10,7 +9,7 @@ html {
   font-family: monospace;
   position: relative;
   min-height: 100vh;
-  width: 1000px;
+  min-width: 100vw;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -61,7 +60,7 @@ h4 > a:focus {
   background-color: rgb(59, 59, 59);
   color: cornsilk;
   position: absolute;
-  width: 100%;
+  min-width: 100vw;
   height: 2.5rem;
   bottom: 0;
   display: flex;
@@ -72,7 +71,6 @@ h4 > a:focus {
 
 .navbar {
   height: 8rem;
-  background-color: dimgray;
   background-color: rgba(31, 31, 31, 0.658);
   display: flex;
   justify-content: space-between;
@@ -137,7 +135,7 @@ form.preferences {
 }
 
 .login {
-  background: linear-gradient(pink, deeppink);
+  background: linear-gradient(lightpink,pink, deeppink);
   color: black;
   display: flex;
   flex-direction: column;
@@ -172,7 +170,7 @@ input:focus {
 }
 
 ::placeholder {
-  color: dimgray;
+  color: maroon;
 }
 
 button {
@@ -238,10 +236,14 @@ button.start-stop, button.reset {
 }
 
 .reset-reminder {
-  border: 1px solid cornsilk;
-  padding: 4px 0;
-  margin-top: 35px;
+  text-align: left;
+  padding: 4px 1rem;
   background-color: dimgray;
+}
+
+li {
+  padding: 0 0 0 1rem;
+  text-align: left;
 }
 
 table, tr, th, td {
@@ -250,4 +252,8 @@ table, tr, th, td {
 
 th, tr {
   height: 2rem;
+}
+
+td {
+  padding: 0 1rem;
 }

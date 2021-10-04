@@ -48,7 +48,7 @@ function App() {
           });
         }
       });
-  }, [sessionLength]);
+  }, []);
 
   function handleAddTime(sessionLength) {
     fetch('/api/time_entries', {

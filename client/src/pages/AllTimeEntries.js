@@ -21,6 +21,7 @@ function AllTimeEntries() {
       <table style={{marginTop: 35, width: "100%"}}>
         <tbody>
           <tr>
+            <th></th>
             <th>date</th>
             <th>duration</th>
             <th>task</th>
@@ -30,7 +31,8 @@ function AllTimeEntries() {
             timeEntries.map(timeEntry => {
               return (
                 <tr key={timeEntry.id}
-                    style={{textAlign: "center"}}>  
+                    style={{textAlign: "center"}}>
+                  <td><button>delete</button></td>  
                   <td>{timeEntry.created_at}</td>             
                   <td>{timeEntry.duration}</td>
                   <td>{timeEntry.task.task_name}</td>

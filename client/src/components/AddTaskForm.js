@@ -26,7 +26,7 @@ function AddTaskForm({ setTask, setTaskID }) {
         onChange={e => setTaskname(e.target.value)}
         name="taskname"
         value={taskname}
-        placeholder="Please choose a task and press Enter..."
+        placeholder="Please choose a task AND PRESS ENTER..."
         className="task-input"
       />
     </form>

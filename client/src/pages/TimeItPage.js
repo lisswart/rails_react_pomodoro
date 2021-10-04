@@ -16,10 +16,12 @@ function TimeItPage({
     <div id="timer-component">
       <AddTaskForm 
         setTask={setTask} 
-        setTaskID={setTaskID} />
+        setTaskID={setTaskID} 
+      />
       <AddCategoryForm 
         setCategory={setCategory}
-        setCategoryID={setCategoryID} />
+        setCategoryID={setCategoryID} 
+      />
       <Timer 
         sessionLength={sessionLength}
         setSessionLength={setSessionLength}
@@ -32,8 +34,19 @@ function TimeItPage({
         timerRunning={timerRunning}
         setTimerRunning={setTimerRunning}
         setTimeEntry={setTimeEntry} 
-        onAddTime={onAddTime} />
-      <p className="reset-reminder">Please reset the timer before logging out </p>
+        onAddTime={onAddTime} 
+      />
+      
+      <div className="reset-reminder">
+        <p className="reset-reminder">Dear erudites,</p>
+        <p className="reset-reminder">some gentle reminders: </p>
+        <ul className="reset-reminder">
+          <li> After updating timer setting in preferences tab, press reset to activate the updated setting</li>
+          <li>Only completed sessions that have task name and category label are saved as a time entry</li>
+          <li>Timer is paused whenever you click a link to another page</li>
+          <li>Please reset the timer before logging out</li>
+        </ul>
+      </div>
     </div>
   );
 }
