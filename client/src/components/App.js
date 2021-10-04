@@ -29,9 +29,6 @@ function App() {
   const [timerRunning, setTimerRunning] = useState(false);
 
   console.log("user id: ", userID);
-  // console.log("task id: ", taskID);
-  // console.log("category id: ", categoryID);
-  // console.log("time entry: ", sessionLength);
 
   useEffect(() => {
     fetch('/api/me')

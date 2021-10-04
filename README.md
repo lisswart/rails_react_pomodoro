@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- This app uses Ruby version 3.0.2
+- This repo consists of both the frontend and backend applications
+- When cloning this app: after cloning,
+  - run bundle install in root directory to install system dependencies for the backend,
+  - and run npm install --prefix client to install system dependencies for the fronted
