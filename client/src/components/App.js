@@ -17,15 +17,15 @@ function App() {
   const [categoryID, setCategoryID] = useState(null);
   const [timeEntry, setTimeEntry] = useState(0);
 
-  const [sessionLength, setSessionLength] = useState(2);
-  const [breakLength, setBreakLength] = useState(1);
+  const [sessionLength, setSessionLength] = useState(0);
+  const [breakLength, setBreakLength] = useState(0);
 
   const [enableLongBreak, setEnableLongBreak] = useState(false);
   const [numberOfSessionsBeforeLongBreak, setNumberOfSessionsBeforeLongBreak] = useState(0);
   const [longBreakLength, setLongBreakLength] = useState(0);
 
   const [timerLabel, setTimerLabel] = useState('Session');
-  const [secondsLeft, setSecondsLeft] = useState(2 * 60);
+  const [secondsLeft, setSecondsLeft] = useState(sessionLength * 60);
   const [timerRunning, setTimerRunning] = useState(false);
 
   console.log("user id: ", userID);
@@ -37,7 +37,15 @@ function App() {
     fetch('/api/me')
       .then((r) => {
         if (r.ok) {
-          r.json().then(userObj => setUser(userObj));
+          r.json().then(userObj => {
+            setUser(userObj);
+            setSecondsLeft(userObj.session_length * 60);
+            setSessionLength(userObj.session_length);
+            setBreakLength(userObj.break_length);
+            setEnableLongBreak(userObj.enable_long_break);
+            setNumberOfSessionsBeforeLongBreak(userObj.no_of_sessions_before_long_break);
+            setLongBreakLength(userObj.long_break_length);
+          });
         }
       });
   }, []);
@@ -72,6 +80,8 @@ function App() {
       .then(userObj => {
         console.log(userObj);
         setUser(userObj);
+        setSessionLength(parseInt(userObj.sessionLength, 10));
+        setBreakLength(parseInt(userObj.breakLength, 10));
       });
   }
 

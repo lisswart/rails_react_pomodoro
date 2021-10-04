@@ -14,7 +14,6 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    # update user's timer preferences
     user = User.find(session[:user_id])
     user.update(user_params)
     render json: user

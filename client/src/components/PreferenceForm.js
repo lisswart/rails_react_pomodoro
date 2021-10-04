@@ -21,7 +21,7 @@ function PreferenceForm({
 
   return (
     <form onSubmit={handleSubmit} className="preferences">
-      <label htmlFor="sessionLength">
+      <label htmlFor="session_length">
         Session Length
       </label>
       <input
@@ -30,7 +30,7 @@ function PreferenceForm({
         value={sessionLength}
         onChange={e => setSessionLength(e.target.value)}
       />
-      <label htmlFor="breakLength">
+      <label htmlFor="break_length">
         Break Length
       </label>
       <input
@@ -40,13 +40,13 @@ function PreferenceForm({
         onChange={e => setBreakLength(e.target.value)}
       />
       <>
-        <label htmlFor="enableLongBreak">
+        <label htmlFor="enable_long_break">
           Enable Long Break
         </label>
         <input
           type="checkbox"
           id="enable_long_break"
-          value={true}
+          value={enableLongBreak}
           onChange={e => {console.log(e); setEnableLongBreak(e.target.checked)}}
         />
       </>
@@ -59,7 +59,7 @@ function PreferenceForm({
         value={numberOfSessionsBeforeLongBreak}
         onChange={e => setNumberOfSessionsBeforeLongBreak(e.target.value)}
       />
-      <label htmlFor="longBreakLength">
+      <label htmlFor="long_break_length">
         Long Break Length
       </label>
       <input

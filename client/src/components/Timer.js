@@ -29,13 +29,15 @@ function Timer({
     if (timerRunning && secondsLeft > 0) {
       intervalID = setInterval(() => {
         setSecondsLeft(secondsLeft - 1);
-      }, 100);
-    } else if (timerRunning && secondsLeft === 0) {
+      }, 50);
+    } 
+    else if (timerRunning && secondsLeft === 0) {
       intervalID = setInterval(() => {
         setSecondsLeft(secondsLeft - 1);
-      }, 100);
+      }, 50);
       handleSwitch();
-    } else {
+    } 
+    else {
       clearInterval(intervalID);
     }
 
@@ -56,13 +58,13 @@ function Timer({
 
   function handleReset() {
     
-    if (timerLabel === 'Session') {
-      onAddTime(sessionLength);
-    }
+    // if (timerLabel === 'Session') {
+    //   onAddTime(sessionLength);
+    // }
 
-    setSessionLength(2);
-    setBreakLength(1);
-    setSecondsLeft(2 * 60);
+    setSessionLength(sessionLength);
+    setBreakLength(breakLength);
+    setSecondsLeft(sessionLength * 60);
     setTimerLabel('Session');
     setTimerRunning(false);
   }
