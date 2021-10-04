@@ -21,6 +21,7 @@ function App() {
   const [breakLength, setBreakLength] = useState(1);
 
   const [enableLongBreak, setEnableLongBreak] = useState(false);
+  const [numberOfSessionsBeforeLongBreak, setNumberOfSessionsBeforeLongBreak] = useState(0);
   const [longBreakLength, setLongBreakLength] = useState(0);
 
   const [timerLabel, setTimerLabel] = useState('Session');
@@ -60,6 +61,20 @@ function App() {
       });
   }
 
+  function updatePreferences(formData) {
+    fetch(`/api/users/${user.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
+    }).then((r) => r.json())
+      .then(userObj => {
+        console.log(userObj);
+        setUser(userObj);
+      });
+  }
+
   if (!user) {
     return (
       <Login onLogin={setUser} 
@@ -83,9 +98,11 @@ function App() {
               setBreakLength={setBreakLength}
               enableLongBreak={enableLongBreak}
               setEnableLongBreak={setEnableLongBreak}
+              numberOfSessionsBeforeLongBreak={numberOfSessionsBeforeLongBreak}
+              setNumberOfSessionsBeforeLongBreak={setNumberOfSessionsBeforeLongBreak}
               longBreakLength={longBreakLength}
               setLongBreakLength={setLongBreakLength}
-              setUser={setUser} />
+              updatePreferences={updatePreferences} />
           </Route>
           <Route path='/'>
             <TimeItPage 

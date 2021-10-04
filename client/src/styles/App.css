@@ -126,6 +126,7 @@ form.preferences {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  color: black;
 }
 
 .page-on-view {
@@ -233,6 +234,7 @@ button.start-stop, button.reset {
   padding: 5px 9px;
   background-color: turquoise;
   color: navy;
+  border: 2px solid dimgray;
 }
 
 .reset-reminder {

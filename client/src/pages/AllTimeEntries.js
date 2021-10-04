@@ -16,7 +16,7 @@ function AllTimeEntries() {
       });
   }
   return (
-    <div style={{paddingTop: 35, color: "black", backgroundColor: "lightpink", paddingRight: 20}}>
+    <div style={{paddingTop: 35, color: "black", backgroundColor: "lightpink"}}>
       <button onClick={getTimeEntries}>time entries</button>
       <table style={{marginTop: 35, width: "100%"}}>
         <tbody>
