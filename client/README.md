@@ -3,3 +3,5 @@ Things that I still need to work on:
 - user hears a 'ding' sound each time a session/break completes
 - user sees an alert whenever she starts the timer without submitting a taskname and categorylabel, or provide a default value in the backend whenever a user starts the timer without submitting a taskname and category label.
 - group time-entries by day, and display list of time entries by weekly pagination
+- ability to filter time-entries by task and group time-entries by category inside each task
+- ability to provide summary data such as productive hours by week, by day, hours spent on each task and/or category
