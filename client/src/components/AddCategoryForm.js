@@ -25,7 +25,7 @@ function AddCategoryForm({ setCategory, setCategoryID }) {
         onChange={e => setCategoryLabel(e.target.value)}
         id="category_label"
         value={categoryLabel}
-        placeholder="category label..."
+        placeholder="choose a category..."
         className="task-input"
       />
     </form>

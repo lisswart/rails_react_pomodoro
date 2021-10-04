@@ -27,7 +27,7 @@ function App() {
   const [secondsLeft, setSecondsLeft] = useState(2 * 60);
   const [timerRunning, setTimerRunning] = useState(false);
 
-  // console.log("user id: ", userID);
+  console.log("user id: ", userID);
   // console.log("task id: ", taskID);
   // console.log("category id: ", categoryID);
   // console.log("time entry: ", sessionLength);

@@ -16,7 +16,7 @@ function AllTimeEntries() {
       });
   }
   return (
-    <div style={{paddingTop: 35}}>
+    <div style={{paddingTop: 35, color: "black", backgroundColor: "lightpink", paddingRight: 20}}>
       <button onClick={getTimeEntries}>time entries</button>
       <ul style={{marginTop: 35}}>
         {
@@ -25,7 +25,9 @@ function AllTimeEntries() {
               <li key={timeEntry.id}
                   style={{textAlign: "left"}}>
                 id: {timeEntry.id}, 
-                duration: {timeEntry.duration}
+                duration: {timeEntry.duration},
+                task: {timeEntry.task.task_name},
+                category: {timeEntry.category.category_label}
               </li>
             );
           })
