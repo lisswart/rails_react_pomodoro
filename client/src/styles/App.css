@@ -241,3 +241,11 @@ button.start-stop, button.reset {
   margin-top: 35px;
   background-color: dimgray;
 }
+
+table, tr, th, td {
+  border: 1px solid deeppink;
+}
+
+th, tr {
+  height: 2rem;
+}

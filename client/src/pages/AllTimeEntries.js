@@ -18,21 +18,28 @@ function AllTimeEntries() {
   return (
     <div style={{paddingTop: 35, color: "black", backgroundColor: "lightpink", paddingRight: 20}}>
       <button onClick={getTimeEntries}>time entries</button>
-      <ul style={{marginTop: 35}}>
-        {
-          timeEntries.map(timeEntry => {
-            return (
-              <li key={timeEntry.id}
-                  style={{textAlign: "left"}}>
-                id: {timeEntry.id}, 
-                duration: {timeEntry.duration},
-                task: {timeEntry.task.task_name},
-                category: {timeEntry.category.category_label}
-              </li>
-            );
-          })
-        }
-      </ul>
+      <table style={{marginTop: 35, width: "100%"}}>
+        <tbody>
+          <tr>
+            <th>duration</th>
+            <th>task</th>
+            <th>category</th>
+          </tr>
+          {
+            timeEntries.map(timeEntry => {
+              return (
+                <tr key={timeEntry.id}
+                    style={{textAlign: "center"}}>               
+                  <td>{timeEntry.duration}</td>
+                  <td>{timeEntry.task.task_name}</td>
+                  <td>{timeEntry.category.category_label}</td>
+                </tr>
+              );
+            })
+          }
+        </tbody>
+      </table>
+      <p style={{color: "pink"}}>...............................................................................</p>
       <TimeEntriesFilteredByCategory />
       <TimeEntriesFilteredByTask />
     </div>
