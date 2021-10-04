@@ -29,6 +29,8 @@ function App() {
   const [timerRunning, setTimerRunning] = useState(false);
 
   console.log("user id: ", userID);
+  console.log("session length: ", sessionLength);
+  console.log("break length: ", breakLength);
 
   useEffect(() => {
     fetch('/api/me')
@@ -36,6 +38,7 @@ function App() {
         if (r.ok) {
           r.json().then(userObj => {
             setUser(userObj);
+            setUserID(userObj.id);
             setSecondsLeft(userObj.session_length * 60);
             setSessionLength(userObj.session_length);
             setBreakLength(userObj.break_length);
@@ -45,7 +48,7 @@ function App() {
           });
         }
       });
-  }, []);
+  }, [sessionLength]);
 
   function handleAddTime(sessionLength) {
     fetch('/api/time_entries', {
@@ -75,10 +78,12 @@ function App() {
       body: JSON.stringify(formData)
     }).then((r) => r.json())
       .then(userObj => {
-        console.log(userObj);
+        console.log("UserObj after calling updatePreferences(formData): ", userObj);
         setUser(userObj);
-        setSessionLength(parseInt(userObj.sessionLength, 10));
-        setBreakLength(parseInt(userObj.breakLength, 10));
+        setSessionLength(userObj.session_length);
+        console.log("session length returned from update: ", userObj.session_length);
+        console.log("break length returned from update: ", userObj.break_length);
+        setBreakLength(userObj.break_length);
       });
   }
 

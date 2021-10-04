@@ -9,7 +9,7 @@ function PreferenceForm({
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(e);
+    console.log("Event object in handle submit: ", e);
     updatePreferences({
       session_length: sessionLength,
       break_length: breakLength,
@@ -47,7 +47,7 @@ function PreferenceForm({
           type="checkbox"
           id="enable_long_break"
           value={enableLongBreak}
-          onChange={e => {console.log(e); setEnableLongBreak(e.target.checked)}}
+          onChange={e => {setEnableLongBreak(e.target.checked)}}
         />
       </>
       <label htmlFor="no_of_sessions_before_long_break">
