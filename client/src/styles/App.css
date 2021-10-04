@@ -110,7 +110,7 @@ h4 > a:focus {
   border-radius: 5px; 
   border: 2px solid navy; 
   background-color: transparent; 
-  color: navy;;
+  color: navy;  
 }
 
 form.preferences {
@@ -129,6 +129,7 @@ form.preferences {
 
 .login {
   background: linear-gradient(lightpink,pink, deeppink);
+  min-height: 100vh;
   color: black;
   display: flex;
   flex-direction: column;
@@ -231,7 +232,8 @@ button.start-stop, button.reset {
 .reset-reminder {
   text-align: left;
   padding: 4px 1rem;
-  background-color: dimgray;
+  border-left: 4px solid lightpink;
+  color: floralwhite;
 }
 
 li {

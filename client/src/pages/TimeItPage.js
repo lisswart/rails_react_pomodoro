@@ -38,9 +38,9 @@ function TimeItPage({
       />
       
       <div className="reset-reminder">
-        <p className="reset-reminder">Dear erudites,</p>
-        <p className="reset-reminder">some gentle reminders: </p>
-        <ul className="reset-reminder">
+        <p>Dear erudites,</p>
+        <p>some gentle reminders: </p>
+        <ul>
           <li> After updating timer setting in preferences tab, press reset to activate the updated setting</li>
           <li>Only completed sessions that have task name and category label are saved as a time entry</li>
           <li>Timer is paused whenever you click a link to another page</li>
