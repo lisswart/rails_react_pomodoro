@@ -28,10 +28,6 @@ function App() {
   const [secondsLeft, setSecondsLeft] = useState(sessionLength * 60);
   const [timerRunning, setTimerRunning] = useState(false);
 
-  console.log("user id: ", userID);
-  console.log("session length: ", sessionLength);
-  console.log("break length: ", breakLength);
-
   useEffect(() => {
     fetch('/api/me')
       .then((r) => {
