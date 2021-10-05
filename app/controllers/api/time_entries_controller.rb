@@ -21,7 +21,10 @@ class Api::TimeEntriesController < ApplicationController
 
   def index
     time_entries = TimeEntry.all
-    render json: time_entries.to_json(
+    filtered = time_entries.select do |time_entry|
+      time_entry.user_id == session[:user_id]
+    end
+    render json: filtered.to_json(
       only: [:id, :user_id, :created_at, :updated_at, :time_posted, :duration, :category, :task], 
       include: [
         task: { only: [:task_name]}, 

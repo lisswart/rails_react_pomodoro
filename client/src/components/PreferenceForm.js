@@ -1,3 +1,5 @@
+import { useHistory } from 'react-router-dom';
+
 function PreferenceForm({ 
   sessionLength, setSessionLength,
   breakLength, setBreakLength,
@@ -6,6 +8,8 @@ function PreferenceForm({
   setNumberOfSessionsBeforeLongBreak,
   longBreakLength, setLongBreakLength,
   updatePreferences }) {
+
+  const history = useHistory();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -17,6 +21,7 @@ function PreferenceForm({
       no_of_sessions_before_long_break: numberOfSessionsBeforeLongBreak,
       long_break_length: longBreakLength
     });
+    history.push("/");
   }
 
   return (
