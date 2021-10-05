@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 
 function Timer({ 
+  task, category,
   sessionLength, setSessionLength,
   breakLength, setBreakLength,
   timerLabel, setTimerLabel,
@@ -49,7 +50,11 @@ function Timer({
     setTimeEntry, onAddTime]);
 
   function handleStart() {
+    if (task && category) {
     setTimerRunning(true);
+    } else {
+      alert("Please enter a task and press ENTER to submit AND a category and press ENTER to submit, pressing ENTER after filling out each input field.  Thank you : )");
+    }
   }
 
   function handleStop() {

@@ -3,6 +3,7 @@ import AddCategoryForm from '../components/AddCategoryForm';
 import AddTaskForm from '../components/AddTaskForm';
 
 function TimeItPage({ 
+  task, category,
   setTask, setTaskID,
   setCategory, setCategoryID,
   sessionLength, setSessionLength,
@@ -31,6 +32,8 @@ function TimeItPage({
         setTimerLabel={setTimerLabel}
         secondsLeft={secondsLeft}
         setSecondsLeft={setSecondsLeft}
+        task={task}
+        category={category}
         timerRunning={timerRunning}
         setTimerRunning={setTimerRunning}
         setTimeEntry={setTimeEntry} 

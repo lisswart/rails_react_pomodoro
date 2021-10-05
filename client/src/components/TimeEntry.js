@@ -13,7 +13,7 @@ function TimeEntry({ timeEntry, deleteTimeEntry }) {
       <td>{timeEntry.task.task_name}</td>
       <td>{timeEntry.category.category_label}</td>
     </tr>
-  )
+  );
 }
 
-export default TimeEntry
+export default TimeEntry;

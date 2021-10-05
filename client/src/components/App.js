@@ -128,8 +128,10 @@ function App() {
               setSecondsLeft={setSecondsLeft}
               timerRunning={timerRunning}
               setTimerRunning={setTimerRunning}
+              task={task}
               setTask={setTask} 
               setTaskID={setTaskID}
+              category={category}
               setCategory={setCategory} 
               setCategoryID={setCategoryID}
               setTimeEntry={setTimeEntry} 
