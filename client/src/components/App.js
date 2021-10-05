@@ -136,9 +136,12 @@ function App() {
               setCategory={setCategory} 
               setCategoryID={setCategoryID}
               setTimeEntry={setTimeEntry} 
-              onAddTime={handleAddTime} />
+              onAddTime={handleAddTime}
+              enableLongBreak={enableLongBreak}
+              numberOfSessionsBeforeLongBreak={numberOfSessionsBeforeLongBreak}
+              longBreakLength={longBreakLength} />
           </Route>
-          <Route path='*'>
+          <Route path='/*'>
             <div id="404-page">
               404 Page Not Found
             </div>

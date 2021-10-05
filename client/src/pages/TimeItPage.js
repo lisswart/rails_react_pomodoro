@@ -11,7 +11,10 @@ function TimeItPage({
   timerLabel, setTimerLabel,
   secondsLeft, setSecondsLeft,
   timerRunning, setTimerRunning,
-  setTimeEntry, onAddTime }) {
+  setTimeEntry, onAddTime,
+  enableLongBreak, longBreakLength,
+  numberOfSessionsBeforeLongBreak
+ }) {
     
   return (
     <div id="timer-component">
@@ -38,6 +41,9 @@ function TimeItPage({
         setTimerRunning={setTimerRunning}
         setTimeEntry={setTimeEntry} 
         onAddTime={onAddTime} 
+        enableLongBreak={enableLongBreak}
+        numberOfSessionsBeforeLongBreak={numberOfSessionsBeforeLongBreak}
+        longBreakLength={longBreakLength}
       />
       
       <div className="reset-reminder">

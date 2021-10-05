@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function Timer({ 
   task, category,
@@ -7,7 +7,12 @@ function Timer({
   timerLabel, setTimerLabel,
   secondsLeft, setSecondsLeft,
   timerRunning, setTimerRunning,
-  setTimeEntry, onAddTime }) {
+  setTimeEntry, onAddTime,
+  enableLongBreak, longBreakLength,
+  numberOfSessionsBeforeLongBreak
+ }) {
+
+  const [counter, setCounter] = useState(1);
 
   let minutes = Math.floor(secondsLeft / 60);
   let seconds = secondsLeft % 60;
@@ -16,10 +21,19 @@ function Timer({
 
     function handleSwitch() {
       if (timerLabel === 'Session') {
-        setTimerLabel('Break');
-        setSecondsLeft(breakLength * 60);
-        setTimeEntry(sessionLength);
-        onAddTime(sessionLength);
+        if (counter >= numberOfSessionsBeforeLongBreak) {
+          setTimerLabel('Break');
+          setSecondsLeft(longBreakLength * 60);
+          setTimeEntry(sessionLength);
+          onAddTime(sessionLength);
+          setCounter(1);
+        } else {
+          setTimerLabel('Break');
+          setSecondsLeft(breakLength * 60);
+          setTimeEntry(sessionLength);
+          onAddTime(sessionLength);
+          setCounter(counter => counter + 1);
+        }
       } else if (timerLabel === 'Break') {
         setTimerLabel('Session');
         setSecondsLeft(sessionLength * 60);
@@ -45,13 +59,17 @@ function Timer({
     return () => clearInterval(intervalID);
 
   }, [sessionLength, breakLength, timerLabel, 
-    setTimerLabel, setSecondsLeft,
-    timerRunning, secondsLeft, 
-    setTimeEntry, onAddTime]);
+    setTimerLabel, setSecondsLeft, secondsLeft,
+    timerRunning, setTimeEntry, onAddTime,
+    counter, numberOfSessionsBeforeLongBreak,
+    longBreakLength, setBreakLength,
+    setTimerRunning
+  ]);
 
   function handleStart() {
     if (task && category) {
     setTimerRunning(true);
+    setBreakLength(breakLength);
     } else {
       alert("Please enter a task and press ENTER to submit AND a category and press ENTER to submit, pressing ENTER after filling out each input field.  Thank you : )");
     }
@@ -62,11 +80,6 @@ function Timer({
   }
 
   function handleReset() {
-    
-    // if (timerLabel === 'Session') {
-    //   onAddTime(sessionLength);
-    // }
-
     setSessionLength(sessionLength);
     setBreakLength(breakLength);
     setSecondsLeft(sessionLength * 60);
