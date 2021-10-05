@@ -29,4 +29,10 @@ class Api::TimeEntriesController < ApplicationController
       ]
     )
   end
+
+  def destroy
+    time_entry = TimeEntry.find(params[:id])
+    time_entry.destroy
+    head :no_content
+  end
 end

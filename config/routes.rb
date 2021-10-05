@@ -8,11 +8,11 @@ Rails.application.routes.draw do
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
 
-    # route for adding/updating timer preferences
     patch '/users/:id', to: 'users#update'
 
     post '/time_entries', to: 'time_entries#create'
     get '/time_entries', to: 'time_entries#index'
+    delete '/time_entries/:id', to: 'time_entries#destroy'
 
     post '/tasks', to: 'tasks#create'
 

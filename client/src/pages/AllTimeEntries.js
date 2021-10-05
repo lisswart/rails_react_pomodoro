@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import TimeEntry from '../components/TimeEntry';
 import TimeEntriesFilteredByTask from "../components/TimeEntriesFilteredByTask";
 import TimeEntriesFilteredByCategory from "../components/TimeEntriesFilteredByCategory";
 
@@ -15,7 +16,18 @@ function AllTimeEntries() {
         setTimeEntries(timeEntriesArr);
       });
   }
-  return (
+
+  function deleteTimeEntry(timeEntryID) {
+    fetch(`/api/time_entries/${timeEntryID}`, { method: "DELETE" })
+      .then(() => {
+        const updatedTimeEntries = timeEntries.filter(
+          timeEntry => timeEntry.id !== timeEntryID
+        );
+        setTimeEntries(updatedTimeEntries);
+      });
+  }
+
+    return (
     <div style={{paddingTop: 35, color: "black", backgroundColor: "lightpink"}}>
       <button onClick={getTimeEntries}>time entries</button>
       <table style={{marginTop: 35, width: "100%"}}>
@@ -30,14 +42,9 @@ function AllTimeEntries() {
           {
             timeEntries.map(timeEntry => {
               return (
-                <tr key={timeEntry.id}
-                    style={{textAlign: "center"}}>
-                  <td><button>delete</button></td>  
-                  <td>{timeEntry.created_at}</td>             
-                  <td>{timeEntry.duration}</td>
-                  <td>{timeEntry.task.task_name}</td>
-                  <td>{timeEntry.category.category_label}</td>
-                </tr>
+                <TimeEntry key={timeEntry.id} 
+                  deleteTimeEntry={deleteTimeEntry}
+                  timeEntry={timeEntry}/>
               );
             })
           }
