@@ -56,13 +56,6 @@ function LoginForm({ onLogin, setUserID }) {
         autoComplete="current-password"
         onChange={e => setPassword(e.target.value)}
       />
-      <label htmlFor="password_confirmation">Password Confirmation</label>
-      <input
-        type="password"
-        id="password_confirmation"
-        value={passwordConfirmation}
-        onChange={e => setPasswordConfirmation(e.target.value)}
-      />
       <button type="submit" style={{width: "fit-content", marginTop: "1em", padding: "0.5em", borderRadius: 5, border: "none"}}>
         {
           isLoading
