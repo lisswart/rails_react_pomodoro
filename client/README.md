@@ -3,6 +3,7 @@ Things that I still need to work on for MVP:
 - [x] user sees an alert whenever she starts the timer without submitting a taskname and categorylabel, ~~(alternatively, provide a default value in the backend whenever a user starts the timer without submitting a taskname and category label)~~
 - [x] user is able to enable long break after n number of sessions which entails the timer cycling through sub-cycles of sessions/short-breaks for n number of sessions and n-1 number of short breaks, then long break follows the nth session to complete a cycle; this full cycle repeats itself until a user stops or resets the timer
 - [x] fix issue with Bcrypt password invalid hash error
+- [x] fix various subtle bugs
 
 Stretch goals:
 - [ ] user hears a 'ding' sound each time a session/break completes

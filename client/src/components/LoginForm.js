@@ -3,7 +3,6 @@ import { useState } from 'react';
 function LoginForm({ onLogin, setUserID }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  // const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState([]);
 
@@ -19,7 +18,6 @@ function LoginForm({ onLogin, setUserID }) {
       body: JSON.stringify({
         username,
         password
-        // , password_confirmation: passwordConfirmation
       })
     }).then((r) => {
       setIsLoading(false);
