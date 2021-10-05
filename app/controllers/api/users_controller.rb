@@ -2,6 +2,7 @@ class Api::UsersController < ApplicationController
   def create
     user = User.create(user_params)
     if user.valid?
+      session[:user_id] = user.id
       render json: user, status: :created
     else
       render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
@@ -17,6 +18,8 @@ class Api::UsersController < ApplicationController
     user = User.find(session[:user_id])
     user.update(user_params)
     render json: user
+  rescue ActiveRecord::RecordInvalid => invalid
+    render json: { errors: invalid.record.errors }, status: :unprocessable_entity
   end
 
   private
