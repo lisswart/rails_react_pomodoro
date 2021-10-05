@@ -81,6 +81,7 @@ function App() {
         console.log("UserObj after calling updatePreferences(formData): ", userObj);
         setUser(userObj);
         setSessionLength(userObj.session_length);
+        setEnableLongBreak(userObj.enable_long_break);
         console.log("session length returned from update: ", userObj.session_length);
         console.log("break length returned from update: ", userObj.break_length);
         setBreakLength(userObj.break_length);
@@ -145,7 +146,7 @@ function App() {
         </Switch>
       </div>
       <footer id="footer">
-        Made with ❤️ by Lisa
+        <span>Made with ❤️ by Lisa</span>
       </footer>
     </div>
   );

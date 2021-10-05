@@ -46,7 +46,7 @@ function PreferenceForm({
         <input
           type="checkbox"
           id="enable_long_break"
-          value={enableLongBreak}
+          checked={enableLongBreak}
           onChange={e => {setEnableLongBreak(e.target.checked)}}
         />
       </>
