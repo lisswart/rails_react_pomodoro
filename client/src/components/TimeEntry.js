@@ -12,6 +12,7 @@ function TimeEntry({ timeEntry, deleteTimeEntry }) {
       <td>{timeEntry.duration}</td>
       <td>{timeEntry.task.task_name}</td>
       <td>{timeEntry.category.category_label}</td>
+      <td>{timeEntry.user_id}</td>
     </tr>
   );
 }

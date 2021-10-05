@@ -22,7 +22,7 @@ class Api::TimeEntriesController < ApplicationController
   def index
     time_entries = TimeEntry.all
     render json: time_entries.to_json(
-      only: [:id, :created_at, :updated_at, :time_posted, :duration, :category, :task], 
+      only: [:id, :user_id, :created_at, :updated_at, :time_posted, :duration, :category, :task], 
       include: [
         task: { only: [:task_name]}, 
         category: { only: [:category_label]}

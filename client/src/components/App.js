@@ -97,7 +97,7 @@ function App() {
       <div className="page-on-view">
         <Switch>
           <Route path='/time-entries'>
-            <AllTimeEntries task={task} category={category} timeEntry={timeEntry}/>
+            <AllTimeEntries timeEntry={timeEntry} />
           </Route>
           <Route path='/preferences'>
             <PreferenceForm 

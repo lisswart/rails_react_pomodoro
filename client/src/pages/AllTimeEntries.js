@@ -38,6 +38,7 @@ function AllTimeEntries() {
             <th>duration</th>
             <th>task</th>
             <th>category</th>
+            <th>user</th>
           </tr>
           {
             timeEntries.map(timeEntry => {

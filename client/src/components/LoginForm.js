@@ -31,7 +31,8 @@ function LoginForm({ onLogin, setUserID }) {
       } else {
         r.json().then((err) => {
           console.log(err);
-          setErrors(err.traces['Application Trace']);
+          // setErrors(err.traces['Application Trace']);
+          setErrors(err.exception);
         });
       }
     });
@@ -69,11 +70,12 @@ function LoginForm({ onLogin, setUserID }) {
           : "Login"
         }
       </button>
-      {
+      {/* {
         errors.map(err => (
           <p key={err.id}>{err.trace}</p>
         ))
-      }
+      } */}
+      <p style={{marginTop: 15, color: "red", backgroundColor: "white"}}>{errors}</p>
     </form>
   );
 }
