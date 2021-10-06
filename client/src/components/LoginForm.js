@@ -19,7 +19,7 @@ function LoginForm({ onLogin, setUserID }) {
         username,
         password
       })
-    }).then((r) => {
+    }).then((r) => { 
       setIsLoading(false);
       if (r.ok) {
         r.json().then((userObj) => {

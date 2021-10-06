@@ -16,10 +16,12 @@ class Api::UsersController < ApplicationController
 
   def update
     user = User.find(session[:user_id])
-    user.update(user_params)
-    render json: user
-  rescue ActiveRecord::RecordInvalid => invalid
-    render json: { errors: invalid.record.errors }, status: :unprocessable_entity
+    if params[:session_length].to_i < 60
+      user.update(user_params)
+      render json: user
+    else
+      render json: { errors: "Both session length and break length must each be less than 60 minutes" }, status: :unprocessable_entity
+    end
   end
 
   private

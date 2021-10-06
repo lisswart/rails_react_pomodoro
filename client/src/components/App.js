@@ -28,6 +28,8 @@ function App() {
   const [secondsLeft, setSecondsLeft] = useState(sessionLength * 60);
   const [timerRunning, setTimerRunning] = useState(false);
 
+  const [errors, setErrors] = useState("");
+
   useEffect(() => {
     fetch('/api/me')
       .then((r) => {
@@ -85,6 +87,7 @@ function App() {
       } else {
         r.json().then(err => {
           console.log(err);
+          setErrors(err.exception);
         });
       }
     });      
@@ -141,7 +144,8 @@ function App() {
               onAddTime={handleAddTime}
               enableLongBreak={enableLongBreak}
               numberOfSessionsBeforeLongBreak={numberOfSessionsBeforeLongBreak}
-              longBreakLength={longBreakLength} />
+              longBreakLength={longBreakLength}
+              errors={errors} />
           </Route>
           <Route path='/*'>
             <div id="404-page">
