@@ -51,7 +51,7 @@ function Timer({
         setSecondsLeft(secondsLeft - 1);
       }, 1000);
       handleSwitch();
-    } 
+    }
     else {
       clearInterval(intervalID);
     }

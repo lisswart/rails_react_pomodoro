@@ -28,8 +28,24 @@ function AllTimeEntries() {
   }
 
     return (
-    <div style={{paddingTop: 35, color: "black", backgroundColor: "honeydew"}}>
-      <button onClick={getTimeEntries}>time entries</button>
+    <div className="table">
+      <input 
+        type="date" 
+        id="start" 
+        name="start"
+        value=""
+        min=""
+        max=""
+      />
+      <input 
+        type="date" 
+        id="end" 
+        name="end"
+        value=""
+        min=""
+        max=""
+      />
+      <button onClick={getTimeEntries} style={{height: 45}}>time entries</button>
       <table style={{marginTop: 35, width: "100%"}}>
         <tbody>
           <tr>
@@ -38,7 +54,6 @@ function AllTimeEntries() {
             <th>duration</th>
             <th>task</th>
             <th>category</th>
-            <th>user</th>
           </tr>
           {
             timeEntries.map(timeEntry => {
@@ -51,7 +66,6 @@ function AllTimeEntries() {
           }
         </tbody>
       </table>
-      <p style={{color: "pink"}}>...............................................................................</p>
       <TimeEntriesFilteredByCategory />
       <TimeEntriesFilteredByTask />
     </div>

@@ -4,10 +4,11 @@ html {
   justify-content: center;
 }
 .App {
-  background: linear-gradient(aliceblue, honeydew, floralwhite);
-    font-family: monospace;
+  background: linear-gradient(rgb(235, 245, 253), rgb(222, 253, 222), floralwhite);
+  font-family: monospace;
   position: relative;
   min-height: 100vh;
+  padding: 0 2rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -27,15 +28,15 @@ html {
 
 h2 > a {
   text-decoration: none;
-  color: deeppink;
-}
-
-h2 > a:hover {
   color: navy;
 }
 
+h2 > a:hover {
+  color: tomato;
+}
+
 h2 > a:focus {
-  color: dodgerblue;
+  color: maroon;
 }
 
 h4 > a {
@@ -82,9 +83,9 @@ h4 > a:focus {
   min-width: 115px;
   min-height: 115px;
   margin-left: 1rem;
-  background-color: transparent;
+  background-color: floralwhite;
   border-radius: 50%;
-  border: 0.5rem solid deeppink;
+  border: 0.5rem solid chocolate;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -103,7 +104,8 @@ h4 > a:focus {
   padding: 0 0.25em;
   margin-left: 0.5em;
   color: cornsilk;
-  border-left: 0.25rem solid deeppink;
+  border-top: 0.15rem solid chocolate;
+  border-bottom: 0.15rem solid chocolate;
   display: flex;
   align-items: center;
 }
@@ -111,7 +113,7 @@ h4 > a:focus {
 .navigation > button {
   margin-left: 0.5em;
   border-radius: 5px; 
-  border: 2px solid navy; 
+  border: 2px solid chocolate; 
   background-color: transparent; 
   color: navy;  
 }
@@ -193,7 +195,8 @@ button {
 }
 
 .timer-container {
-  border: 10px solid deeppink;
+  border: 10px solid chocolate;
+  background-color: floralwhite;
   height: 25em; 
   width: 25em; 
   border-radius: 50%; 
@@ -249,10 +252,16 @@ table, tr, th, td {
   border: 1px solid deeppink;
 }
 
+.table {
+  padding: 2rem; 
+  color: black; 
+  background-color: honeydew;
+}
+
 th, tr {
   height: 2rem;
 }
 
-td {
+th, td {
   padding: 0 1rem;
 }
