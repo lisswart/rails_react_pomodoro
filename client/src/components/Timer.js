@@ -22,19 +22,19 @@ function Timer({
     function handleSwitch() {
       if (timerLabel === 'Session') {
         if (counter >= numberOfSessionsBeforeLongBreak) {
-          setTimerLabel('Break');
+          setTimerLabel('Long Break');
           setSecondsLeft(longBreakLength * 60);
           setTimeEntry(sessionLength);
           onAddTime(sessionLength);
           setCounter(1);
         } else {
-          setTimerLabel('Break');
+          setTimerLabel('Short Break');
           setSecondsLeft(breakLength * 60);
           setTimeEntry(sessionLength);
           onAddTime(sessionLength);
           setCounter(counter => counter + 1);
         }
-      } else if (timerLabel === 'Break') {
+      } else if (timerLabel === 'Short Break' || timerLabel === 'Long Break') {
         setTimerLabel('Session');
         setSecondsLeft(sessionLength * 60);
       }

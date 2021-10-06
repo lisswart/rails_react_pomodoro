@@ -75,7 +75,6 @@ function App() {
     }).then((r) => {
       if (r.ok) {
         r.json().then(userObj => {
-          console.log("UserObj after calling updatePreferences(formData): ", userObj);
           setUser(userObj);
           setSessionLength(userObj.session_length);
           setEnableLongBreak(userObj.enable_long_break);
