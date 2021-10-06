@@ -1,12 +1,12 @@
 html {
-  background: linear-gradient(lightpink,pink, deeppink);
+  /* background: linear-gradient(lightpink,pink, deeppink); */
+  background-color: floralwhite;
   display: flex;
   justify-content: center;
 }
 .App {
-  background: linear-gradient(lightpink,pink, deeppink);
-  color: cornsilk;
-  font-family: monospace;
+  background: linear-gradient(aliceblue, honeydew, floralwhite);
+    font-family: monospace;
   position: relative;
   min-height: 100vh;
   box-sizing: border-box;
@@ -53,7 +53,7 @@ h4 > a:focus {
 }
 
 #footer {
-  color: cornsilk;
+  color: black;
   position: absolute;
   height: 2.5rem;
   bottom: 0;
@@ -132,7 +132,7 @@ form.preferences {
 }
 
 .login {
-  background: linear-gradient(lightpink,pink, deeppink);
+  background: linear-gradient(floralwhite, violet);
   min-height: 100vh;
   color: black;
   display: flex;
@@ -237,7 +237,7 @@ button.start-stop, button.reset {
   text-align: left;
   padding: 4px 1rem;
   border-left: 4px solid lightpink;
-  color: floralwhite;
+  color: black;
   margin-bottom: 10px;
 }
 
