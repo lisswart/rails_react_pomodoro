@@ -5,7 +5,7 @@ Things that I still need to work on for MVP:
 - [x] fix issue with Bcrypt password invalid hash error
 - [x] fix various subtle bugs
 - [x] validate session/break length input to between 1 and 60 minutes (backend)
-- [ ] validate range of session length input on the frontend so user is alerted properly
+- [x] validate range of session length input on the frontend so user is alerted properly
 
 Stretch goals:
 - [ ] user hears a 'ding' sound each time a session/break completes

@@ -77,6 +77,7 @@ function App() {
     }).then((r) => {
       if (r.ok) {
         r.json().then(userObj => {
+          setErrors("");
           setUser(userObj);
           setSessionLength(userObj.session_length);
           setEnableLongBreak(userObj.enable_long_break);

@@ -1,13 +1,16 @@
 import { useHistory } from 'react-router-dom';
+import { useState } from 'react';
 
 function PreferenceForm({ 
-  sessionLength, setSessionLength,
+  sessionLength, updatePreferences,
   breakLength, setBreakLength,
   enableLongBreak, setEnableLongBreak,
   numberOfSessionsBeforeLongBreak,
   setNumberOfSessionsBeforeLongBreak,
-  longBreakLength, setLongBreakLength,
-  updatePreferences }) {
+  longBreakLength, setLongBreakLength
+  }) {
+
+  const [inputSessionLength, setInputSessionLength] = useState(sessionLength);
 
   const history = useHistory();
 
@@ -15,7 +18,7 @@ function PreferenceForm({
     e.preventDefault();
     console.log("Event object in handle submit: ", e);
     updatePreferences({
-      session_length: sessionLength,
+      session_length: inputSessionLength,
       break_length: breakLength,
       enable_long_break: enableLongBreak,
       no_of_sessions_before_long_break: numberOfSessionsBeforeLongBreak,
@@ -32,8 +35,8 @@ function PreferenceForm({
       <input
         type="text"
         id="session_length"
-        value={sessionLength}
-        onChange={e => setSessionLength(e.target.value)}
+        value={inputSessionLength}
+        onChange={e => setInputSessionLength(e.target.value)}
       />
       <label htmlFor="break_length">
         Break Length
