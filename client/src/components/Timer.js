@@ -71,7 +71,7 @@ function Timer({
     setTimerRunning(true);
     setBreakLength(breakLength);
     } else {
-      alert("Please enter a task and press ENTER to submit AND a category and press ENTER to submit, pressing ENTER after filling out each input field.  Thank you : )");
+      alert("Please enter a task and press ENTER to submit AND a category and press ENTER to submit, pressing ENTER each time after filling out each input field.  Thank you : )");
     }
   }
 

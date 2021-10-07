@@ -133,7 +133,7 @@ form.preferences {
 }
 
 .login {
-  background: linear-gradient(floralwhite, violet);
+  background: linear-gradient(rgb(229, 243, 255), rgb(229, 253, 229));
   min-height: 100vh;
   color: black;
   display: flex;

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import DatePicker from 'react-date-picker';
 
 import TimeEntry from '../components/TimeEntry';
 import TimeEntriesFilteredByTask from "../components/TimeEntriesFilteredByTask";
@@ -7,6 +8,7 @@ import TimeEntriesFilteredByCategory from "../components/TimeEntriesFilteredByCa
 function AllTimeEntries() {
 
   const [timeEntries, setTimeEntries] = useState([]);
+  const [value, onChange] = useState(new Date());
 
   function getTimeEntries() {
     fetch('/api/time_entries')
@@ -29,23 +31,10 @@ function AllTimeEntries() {
 
     return (
     <div className="table">
-      <input 
-        type="date" 
-        id="start" 
-        name="start"
-        value=""
-        min=""
-        max=""
-      />
-      <input 
-        type="date" 
-        id="end" 
-        name="end"
-        value=""
-        min=""
-        max=""
-      />
-      <button onClick={getTimeEntries} style={{height: 45}}>time entries</button>
+      <DatePicker
+        onChange={onChange}
+        value={value} />
+      <button onClick={getTimeEntries} style={{height: 30}}>time entries</button>
       <table style={{marginTop: 35, width: "100%"}}>
         <tbody>
           <tr>
