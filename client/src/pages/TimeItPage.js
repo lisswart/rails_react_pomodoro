@@ -4,7 +4,7 @@ import AddTaskForm from '../components/AddTaskForm';
 
 function TimeItPage({ 
   task, category, errors,
-  setTask, setTaskID,
+  user, setTask, setTaskID,
   setCategory, setCategoryID,
   sessionLength, setSessionLength,
   breakLength, setBreakLength,
@@ -20,10 +20,12 @@ function TimeItPage({
     <div id="timer-component">
       <p style={{color: "red", backgroundColor: "white"}}>{errors}</p>
       <AddTaskForm 
+        user={user}
         setTask={setTask} 
         setTaskID={setTaskID} 
       />
       <AddCategoryForm 
+        user={user}
         setCategory={setCategory}
         setCategoryID={setCategoryID} 
       />

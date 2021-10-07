@@ -35,6 +35,7 @@ function App() {
       .then((r) => {
         if (r.ok) {
           r.json().then(userObj => {
+            console.log(userObj);
             setUser(userObj);
             setUserID(userObj.id);
             setSecondsLeft(userObj.session_length * 60);
@@ -126,6 +127,7 @@ function App() {
           </Route>
           <Route path='/'>
             <TimeItPage 
+              user={user}
               sessionLength={sessionLength}
               setSessionLength={setSessionLength}
               breakLength={breakLength}

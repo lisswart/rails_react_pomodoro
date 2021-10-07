@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-function AddCategoryForm({ setCategory, setCategoryID }) {
+function AddCategoryForm({ user, setCategory, setCategoryID }) {
   const [categoryLabel, setCategoryLabel] = useState("");
-
+  
   function handleSubmit(e) {
     e.preventDefault();
     fetch('/api/categories', {
@@ -22,13 +22,25 @@ function AddCategoryForm({ setCategory, setCategoryID }) {
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="categoryLabel" />
-      <input type="text" 
+      <input list="category-list" 
         onChange={e => setCategoryLabel(e.target.value)}
         id="category_label"
         value={categoryLabel}
         placeholder="Please a choose a category AND PRESS ENTER..."
         className="task-input"
       />
+      <datalist id="category-list">
+        {
+          user.categories
+          ? user.categories.map((category, i) => (
+              <option key={i}
+                value={category.category_label}
+                onChange={e => setCategoryLabel(e.target.value)}
+              />
+            ))
+          : <></>
+        }
+      </datalist>
     </form>
   );
 }

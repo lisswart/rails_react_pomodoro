@@ -11,7 +11,7 @@ class Api::UsersController < ApplicationController
 
   def show
     user = User.find(session[:user_id])
-    render json: user
+    render json: user, include: [:categories, :tasks]
   end
 
   def update
