@@ -22,7 +22,7 @@ function AddTaskForm({ user, setTask, setTaskID }) {
 
   function populateTaskList() {
     const tasksSet = new Set();
-    (user.tasks).forEach(task => tasksSet.add(task.task_name));
+    (user.tasks).forEach(task => tasksSet.add(task.task_name.toLowerCase().trim()));
     return tasksSet;
   }
 

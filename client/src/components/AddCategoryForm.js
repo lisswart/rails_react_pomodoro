@@ -21,7 +21,7 @@ function AddCategoryForm({ user, setCategory, setCategoryID }) {
 
   function populateCategoriesList() {
     const categoriesSet = new Set();
-    (user.categories).forEach(category => categoriesSet.add(category.category_label));
+    (user.categories).forEach(category => categoriesSet.add(category.category_label.toLowerCase().trim()));
     return categoriesSet;
   }
 
