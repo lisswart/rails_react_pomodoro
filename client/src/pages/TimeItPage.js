@@ -54,7 +54,6 @@ function TimeItPage({
           <li>After updating timer setting in preferences tab, press reset to activate the updated setting</li>
           <li>Upon signup, when you're redirected to this page, please refresh the page to clear the browser cache before starting the timer to prevent issues with time_entries</li>
           <li>Only completed sessions that have task name and category label are saved as a time entry</li>
-          <li>Timer is paused whenever you click a link to another page</li>
           <li>Please reset the timer before logging out</li>
         </ul>
       </div>

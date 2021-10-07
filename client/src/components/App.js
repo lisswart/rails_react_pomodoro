@@ -87,7 +87,8 @@ function App() {
       } else {
         r.json().then(err => {
           console.log(err);
-          setErrors(err.exception);
+          alert(err.errors);
+          setErrors(err.errors);
         });
       }
     });      

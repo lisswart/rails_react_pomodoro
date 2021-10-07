@@ -15,6 +15,10 @@ function AllTimeEntries() {
       .then((r) => r.json())
       .then(timeEntriesArr => {
         console.log(timeEntriesArr);
+        // const selectedTimeEntries = timeEntriesArr.filter(
+        //   timeEntry => timeEntry.created_at === value
+        // );
+        // setTimeEntries(selectedTimeEntries);
         setTimeEntries(timeEntriesArr);
       });
   }
@@ -40,9 +44,9 @@ function AllTimeEntries() {
           <tr>
             <th></th>
             <th>date</th>
-            <th>duration</th>
             <th>task</th>
             <th>category</th>
+            <th>duration</th>
           </tr>
           {
             timeEntries.map(timeEntry => {
