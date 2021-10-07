@@ -75,7 +75,7 @@ function Timer({
     timerRunning, setTimeEntry, onAddTime,
     counter, numberOfSessionsBeforeLongBreak,
     longBreakLength, setBreakLength,
-    setTimerRunning
+    setTimerRunning, enableLongBreak
   ]);
 
   function handleStart() {
@@ -119,7 +119,11 @@ function Timer({
           <button className="start-stop"
             onClick={timerRunning ? handleStop : handleStart}
           >
-            Start/Stop
+            {
+              timerRunning
+              ? "Pause"
+              : "Start"
+            }
           </button>
           <button className="reset"
             onClick={handleReset}

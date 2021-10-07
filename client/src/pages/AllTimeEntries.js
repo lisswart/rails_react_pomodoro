@@ -8,20 +8,33 @@ import TimeEntriesFilteredByCategory from "../components/TimeEntriesFilteredByCa
 function AllTimeEntries() {
 
   const [timeEntries, setTimeEntries] = useState([]);
-  const [value, onChange] = useState(new Date());
+  const [isLoading, setIsLoading] = useState(false);
+  const [value1, onChangeOne] = useState(new Date());
+  const [value2, onChangeTwo] = useState(new Date());
+
+  console.log("date one: ", value1);
+  console.log("date two: ", value2);
 
   function getTimeEntries() {
+    setIsLoading(true);
     fetch('/api/time_entries')
-      .then((r) => r.json())
-      .then(timeEntriesArr => {
-        console.log(timeEntriesArr);
-        // const selectedTimeEntries = timeEntriesArr.filter(
-        //   timeEntry => timeEntry.created_at === value
-        // );
-        // setTimeEntries(selectedTimeEntries);
-        setTimeEntries(timeEntriesArr);
+      .then((r) => {
+        setIsLoading(false);
+        if (r.ok) {
+          r.json().then(timeEntriesArr => {
+            console.log(timeEntriesArr);
+            setTimeEntries(timeEntriesArr);
+          });
+        } else {
+          r.json().then(err => {
+            console.log(err);
+          });
+        }
       });
   }
+
+  const timeArr = timeEntries.filter(timeEntry => new Date(timeEntry.created_at.toString()) > value1 && new Date(timeEntry.created_at.toString()) < value2);
+  console.log("time array: ", timeArr);
 
   function deleteTimeEntry(timeEntryID) {
     fetch(`/api/time_entries/${timeEntryID}`, { method: "DELETE" })
@@ -35,10 +48,26 @@ function AllTimeEntries() {
 
     return (
     <div className="table">
-      <DatePicker
-        onChange={onChange}
-        value={value} />
-      <button onClick={getTimeEntries} style={{height: 30}}>time entries</button>
+      <div className="datepicker-container">
+        <DatePicker
+          className="datepicker"
+          onChange={onChangeOne}
+          value={value1} 
+        />
+        <DatePicker
+          className="datepicker"
+          onChange={onChangeTwo}
+          value={value2}
+        />
+      </div>
+      <br />
+      <button onClick={getTimeEntries} style={{height: 30}}>
+        {
+          isLoading
+          ? "Loading..."
+          : "time entries"
+        }
+      </button>
       <table style={{marginTop: 35, width: "100%"}}>
         <tbody>
           <tr>
@@ -49,7 +78,7 @@ function AllTimeEntries() {
             <th>duration</th>
           </tr>
           {
-            timeEntries.map(timeEntry => {
+            timeArr.map(timeEntry => {
               return (
                 <TimeEntry key={timeEntry.id} 
                   deleteTimeEntry={deleteTimeEntry}

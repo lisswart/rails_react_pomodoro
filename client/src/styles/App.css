@@ -265,3 +265,9 @@ th, tr {
 th, td {
   padding: 1rem;
 }
+
+.datepicker-container {
+  display: flex;
+  justify-content: space-around;
+}
+
