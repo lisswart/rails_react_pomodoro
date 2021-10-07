@@ -20,7 +20,7 @@ class Api::UsersController < ApplicationController
       user.update(user_params)
       render json: user
     else
-      render json: { errors: "Both session length and break length must each be less than 60 minutes" }, status: :unprocessable_entity
+      render json: { errors: "In keeping with the spirit of the pomodoro technique and to stave off mental fatigue, session length must be less than 60 minutes. \n \nPlease go back to Preferences and re-enter session length within the reasonable range.  Thank you : )" }, status: :unprocessable_entity
     end
   end
 
