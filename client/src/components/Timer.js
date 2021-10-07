@@ -20,23 +20,35 @@ function Timer({
   useEffect(() => {
 
     function handleSwitch() {
-      if (timerLabel === 'Session') {
-        if (counter >= numberOfSessionsBeforeLongBreak) {
-          setTimerLabel('Long Break');
-          setSecondsLeft(longBreakLength * 60);
-          setTimeEntry(sessionLength);
-          onAddTime(sessionLength);
-          setCounter(1);
-        } else {
-          setTimerLabel('Short Break');
+      if (enableLongBreak) {
+        if (timerLabel === 'Session') {
+          if (counter >= numberOfSessionsBeforeLongBreak) {
+            setTimerLabel('Long Break');
+            setSecondsLeft(longBreakLength * 60);
+            setTimeEntry(sessionLength);
+            onAddTime(sessionLength);
+            setCounter(1);
+          } else {
+            setTimerLabel('Short Break');
+            setSecondsLeft(breakLength * 60);
+            setTimeEntry(sessionLength);
+            onAddTime(sessionLength);
+            setCounter(counter => counter + 1);
+          }
+        } else if (timerLabel === 'Short Break' || timerLabel === 'Long Break') {
+          setTimerLabel('Session');
+          setSecondsLeft(sessionLength * 60);
+        }
+      } else {
+        if (timerLabel === 'Session') {
+          setTimerLabel('Break');
           setSecondsLeft(breakLength * 60);
           setTimeEntry(sessionLength);
           onAddTime(sessionLength);
-          setCounter(counter => counter + 1);
+        } else if (timerLabel === 'Break') {
+          setTimerLabel('Session');
+          setSecondsLeft(sessionLength * 60);
         }
-      } else if (timerLabel === 'Short Break' || timerLabel === 'Long Break') {
-        setTimerLabel('Session');
-        setSecondsLeft(sessionLength * 60);
       }
     }
 
@@ -44,12 +56,12 @@ function Timer({
     if (timerRunning && secondsLeft > 0) {
       intervalID = setInterval(() => {
         setSecondsLeft(secondsLeft - 1);
-      }, 1000);
+      }, 10);
     } 
     else if (timerRunning && secondsLeft === 0) {
       intervalID = setInterval(() => {
         setSecondsLeft(secondsLeft - 1);
-      }, 1000);
+      }, 10);
       handleSwitch();
     }
     else {
