@@ -248,22 +248,27 @@ li {
   text-align: left;
 }
 
-table, tr, th, td {
-  border: 1px solid deeppink;
-}
-
 .table {
   padding: 2rem; 
   color: black; 
   background-color: honeydew;
 }
 
+th {
+  border-bottom: 1px solid black;
+}
+
 th, tr {
   height: 2rem;
 }
 
-th, td {
+td {
   padding: 1rem;
+}
+
+tr:hover {
+  background-color: ivory;
+  cursor: cell;
 }
 
 .datepicker-container {
