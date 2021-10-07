@@ -3,6 +3,7 @@ import { useState } from 'react';
 function AddTaskForm({ user, setTask, setTaskID }) {
   const [taskname, setTaskname] = useState("");
 
+
   function handleSubmit(e) {
     e.preventDefault(e);
     fetch('/api/tasks', {
@@ -19,6 +20,12 @@ function AddTaskForm({ user, setTask, setTaskID }) {
       });
   }
 
+  function populateTaskList() {
+    const tasksSet = new Set();
+    (user.tasks).forEach(task => tasksSet.add(task.task_name));
+    return tasksSet;
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="taskname" />
@@ -32,9 +39,9 @@ function AddTaskForm({ user, setTask, setTaskID }) {
       <datalist id="task-list">
         {
           user.tasks
-          ? user.tasks.map((task, i) => (
+          ?  Array.from(populateTaskList()).map((task, i) => (
               <option key={i}
-                value={task.task_name}
+                value={task}
                 onChange={e => setTaskname(e.target.value)}
               />
             ))

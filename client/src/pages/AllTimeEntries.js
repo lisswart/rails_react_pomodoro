@@ -49,16 +49,20 @@ function AllTimeEntries() {
     return (
     <div className="table">
       <div className="datepicker-container">
-        <DatePicker
-          className="datepicker"
-          onChange={onChangeOne}
-          value={value1} 
-        />
-        <DatePicker
-          className="datepicker"
-          onChange={onChangeTwo}
-          value={value2}
-        />
+        <div className="datepicker">
+          <label>From: </label>
+          <DatePicker
+            onChange={onChangeOne}
+            value={value1} 
+          />
+        </div>
+        <div className="datepicker">
+        <label>To: </label>
+          <DatePicker
+            onChange={onChangeTwo}
+            value={value2}
+          />
+        </div>
       </div>
       <br />
       <button onClick={getTimeEntries} style={{height: 30}}>

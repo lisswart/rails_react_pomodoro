@@ -19,6 +19,12 @@ function AddCategoryForm({ user, setCategory, setCategoryID }) {
       });
   }
 
+  function populateCategoriesList() {
+    const categoriesSet = new Set();
+    (user.categories).forEach(category => categoriesSet.add(category.category_label));
+    return categoriesSet;
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="categoryLabel" />
@@ -32,9 +38,9 @@ function AddCategoryForm({ user, setCategory, setCategoryID }) {
       <datalist id="category-list">
         {
           user.categories
-          ? user.categories.map((category, i) => (
+          ? Array.from(populateCategoriesList()).map((category, i) => (
               <option key={i}
-                value={category.category_label}
+                value={category}
                 onChange={e => setCategoryLabel(e.target.value)}
               />
             ))
