@@ -1,7 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-function AddCategoryForm({ user, setCategory, setCategoryID }) {
+function AddCategoryForm({ setCategory, setCategoryID }) {
   const [categoryLabel, setCategoryLabel] = useState("");
+  const [categoryArray, setCategoryArray] = useState([]);
+
+  useEffect(() => {
+    fetch('/api/me')
+      .then(r => r.json())
+      .then(userObj => {
+        populateCategoriesList(userObj.categories)
+      });
+  }, []);
   
   function handleSubmit(e) {
     e.preventDefault();
@@ -19,10 +28,10 @@ function AddCategoryForm({ user, setCategory, setCategoryID }) {
       });
   }
 
-  function populateCategoriesList() {
+  function populateCategoriesList(userCategories) {
     const categoriesSet = new Set();
-    (user.categories).forEach(category => categoriesSet.add(category.category_label.toLowerCase().trim()));
-    return categoriesSet;
+    userCategories.forEach(category => categoriesSet.add(category.category_label.toLowerCase().trim()));
+    setCategoryArray(Array.from(categoriesSet));
   }
 
   return (
@@ -37,14 +46,12 @@ function AddCategoryForm({ user, setCategory, setCategoryID }) {
       />
       <datalist id="category-list">
         {
-          user.categories
-          ? Array.from(populateCategoriesList()).map((category, i) => (
+          categoryArray.map((category, i) => (
               <option key={i}
                 value={category}
                 onChange={e => setCategoryLabel(e.target.value)}
               />
             ))
-          : <></>
         }
       </datalist>
     </form>

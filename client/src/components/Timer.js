@@ -1,23 +1,58 @@
 import { useEffect, useState } from 'react';
 
 function Timer({ 
-  task, category,
+  task, category, userID, taskID,
+  categoryID, setEnableLongBreak,
   sessionLength, setSessionLength,
   breakLength, setBreakLength,
-  timerLabel, setTimerLabel,
-  secondsLeft, setSecondsLeft,
-  timerRunning, setTimerRunning,
-  setTimeEntry, onAddTime,
-  enableLongBreak, longBreakLength,
-  numberOfSessionsBeforeLongBreak
+  enableLongBreak, 
+  longBreakLength, setLongBreakLength,
+  numberOfSessionsBeforeLongBreak,
+  setNumberOfSessionsBeforeLongBreak
  }) {
 
   const [counter, setCounter] = useState(1);
+  const [timerLabel, setTimerLabel] = useState("Session");
+  const [secondsLeft, setSecondsLeft] = useState(sessionLength * 60);
+  const [timerRunning, setTimerRunning] = useState(false);
+  const [timeEntry, setTimeEntry] = useState(0);
 
   let minutes = Math.floor(secondsLeft / 60);
   let seconds = secondsLeft % 60;
 
   useEffect(() => {
+    fetch('/api/me')
+      .then(r => r.json())
+      .then(userObj => {
+        setSessionLength(userObj.session_length);
+        setBreakLength(userObj.break_length);
+        setEnableLongBreak(userObj.enable_long_break);
+        setLongBreakLength(userObj.long_break_length);
+        setNumberOfSessionsBeforeLongBreak(userObj.no_of_sessions_before_long_break);
+      });
+  }, [setBreakLength, setEnableLongBreak, setLongBreakLength, setSessionLength,
+  setNumberOfSessionsBeforeLongBreak]);
+
+  useEffect(() => {
+
+    function handleAddTime(sessionLength) {
+      fetch('/api/time_entries', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          userID,
+          taskID,
+          categoryID,
+          duration: sessionLength
+        })
+      }).then((r) => r.json())
+        .then((timeAdded) => {
+          console.log(timeAdded);
+          setTimeEntry(timeAdded.duration);
+        });
+    }
 
     function handleSwitch() {
       if (enableLongBreak) {
@@ -26,13 +61,13 @@ function Timer({
             setTimerLabel('Long Break');
             setSecondsLeft(longBreakLength * 60);
             setTimeEntry(sessionLength);
-            onAddTime(sessionLength);
+            handleAddTime(sessionLength);
             setCounter(1);
           } else {
             setTimerLabel('Short Break');
             setSecondsLeft(breakLength * 60);
             setTimeEntry(sessionLength);
-            onAddTime(sessionLength);
+            handleAddTime(sessionLength);
             setCounter(counter => counter + 1);
           }
         } else if (timerLabel === 'Short Break' || timerLabel === 'Long Break') {
@@ -44,7 +79,7 @@ function Timer({
           setTimerLabel('Break');
           setSecondsLeft(breakLength * 60);
           setTimeEntry(sessionLength);
-          onAddTime(sessionLength);
+          handleAddTime(sessionLength);
         } else if (timerLabel === 'Break') {
           setTimerLabel('Session');
           setSecondsLeft(sessionLength * 60);
@@ -72,10 +107,11 @@ function Timer({
 
   }, [sessionLength, breakLength, timerLabel, 
     setTimerLabel, setSecondsLeft, secondsLeft,
-    timerRunning, setTimeEntry, onAddTime,
-    counter, numberOfSessionsBeforeLongBreak,
+    timerRunning, setTimeEntry, counter, 
+    numberOfSessionsBeforeLongBreak,
     longBreakLength, setBreakLength,
-    setTimerRunning, enableLongBreak
+    setTimerRunning, enableLongBreak,
+    categoryID, userID, taskID
   ]);
 
   function handleStart() {
@@ -131,6 +167,7 @@ function Timer({
             Reset
           </button>
         </div>
+        <p>{timeEntry} is saved</p>
       </div>
     </div>
   );

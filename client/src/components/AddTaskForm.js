@@ -1,8 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-function AddTaskForm({ user, setTask, setTaskID }) {
+function AddTaskForm({ setTask, setTaskID }) {
   const [taskname, setTaskname] = useState("");
+  const [taskArray, setTaskArray] = useState([]);
 
+  useEffect(() => {
+    fetch('/api/me')
+      .then(r => r.json())
+      .then(userObj => {
+        populateTaskList(userObj.tasks);
+      });
+  }, []);
 
   function handleSubmit(e) {
     e.preventDefault(e);
@@ -20,10 +28,10 @@ function AddTaskForm({ user, setTask, setTaskID }) {
       });
   }
 
-  function populateTaskList() {
+  function populateTaskList(userTasks) {
     const tasksSet = new Set();
-    (user.tasks).forEach(task => tasksSet.add(task.task_name.toLowerCase().trim()));
-    return tasksSet;
+    userTasks.forEach(task => tasksSet.add(task.task_name.toLowerCase().trim()));
+    setTaskArray(Array.from(tasksSet));
   }
 
   return (
@@ -38,14 +46,12 @@ function AddTaskForm({ user, setTask, setTaskID }) {
       />
       <datalist id="task-list">
         {
-          user.tasks
-          ?  Array.from(populateTaskList()).map((task, i) => (
+          taskArray.map((task, i) => (
               <option key={i}
                 value={task}
                 onChange={e => setTaskname(e.target.value)}
               />
             ))
-          : <></>
         }
       </datalist>
     </form>

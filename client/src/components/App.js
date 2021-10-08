@@ -15,7 +15,7 @@ function App() {
   const [taskID, setTaskID] = useState(null);
   const [category, setCategory] = useState("");
   const [categoryID, setCategoryID] = useState(null);
-  const [timeEntry, setTimeEntry] = useState(0);
+  // const [timeEntry, setTimeEntry] = useState(0);
 
   const [sessionLength, setSessionLength] = useState(0);
   const [breakLength, setBreakLength] = useState(0);
@@ -48,25 +48,6 @@ function App() {
         }
       });
   }, []);
-
-  function handleAddTime(sessionLength) {
-    fetch('/api/time_entries', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        userID,
-        taskID,
-        categoryID,
-        duration: sessionLength
-      })
-    }).then((r) => r.json())
-      .then((timeAdded) => {
-        console.log(timeAdded);
-        setTimeEntry(timeAdded.duration);
-      });
-  }
 
   function updatePreferences(formData) {
     fetch(`/api/users/${user.id}`, {
@@ -109,7 +90,7 @@ function App() {
       <div className="page-on-view">
         <Switch>
           <Route path='/time-entries'>
-            <AllTimeEntries timeEntry={timeEntry} />
+            <AllTimeEntries />
           </Route>
           <Route path='/preferences'>
             <PreferenceForm 
@@ -138,17 +119,21 @@ function App() {
               setSecondsLeft={setSecondsLeft}
               timerRunning={timerRunning}
               setTimerRunning={setTimerRunning}
+              userID={userID}
               task={task}
+              taskID={taskID}
               setTask={setTask} 
               setTaskID={setTaskID}
+              categoryID={categoryID}
               category={category}
               setCategory={setCategory} 
               setCategoryID={setCategoryID}
-              setTimeEntry={setTimeEntry} 
-              onAddTime={handleAddTime}
               enableLongBreak={enableLongBreak}
+              setEnableLongBreak={setEnableLongBreak}
               numberOfSessionsBeforeLongBreak={numberOfSessionsBeforeLongBreak}
+              setNumberOfSessionsBeforeLongBreak={setNumberOfSessionsBeforeLongBreak}
               longBreakLength={longBreakLength}
+              setLongBreakLength={setLongBreakLength}
               errors={errors} />
           </Route>
           <Route path='/*'>
