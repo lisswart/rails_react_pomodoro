@@ -12,9 +12,6 @@ function AllTimeEntries() {
   const [value1, onChangeOne] = useState(new Date());
   const [value2, onChangeTwo] = useState(new Date());
 
-  console.log("date one: ", value1);
-  console.log("date two: ", value2);
-
   function getTimeEntries() {
     setIsLoading(true);
     fetch('/api/time_entries')
@@ -22,7 +19,6 @@ function AllTimeEntries() {
         setIsLoading(false);
         if (r.ok) {
           r.json().then(timeEntriesArr => {
-            console.log(timeEntriesArr);
             setTimeEntries(timeEntriesArr);
           });
         } else {
@@ -34,7 +30,6 @@ function AllTimeEntries() {
   }
 
   const timeArr = timeEntries.filter(timeEntry => new Date(timeEntry.created_at.toString()) > value1 && new Date(timeEntry.created_at.toString()) < value2);
-  console.log("time array: ", timeArr);
 
   function deleteTimeEntry(timeEntryID) {
     fetch(`/api/time_entries/${timeEntryID}`, { method: "DELETE" })
