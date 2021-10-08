@@ -59,7 +59,6 @@ function TimeItPage({
         <p>Dear erudites,</p>
         <p>some gentle reminders: </p>
         <ul>
-          <li>After updating timer setting in preferences tab, press reset to activate the updated setting</li>
           <li>Upon signup or login, when you're redirected to this page, please refresh the page to clear the browser cache before starting the timer to prevent issues with time_entries</li>
           <li>Only completed sessions are saved as a time entry</li>
         </ul>
