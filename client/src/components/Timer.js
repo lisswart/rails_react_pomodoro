@@ -12,7 +12,7 @@ function Timer({
  }) {
 
   const [counter, setCounter] = useState(1);
-  const [timerLabel, setTimerLabel] = useState("Session");
+  const [timerLabel, setTimerLabel] = useState("Session");  
   const [secondsLeft, setSecondsLeft] = useState(sessionLength * 60);
   const [timerRunning, setTimerRunning] = useState(false);
   const [timeEntry, setTimeEntry] = useState(0);
@@ -24,14 +24,14 @@ function Timer({
     fetch('/api/me')
       .then(r => r.json())
       .then(userObj => {
-        setSessionLength(userObj.session_length);
+        setSecondsLeft(userObj.session_length * 60);
         setBreakLength(userObj.break_length);
         setEnableLongBreak(userObj.enable_long_break);
         setLongBreakLength(userObj.long_break_length);
         setNumberOfSessionsBeforeLongBreak(userObj.no_of_sessions_before_long_break);
       });
-  }, [setBreakLength, setEnableLongBreak, setLongBreakLength, setSessionLength,
-  setNumberOfSessionsBeforeLongBreak]);
+  }, [setBreakLength, setEnableLongBreak, setLongBreakLength, setSecondsLeft,
+      setNumberOfSessionsBeforeLongBreak]);
 
   useEffect(() => {
 
@@ -167,7 +167,11 @@ function Timer({
             Reset
           </button>
         </div>
-        <p>{timeEntry} is saved</p>
+        {
+          timeEntry !== 0
+          ? <p>{`${timeEntry} minutes session is saved`}</p>
+          : <></>
+        }
       </div>
     </div>
   );

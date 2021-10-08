@@ -15,7 +15,6 @@ function App() {
   const [taskID, setTaskID] = useState(null);
   const [category, setCategory] = useState("");
   const [categoryID, setCategoryID] = useState(null);
-  // const [timeEntry, setTimeEntry] = useState(0);
 
   const [sessionLength, setSessionLength] = useState(0);
   const [breakLength, setBreakLength] = useState(0);
@@ -25,7 +24,7 @@ function App() {
   const [longBreakLength, setLongBreakLength] = useState(0);
 
   const [timerLabel, setTimerLabel] = useState('Session');
-  const [secondsLeft, setSecondsLeft] = useState(sessionLength * 60);
+  // const [secondsLeft, setSecondsLeft] = useState(sessionLength * 60);
   const [timerRunning, setTimerRunning] = useState(false);
 
   const [errors, setErrors] = useState("");
@@ -38,7 +37,7 @@ function App() {
             console.log(userObj);
             setUser(userObj);
             setUserID(userObj.id);
-            setSecondsLeft(userObj.session_length * 60);
+            // setSecondsLeft(userObj.session_length * 60);
             setSessionLength(userObj.session_length);
             setBreakLength(userObj.break_length);
             setEnableLongBreak(userObj.enable_long_break);
@@ -115,8 +114,8 @@ function App() {
               setBreakLength={setBreakLength}
               timerLabel={timerLabel}
               setTimerLabel={setTimerLabel}
-              secondsLeft={secondsLeft}
-              setSecondsLeft={setSecondsLeft}
+              // secondsLeft={secondsLeft}
+              // setSecondsLeft={setSecondsLeft}
               timerRunning={timerRunning}
               setTimerRunning={setTimerRunning}
               userID={userID}
