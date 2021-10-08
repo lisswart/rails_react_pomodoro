@@ -24,7 +24,6 @@ function App() {
   const [longBreakLength, setLongBreakLength] = useState(0);
 
   const [timerLabel, setTimerLabel] = useState('Session');
-  // const [secondsLeft, setSecondsLeft] = useState(sessionLength * 60);
   const [timerRunning, setTimerRunning] = useState(false);
 
   const [errors, setErrors] = useState("");
@@ -34,10 +33,8 @@ function App() {
       .then((r) => {
         if (r.ok) {
           r.json().then(userObj => {
-            console.log(userObj);
             setUser(userObj);
             setUserID(userObj.id);
-            // setSecondsLeft(userObj.session_length * 60);
             setSessionLength(userObj.session_length);
             setBreakLength(userObj.break_length);
             setEnableLongBreak(userObj.enable_long_break);
@@ -62,8 +59,6 @@ function App() {
           setUser(userObj);
           setSessionLength(userObj.session_length);
           setEnableLongBreak(userObj.enable_long_break);
-          console.log("session length returned from update: ", userObj.session_length);
-          console.log("break length returned from update: ", userObj.break_length);
           setBreakLength(userObj.break_length);
         });
       } else {
@@ -114,8 +109,6 @@ function App() {
               setBreakLength={setBreakLength}
               timerLabel={timerLabel}
               setTimerLabel={setTimerLabel}
-              // secondsLeft={secondsLeft}
-              // setSecondsLeft={setSecondsLeft}
               timerRunning={timerRunning}
               setTimerRunning={setTimerRunning}
               userID={userID}

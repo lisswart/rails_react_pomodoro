@@ -22,7 +22,6 @@ function AddCategoryForm({ setCategory, setCategoryID }) {
       body: JSON.stringify({categoryLabel})
     }).then((r) => r.json())
       .then((category) => {
-        console.log(category);
         setCategory(category.category_label);
         setCategoryID(category.id);
       });

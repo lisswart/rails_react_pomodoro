@@ -1,8 +1,8 @@
 class Api::TimeEntriesController < ApplicationController
   def create
     user = User.find(params[:userID])
-    task = Task.find(params[:taskID])
-    category = Category.find(params[:categoryID])
+    task = Task.find(params[:taskID] || 24)
+    category = Category.find(params[:categoryID] || 17)
     time_entry = TimeEntry.create!(
       user_id: user.id, 
       task_id: task.id, 

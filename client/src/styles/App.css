@@ -1,10 +1,10 @@
 html {
-  background-color: floralwhite;
+  background: linear-gradient(floralwhite, aliceblue);
   display: flex;
   justify-content: center;
 }
 .App {
-  background: linear-gradient(rgb(235, 245, 253), rgb(222, 253, 222), floralwhite);
+  background: linear-gradient(rgb(216, 237, 253), rgb(214, 255, 214), floralwhite);
   font-family: monospace;
   position: relative;
   min-height: 100vh;
@@ -197,8 +197,8 @@ button {
 .timer-container {
   border: 10px solid chocolate;
   background-color: floralwhite;
-  height: 25em; 
-  width: 25em; 
+  height: 20em; 
+  width: 20em; 
   border-radius: 50%; 
   margin-top: 2em; 
   display: flex; 
@@ -236,9 +236,9 @@ button.start-stop, button.reset {
 }
 
 .reset-reminder {
-  text-align: left;
+  display: flex;
+  justify-content: center;
   padding: 4px 1rem;
-  border-left: 4px solid lightpink;
   color: black;
   margin-bottom: 10px;
 }
@@ -276,3 +276,55 @@ tr:hover {
   justify-content: space-around;
 }
 
+.fadeout {
+  animation: fadeOut ease 60s;
+  -webkit-animation: fadeOut ease 60s;
+  -moz-animation: fadeOut ease 60s;
+  -o-animation: fadeOut ease 60s;
+  -ms-animation: fadeOut ease 60s;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-moz-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-o-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-ms-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}

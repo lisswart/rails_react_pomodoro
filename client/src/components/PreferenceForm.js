@@ -16,7 +16,6 @@ function PreferenceForm({
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("Event object in handle submit: ", e);
     updatePreferences({
       session_length: inputSessionLength,
       break_length: breakLength,

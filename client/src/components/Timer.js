@@ -5,7 +5,7 @@ function Timer({
   categoryID, setEnableLongBreak,
   sessionLength, setSessionLength,
   breakLength, setBreakLength,
-  enableLongBreak, 
+  enableLongBreak, setTimeEntry,
   longBreakLength, setLongBreakLength,
   numberOfSessionsBeforeLongBreak,
   setNumberOfSessionsBeforeLongBreak
@@ -15,7 +15,6 @@ function Timer({
   const [timerLabel, setTimerLabel] = useState("Session");  
   const [secondsLeft, setSecondsLeft] = useState(sessionLength * 60);
   const [timerRunning, setTimerRunning] = useState(false);
-  const [timeEntry, setTimeEntry] = useState(0);
 
   let minutes = Math.floor(secondsLeft / 60);
   let seconds = secondsLeft % 60;
@@ -49,24 +48,22 @@ function Timer({
         })
       }).then((r) => r.json())
         .then((timeAdded) => {
-          console.log(timeAdded);
           setTimeEntry(timeAdded.duration);
         });
     }
 
     function handleSwitch() {
+      setTimeEntry(0);
       if (enableLongBreak) {
         if (timerLabel === 'Session') {
           if (counter >= numberOfSessionsBeforeLongBreak) {
             setTimerLabel('Long Break');
             setSecondsLeft(longBreakLength * 60);
-            setTimeEntry(sessionLength);
             handleAddTime(sessionLength);
             setCounter(1);
           } else {
             setTimerLabel('Short Break');
             setSecondsLeft(breakLength * 60);
-            setTimeEntry(sessionLength);
             handleAddTime(sessionLength);
             setCounter(counter => counter + 1);
           }
@@ -78,7 +75,6 @@ function Timer({
         if (timerLabel === 'Session') {
           setTimerLabel('Break');
           setSecondsLeft(breakLength * 60);
-          setTimeEntry(sessionLength);
           handleAddTime(sessionLength);
         } else if (timerLabel === 'Break') {
           setTimerLabel('Session');
@@ -103,7 +99,10 @@ function Timer({
       clearInterval(intervalID);
     }
 
-    return () => clearInterval(intervalID);
+    return () => {
+      clearInterval(intervalID);
+      // setTimeEntry(0);
+    }
 
   }, [sessionLength, breakLength, timerLabel, 
     setTimerLabel, setSecondsLeft, secondsLeft,
@@ -115,12 +114,8 @@ function Timer({
   ]);
 
   function handleStart() {
-    if (task && category) {
     setTimerRunning(true);
     setBreakLength(breakLength);
-    } else {
-      alert("Please enter a task and press ENTER to submit AND a category and press ENTER to submit, pressing ENTER each time after filling out each input field.  Thank you : )");
-    }
   }
 
   function handleStop() {
@@ -167,11 +162,6 @@ function Timer({
             Reset
           </button>
         </div>
-        {
-          timeEntry !== 0
-          ? <p>{`${timeEntry} minutes session is saved`}</p>
-          : <></>
-        }
       </div>
     </div>
   );

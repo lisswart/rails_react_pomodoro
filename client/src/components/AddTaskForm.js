@@ -22,7 +22,6 @@ function AddTaskForm({ setTask, setTaskID }) {
       body: JSON.stringify({taskname})
     }).then((r) => r.json())
       .then((task) => {
-        console.log(task);
         setTask(task.task_name);
         setTaskID(task.id);
       });

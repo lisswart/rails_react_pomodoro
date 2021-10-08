@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import Timer from '../components/Timer';
 import AddCategoryForm from '../components/AddCategoryForm';
 import AddTaskForm from '../components/AddTaskForm';
@@ -12,12 +14,14 @@ function TimeItPage({
   timerLabel, setTimerLabel,
   secondsLeft, setSecondsLeft,
   timerRunning, setTimerRunning,
-  setTimeEntry, setEnableLongBreak,
+  setEnableLongBreak,
   enableLongBreak, longBreakLength,
   numberOfSessionsBeforeLongBreak,
   setNumberOfSessionsBeforeLongBreak,
   setLongBreakLength
  }) {
+
+  const [timeEntry, setTimeEntry] = useState(0);
     
   return (
     <div id="timer-component">
@@ -56,12 +60,11 @@ function TimeItPage({
       />
       
       <div className="reset-reminder">
-        <p>Dear erudites,</p>
-        <p>some gentle reminders: </p>
-        <ul>
-          <li>Upon signup or login, when you're redirected to this page, please refresh the page to clear the browser cache before starting the timer to prevent issues with time_entries</li>
-          <li>Only completed sessions are saved as a time entry</li>
-        </ul>
+        {
+          timeEntry !== 0
+          ? <p style={{width: "10rem", textAlign: "center"}}>{`${timeEntry} min. session is saved`}</p>
+          : <></>
+        }
       </div>
     </div>
   );
