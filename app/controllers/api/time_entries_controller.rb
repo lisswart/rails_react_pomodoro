@@ -20,7 +20,7 @@ class Api::TimeEntriesController < ApplicationController
   end
 
   def index
-    time_entries = TimeEntry.all
+    time_entries = TimeEntry.order("created_at").all
     filtered = time_entries.select do |time_entry|
       time_entry.user_id == session[:user_id]
     end
