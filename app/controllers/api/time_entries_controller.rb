@@ -39,3 +39,4 @@ class Api::TimeEntriesController < ApplicationController
     head :no_content
   end
 end
+ 
