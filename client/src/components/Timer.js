@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
 
 function Timer({ 
-  task, category, userID, taskID,
+  userID, taskID,
   categoryID, setEnableLongBreak,
   sessionLength, setSessionLength,
   breakLength, setBreakLength,
   enableLongBreak, setTimeEntry,
   longBreakLength, setLongBreakLength,
   numberOfSessionsBeforeLongBreak,
-  setNumberOfSessionsBeforeLongBreak,
-  timeEntry
+  setNumberOfSessionsBeforeLongBreak
  }) {
 
   const [counter, setCounter] = useState(1);
@@ -45,7 +44,7 @@ function Timer({
           userID,
           taskID,
           categoryID,
-          duration: sessionLength
+          duration: sessionLength,
         })
       }).then((r) => r.json())
         .then((timeAdded) => {
