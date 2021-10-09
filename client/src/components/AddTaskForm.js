@@ -14,12 +14,13 @@ function AddTaskForm({ setTask, setTaskID }) {
 
   function handleSubmit(e) {
     e.preventDefault(e);
+    const taskName = taskname.toLowerCase().trim();
     fetch('/api/tasks', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({taskname})
+      body: JSON.stringify({taskName})
     }).then((r) => r.json())
       .then((task) => {
         setTask(task.task_name);

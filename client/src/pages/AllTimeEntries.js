@@ -50,6 +50,7 @@ function AllTimeEntries() {
           <DatePicker
             onChange={onChangeOne}
             value={value1} 
+            onClick={getTimeEntries}
           />
         </div>
         <div className="datepicker">
@@ -59,15 +60,12 @@ function AllTimeEntries() {
             value={value2}
           />
         </div>
-      </div>
-      <br />
-      <button onClick={getTimeEntries} style={{height: 30}}>
         {
           isLoading
           ? "Loading..."
-          : "time entries"
+          : <></>
         }
-      </button>
+      </div>
       <table style={{marginTop: 35, width: "100%"}}>
         <tbody>
           <tr>
