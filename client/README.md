@@ -6,8 +6,10 @@ Things that I still need to work on for MVP:
 - [x] fix various subtle bugs
 - [x] validate session/break length input to between 1 and 60 minutes (backend)
 - [x] validate range of session length input on the frontend so user is alerted properly
+- [x] 
+timestamp is off by 8 hours 20 minutes, record that's created on 10-10-2021 at 04:11, is timestamped as created on 10-09-2021 at 14:52 (GMT is 18:52), only on my local server, is accurate on heroku
 - [ ] filter time entry range in the backend when displaying time-entries
-- [ ] post task and category on click (so user doesn't have to still press Enter after clicking an option), unless user is typing in a new task/category
+- [x] post task and category on click (so user doesn't have to still press Enter after clicking an option), unless user is typing in a new task/category
 - [ ] add edit feature in time-entries to update time-entries ( those missing taskname and category label for example)
 
 Stretch goals:

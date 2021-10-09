@@ -48,7 +48,7 @@ function AddTaskForm({ setTask, setTaskID }) {
           taskArray.map((task, i) => (
               <option key={i}
                 value={task}
-                onChange={e => setTaskname(e.target.value)}
+                onChange={e => {setTaskname(e.target.value); handleSubmit(e)}}
               />
             ))
         }

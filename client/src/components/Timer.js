@@ -8,7 +8,8 @@ function Timer({
   enableLongBreak, setTimeEntry,
   longBreakLength, setLongBreakLength,
   numberOfSessionsBeforeLongBreak,
-  setNumberOfSessionsBeforeLongBreak
+  setNumberOfSessionsBeforeLongBreak,
+  timeEntry
  }) {
 
   const [counter, setCounter] = useState(1);
@@ -49,6 +50,7 @@ function Timer({
       }).then((r) => r.json())
         .then((timeAdded) => {
           setTimeEntry(timeAdded.duration);
+          console.log(timeAdded);
         });
     }
 

@@ -19,6 +19,7 @@ function AllTimeEntries() {
         setIsLoading(false);
         if (r.ok) {
           r.json().then(timeEntriesArr => {
+            console.log(timeEntriesArr);
             setTimeEntries(timeEntriesArr);
           });
         } else {
