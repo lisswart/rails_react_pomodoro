@@ -2,21 +2,20 @@ import { useState } from 'react';
 import DatePicker from 'react-date-picker';
 
 import TimeEntry from '../components/TimeEntry';
+import Tasks from '../components/Tasks';
+import Labels from '../components/Labels';
 import TimeEntriesFilteredByTask from "../components/TimeEntriesFilteredByTask";
 import TimeEntriesFilteredByCategory from "../components/TimeEntriesFilteredByCategory";
 
 function AllTimeEntries() {
 
   const [timeEntries, setTimeEntries] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const [value1, onChangeOne] = useState(new Date());
   const [value2, onChangeTwo] = useState(new Date());
 
   function getTimeEntries() {
-    setIsLoading(true);
     fetch('/api/time_entries')
       .then((r) => {
-        setIsLoading(false);
         if (r.ok) {
           r.json().then(timeEntriesArr => {
             console.log(timeEntriesArr);
@@ -42,52 +41,51 @@ function AllTimeEntries() {
       });
   }
 
-    return (
-    <div className="table">
-      <div className="datepicker-container">
-        <div className="datepicker">
-          <label>From: </label>
-          <DatePicker
-            onChange={onChangeOne}
-            value={value1} 
-            onClick={getTimeEntries}
-          />
+  return (
+    <div>
+      <Tasks />
+      <Labels />
+      <div className="table time">
+        <div className="datepicker-container">
+          <div className="datepicker">
+            <label>From: </label>
+            <DatePicker
+              onChange={onChangeOne}
+              value={value1} 
+              onClick={getTimeEntries}
+            />
+          </div>
+          <div className="datepicker">
+          <label>To: </label>
+            <DatePicker
+              onChange={onChangeTwo}
+              value={value2}
+            />
+          </div>
         </div>
-        <div className="datepicker">
-        <label>To: </label>
-          <DatePicker
-            onChange={onChangeTwo}
-            value={value2}
-          />
-        </div>
-        {
-          isLoading
-          ? "Loading..."
-          : <></>
-        }
+        <table style={{marginTop: 35, width: "100%"}}>
+          <tbody>
+            <tr>
+              <th></th>
+              <th>date</th>
+              <th>task</th>
+              <th>category</th>
+              <th>duration</th>
+            </tr>
+            {
+              timeArr.map(timeEntry => {
+                return (
+                  <TimeEntry key={timeEntry.id} 
+                    deleteTimeEntry={deleteTimeEntry}
+                    timeEntry={timeEntry}/>
+                );
+              })
+            }
+          </tbody>
+        </table>
+        <TimeEntriesFilteredByCategory />
+        <TimeEntriesFilteredByTask />
       </div>
-      <table style={{marginTop: 35, width: "100%"}}>
-        <tbody>
-          <tr>
-            <th></th>
-            <th>date</th>
-            <th>task</th>
-            <th>category</th>
-            <th>duration</th>
-          </tr>
-          {
-            timeArr.map(timeEntry => {
-              return (
-                <TimeEntry key={timeEntry.id} 
-                  deleteTimeEntry={deleteTimeEntry}
-                  timeEntry={timeEntry}/>
-              );
-            })
-          }
-        </tbody>
-      </table>
-      <TimeEntriesFilteredByCategory />
-      <TimeEntriesFilteredByTask />
     </div>
   );
 }

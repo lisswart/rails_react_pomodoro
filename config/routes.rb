@@ -15,8 +15,10 @@ Rails.application.routes.draw do
     delete '/time_entries/:id', to: 'time_entries#destroy'
 
     post '/tasks', to: 'tasks#create'
+    get '/tasks', to: 'tasks#index'
 
     post '/categories', to: 'categories#create'
+    get '/categories', to: 'categories#index'
   end
 
   get '*path', to: 'fallback#index', constraints: ->(req) { !req.xhr? && req.format.html? }

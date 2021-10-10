@@ -252,6 +252,10 @@ li {
 .table {
   padding: 2rem; 
   color: black; 
+  /* width: 100%; */
+}
+
+.time {
   background-color: honeydew;
 }
 
@@ -263,8 +267,16 @@ th, tr {
   height: 2rem;
 }
 
+th {
+  text-align: center;
+}
+
 td {
   padding: 1rem;
+}
+
+.cell-width {
+  min-width: 70vw;
 }
 
 tr:hover {

@@ -8,4 +8,9 @@ class Api::TasksController < ApplicationController
       render json: task, status: :created
     end
   end
+
+  def index
+    tasks = Task.all
+    render json: tasks
+  end
 end
