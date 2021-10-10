@@ -16,11 +16,11 @@ class Api::UsersController < ApplicationController
 
   def update
     user = User.find(session[:user_id])
-    if params[:session_length].to_i < 60
+    if params[:session_length].to_i <= 60
       user.update(user_params)
       render json: user
     else
-      render json: { errors: "In keeping with the spirit of the pomodoro technique and to stave off mental fatigue, session length must be less than 60 minutes. \n \nPlease go back to Preferences and re-enter session length within the reasonable range.  Thank you : )" }, status: :unprocessable_entity
+      render json: { errors: "In keeping with the spirit of the pomodoro technique and to stave off mental fatigue, session length must be less than or equal to 60 minutes. \n \nPlease go back to Preferences and re-enter session length within the reasonable range.  Thank you : )" }, status: :unprocessable_entity
     end
   end
 

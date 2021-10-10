@@ -1,16 +1,33 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function Tasks() {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    fetch('/api/tasks')
+    fetch('/api/me')
       .then((r) => r.json())
-      .then((taskArr) => {
-        console.log(taskArr);
-        setTasks(taskArr);
+      .then((userObj) => {
+        console.log(userObj.tasks);
+        const tasksSet = new Set();
+        (userObj.tasks).forEach(task => {
+          if (task.task_name !== null) {
+            tasksSet.add(task.task_name);
+          }
+        });
+        setTasks(Array.from(tasksSet));
       });
   }, []);
+
+  function handleDelete(id) {
+    fetch(`/api/tasks/${id}`, { method: "DELETE" })
+      .then((r) => {
+        if (r.ok) {
+          const updatedTaskList = tasks.filter(task => task.id !== id);
+          setTasks(updatedTaskList);
+        }
+      });      
+  }
 
   return (
     <div style={{display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center", textAlign: "left", paddingTop: "1rem", backgroundColor: "rgb(118,118,118,0.08)"}}>
@@ -25,9 +42,9 @@ function Tasks() {
           {
             tasks && tasks.map(task => (
               <tr key={task.id}>
-                <td><button>delete</button></td>
-                <td className="cell-width">{task.task_name}</td>
-                <td><input type="checkbox" /></td>
+                <td className="delete-cell"><button onClick={() => handleDelete(task.id)}>delete</button></td>
+                <td className="cell-width"><Link to="/task-edit-form">{task}</Link></td>
+                <td className="active-cell"><input type="checkbox" /></td>
               </tr>
             ))
           }

@@ -9,8 +9,13 @@ class Api::CategoriesController < ApplicationController
     end
   end
 
-  def index
-    categories = Category.all
-    render json: categories
+  def destroy
+    category = Category.find(params[:id])
+    category.destroy
+    head :no_content
+  end
+
+  def update
+
   end
 end

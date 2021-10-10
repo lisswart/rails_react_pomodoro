@@ -10,11 +10,11 @@ import TimeItPage from '../pages/TimeItPage';
 
 function App() {
   const [user, setUser] = useState(null);
-  const [userID, setUserID] = useState(null);
+  const [userID, setUserID] = useState("");
   const [task, setTask] = useState("");
-  const [taskID, setTaskID] = useState(null);
+  const [taskID, setTaskID] = useState("");
   const [category, setCategory] = useState("");
-  const [categoryID, setCategoryID] = useState(null);
+  const [categoryID, setCategoryID] = useState("");
 
   const [sessionLength, setSessionLength] = useState(0);
   const [breakLength, setBreakLength] = useState(0);

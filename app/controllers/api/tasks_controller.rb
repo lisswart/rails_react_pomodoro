@@ -9,8 +9,13 @@ class Api::TasksController < ApplicationController
     end
   end
 
-  def index
-    tasks = Task.all
-    render json: tasks
+  def destroy
+    task = Task.find(params[:id])
+    task.destroy
+    head :no_content
+  end
+
+  def update
+
   end
 end
