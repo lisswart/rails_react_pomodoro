@@ -45,7 +45,7 @@ function AllTimeEntries() {
     <div>
       <Tasks />
       <Labels />
-      <div className="table time">
+      <div className="time">
         <div className="datepicker-container">
           <div className="datepicker">
             <label>From: </label>
@@ -63,7 +63,7 @@ function AllTimeEntries() {
             />
           </div>
         </div>
-        <table style={{marginTop: 35, width: "100%"}}>
+        <table className="table">
           <tbody>
             <tr>
               <th></th>

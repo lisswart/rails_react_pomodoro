@@ -13,8 +13,8 @@ function Tasks() {
   }, []);
 
   return (
-    <div style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "left"}}>
-      <button>Add Task</button>
+    <div style={{display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center", textAlign: "left", paddingTop: "1rem", backgroundColor: "rgb(118,118,118,0.08)"}}>
+      <button style={{marginLeft: "3rem", marginTop: "2rem"}}>Add Task</button>
       <table className="table tasks">
         <tbody>
           <tr>

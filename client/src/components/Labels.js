@@ -13,12 +13,9 @@ function Labels() {
   }, []);
 
   return (
-    <div style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "left"}}>
-      <div style={{display: "flex"}}>
-        {/* Categories: */}
-        <button>Add Label</button>
-      </div>
-      <table className="table labels">
+    <div style={{display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center", textAlign: "left", backgroundColor: "rgb(78,78,78,0.1)", paddingTop: "1rem"}}>
+      <button style={{marginLeft: "3rem"}}>Add Label</button>
+      <table className="table">
         <tbody>
           <tr>
             <th></th>

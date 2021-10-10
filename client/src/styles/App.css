@@ -250,13 +250,14 @@ li {
 }
 
 .table {
-  padding: 2rem; 
+  padding: 0 2rem 2rem 2rem; 
   color: black; 
-  /* width: 100%; */
+  width: 100%;
 }
 
 .time {
-  background-color: honeydew;
+  background-color: rgba(92, 92, 92, 0.144);
+  padding-top: 1rem;
 }
 
 th {
@@ -273,10 +274,6 @@ th {
 
 td {
   padding: 1rem;
-}
-
-.cell-width {
-  min-width: 70vw;
 }
 
 tr:hover {
