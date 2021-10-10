@@ -14,15 +14,16 @@ function AddTaskForm({ setTask, setTaskID }) {
 
   function handleSubmit(e) {
     e.preventDefault(e);
-    const taskName = taskname.toLowerCase().trim();
+    console.log(taskname);
     fetch('/api/tasks', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({taskName})
+      body: JSON.stringify({taskname})
     }).then((r) => r.json())
       .then((task) => {
+        console.log(task);
         setTask(task.task_name);
         setTaskID(task.id);
       });
@@ -30,7 +31,11 @@ function AddTaskForm({ setTask, setTaskID }) {
 
   function populateTaskList(userTasks) {
     const tasksSet = new Set();
-    userTasks.forEach(task => tasksSet.add(task.task_name.toLowerCase().trim()));
+    userTasks.forEach(task => {
+      if (task.task_name !== null) {
+        tasksSet.add(task.task_name.toLowerCase().trim());
+      }
+    });
     setTaskArray(Array.from(tasksSet));
   }
 

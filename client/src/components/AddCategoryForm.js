@@ -14,6 +14,7 @@ function AddCategoryForm({ setCategory, setCategoryID }) {
   
   function handleSubmit(e) {
     e.preventDefault();
+    console.log(categoryLabel);
     fetch('/api/categories', {
       method: "POST",
       headers: {
@@ -22,6 +23,7 @@ function AddCategoryForm({ setCategory, setCategoryID }) {
       body: JSON.stringify({categoryLabel})
     }).then((r) => r.json())
       .then((category) => {
+        console.log(category);
         setCategory(category.category_label);
         setCategoryID(category.id);
       });
@@ -29,7 +31,11 @@ function AddCategoryForm({ setCategory, setCategoryID }) {
 
   function populateCategoriesList(userCategories) {
     const categoriesSet = new Set();
-    userCategories.forEach(category => categoriesSet.add(category.category_label.toLowerCase().trim()));
+    userCategories.forEach(category => {
+      if (category.category_label !== null) {
+        categoriesSet.add(category.category_label.toLowerCase().trim());
+      }
+    });
     setCategoryArray(Array.from(categoriesSet));
   }
 
