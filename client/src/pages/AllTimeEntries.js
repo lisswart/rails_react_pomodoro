@@ -73,9 +73,9 @@ function AllTimeEntries() {
               <th>duration</th>
             </tr>
             {
-              timeArr.map(timeEntry => {
+              timeArr.map((timeEntry, i) => {
                 return (
-                  <TimeEntry key={timeEntry.id} 
+                  <TimeEntry key={`${timeEntry.id}-${i}`} 
                     deleteTimeEntry={deleteTimeEntry}
                     timeEntry={timeEntry}/>
                 );

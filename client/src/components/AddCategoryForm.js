@@ -46,7 +46,7 @@ function AddCategoryForm({ setCategory, setCategoryID }) {
         onChange={e => setCategoryLabel(e.target.value)}
         id="category_label"
         value={categoryLabel}
-        placeholder="Please a choose a category AND PRESS ENTER..."
+        placeholder="Choose a label or type in a new one AND PRESS ENTER..."
         className="task-input"
       />
       <datalist id="category-list">

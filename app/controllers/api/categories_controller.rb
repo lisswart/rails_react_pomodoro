@@ -16,6 +16,8 @@ class Api::CategoriesController < ApplicationController
   end
 
   def update
-
+    label = Category.find(params[:id])
+    label.update
+    render json: label
   end
 end

@@ -8,11 +8,10 @@ Rails.application.routes.draw do
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
 
-    patch '/users/:id', to: 'users#update'
-
     post '/time_entries', to: 'time_entries#create'
     get '/time_entries', to: 'time_entries#index'
     delete '/time_entries/:id', to: 'time_entries#destroy'
+    patch '/time_entries/:id', to: 'time_entries#update'
 
     post '/tasks', to: 'tasks#create'
     delete '/tasks/:id', to: 'tasks#destroy'

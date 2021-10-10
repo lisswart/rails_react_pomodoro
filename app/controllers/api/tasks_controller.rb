@@ -16,6 +16,8 @@ class Api::TasksController < ApplicationController
   end
 
   def update
-
+    task = Task.find(params[:id])
+    task.update
+    render json: label
   end
 end

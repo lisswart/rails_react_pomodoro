@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { v4 as uuid } from 'uuid';
 
 function Tasks() {
   const [tasks, setTasks] = useState([]);
@@ -41,9 +41,9 @@ function Tasks() {
           </tr>
           {
             tasks && tasks.map(task => (
-              <tr key={task.id}>
+              <tr key={uuid()}>
                 <td className="delete-cell"><button onClick={() => handleDelete(task.id)}>delete</button></td>
-                <td className="cell-width"><Link to="/task-edit-form">{task}</Link></td>
+                <td className="cell-width"><button style={{border: "none", backgroundColor: "transparent"}}>{task}</button></td>
                 <td className="active-cell"><input type="checkbox" /></td>
               </tr>
             ))

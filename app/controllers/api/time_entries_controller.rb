@@ -33,6 +33,12 @@ class Api::TimeEntriesController < ApplicationController
     )
   end
 
+  def update
+    time_entry = TimeEntry.find(params[:id])
+    time_entry.update
+    render json: time_entry
+  end
+
   def destroy
     time_entry = TimeEntry.find(params[:id])
     time_entry.destroy

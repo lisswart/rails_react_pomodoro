@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { v4 as uuid} from 'uuid';
 
 function Labels() {
   const [labels, setLabels] = useState([]);
@@ -41,12 +41,12 @@ function Labels() {
           </tr>
           {
             labels && labels.map(label => (
-              <tr key={label.id} >
+              <tr key={uuid()} >
                 <td className="delete-cell">
                   <button onClick={() => handleDelete(label.id)}>delete</button>
                 </td>
                 <td className="cell-width">
-                  <Link to="/label-edit-form">{label}</Link>
+                  <button style={{border: "none", backgroundColor: "transparent"}}>{label}</button>
                 </td>
                 <td className="active-cell"><input type="checkbox" /></td>
               </tr>
