@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import DatePicker from 'react-date-picker';
+import { v4 as uuid} from 'uuid';
 
 import TimeEntry from '../components/TimeEntry';
 import Tasks from '../components/Tasks';
@@ -75,7 +76,7 @@ function AllTimeEntries() {
             {
               timeArr.map((timeEntry, i) => {
                 return (
-                  <TimeEntry key={`${timeEntry.id}-${i}`} 
+                  <TimeEntry key={uuid()} i={i}
                     deleteTimeEntry={deleteTimeEntry}
                     timeEntry={timeEntry}/>
                 );

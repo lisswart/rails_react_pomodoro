@@ -43,7 +43,7 @@ function Tasks() {
 
   return (
     <div style={{display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center", textAlign: "left", paddingTop: "1rem", backgroundColor: "rgb(118,118,118,0.08)"}}>
-      <button style={{marginLeft: "3rem", marginTop: "2rem"}}>Add Task</button>
+      <button className="add-button" style={{marginLeft: "3rem", marginTop: "2rem"}}>Add Task</button>
       <table className="table tasks">
         <tbody>
           <tr>
@@ -54,7 +54,12 @@ function Tasks() {
           {
             tasks && tasks.map((task, i) => (
               <tr key={uuid()}>
-                <td className="delete-cell"><button onClick={() => handleDelete(task.id)}>delete</button></td>
+                <td className="delete-cell">
+                  <button className="delete-button"
+                    onClick={() => handleDelete(task.id)}>
+                      delete
+                  </button>
+                </td>
                 <td className="cell-width">
                   <button className="edit-button" onClick={() => openEditForm(i)}>{task}
                   </button>
@@ -65,7 +70,10 @@ function Tasks() {
                         type="text"
                         placeholder="enter a new taskname"
                       />
-                      <button type="submit" onClick={() => closeEditForm(i)}>save</button>
+                      <button type="submit" className="save-button"
+                        onClick={() => closeEditForm(i)}>
+                          save
+                      </button>
                     </form>
                   </div>
                 </td>

@@ -357,8 +357,13 @@ tr:hover {
 }
 
 .edit-button:hover {
-  color: red;
   text-decoration: underline;
+}
+
+.save-button, .delete-button, .add-button {
+  line-height: 1.2em;
+  padding: 0.5em;
+  border-radius: 5px;
 }
 
 .form-popup {

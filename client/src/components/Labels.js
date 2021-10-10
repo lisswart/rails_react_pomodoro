@@ -43,7 +43,7 @@ function Labels() {
 
   return (
     <div style={{display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center", textAlign: "left", backgroundColor: "rgb(78,78,78,0.1)", paddingTop: "1rem"}}>
-      <button style={{marginLeft: "3rem"}}>Add Label</button>
+      <button className="add-button" style={{marginLeft: "3rem"}}>Add Label</button>
       <table className="table">
         <tbody>
           <tr>
@@ -55,7 +55,7 @@ function Labels() {
             labels && labels.map((label, i) => (
               <tr key={uuid()} >
                 <td className="delete-cell">
-                  <button onClick={() => handleDelete(label.id)}>delete</button>
+                  <button className="delete-button" onClick={() => handleDelete(label.id)}>delete</button>
                 </td>
                 <td className="cell-width">
                   <button className="edit-button" onClick={() => openEditForm(i)}>{label}</button>
@@ -66,7 +66,10 @@ function Labels() {
                         type="text"
                         placeholder="enter a new category label"
                       />
-                      <button type="submit" onClick={() => closeEditForm(i)}>save</button>
+                      <button type="submit" className="save-button" 
+                        onClick={() => closeEditForm(i)}>
+                          save
+                      </button>
                     </form>
                   </div>
                 </td>
