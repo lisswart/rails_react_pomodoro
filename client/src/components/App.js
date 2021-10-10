@@ -12,9 +12,9 @@ function App() {
   const [user, setUser] = useState(null);
   const [userID, setUserID] = useState("");
   const [task, setTask] = useState("");
-  const [taskID, setTaskID] = useState("");
+  const [taskID, setTaskID] = useState(15);
   const [category, setCategory] = useState("");
-  const [categoryID, setCategoryID] = useState("");
+  const [categoryID, setCategoryID] = useState(15);
 
   const [sessionLength, setSessionLength] = useState(0);
   const [breakLength, setBreakLength] = useState(0);
