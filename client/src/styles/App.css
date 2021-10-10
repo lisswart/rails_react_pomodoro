@@ -350,3 +350,18 @@ tr:hover {
     opacity:0;
   }
 }
+
+.edit-button {
+  border: none; 
+  background-color: transparent;
+}
+
+.edit-button:hover {
+  color: red;
+  text-decoration: underline;
+}
+
+.form-popup {
+  display: none;
+  z-index: 9;
+}

@@ -29,6 +29,18 @@ function Tasks() {
       });      
   }
 
+  function openEditForm(i) {
+    document.querySelectorAll("div.task-edit-form")[i].style.display = "block";
+  }
+
+  function closeEditForm(i) {
+    document.querySelectorAll("div.task-edit-form")[i].style.display = "none";
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+
   return (
     <div style={{display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center", textAlign: "left", paddingTop: "1rem", backgroundColor: "rgb(118,118,118,0.08)"}}>
       <button style={{marginLeft: "3rem", marginTop: "2rem"}}>Add Task</button>
@@ -40,10 +52,23 @@ function Tasks() {
             <th>Active</th>
           </tr>
           {
-            tasks && tasks.map(task => (
+            tasks && tasks.map((task, i) => (
               <tr key={uuid()}>
                 <td className="delete-cell"><button onClick={() => handleDelete(task.id)}>delete</button></td>
-                <td className="cell-width"><button style={{border: "none", backgroundColor: "transparent"}}>{task}</button></td>
+                <td className="cell-width">
+                  <button className="edit-button" onClick={() => openEditForm(i)}>{task}
+                  </button>
+                  <div className="form-popup task-edit-form">
+                    <form onSubmit={handleSubmit}>
+                      <label htmlFor="task-name"></label>
+                      <input
+                        type="text"
+                        placeholder="enter a new taskname"
+                      />
+                      <button type="submit" onClick={() => closeEditForm(i)}>save</button>
+                    </form>
+                  </div>
+                </td>
                 <td className="active-cell"><input type="checkbox" /></td>
               </tr>
             ))

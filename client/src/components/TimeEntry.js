@@ -9,8 +9,8 @@ function TimeEntry({ timeEntry, deleteTimeEntry }) {
         style={{textAlign: "center"}}>
       <td><button onClick={handleDeleteClick}>delete</button></td>  
       <td>{ new Date(timeEntry.created_at).toString()}</td>
-      <td>{timeEntry.task.task_name}</td>
-      <td>{timeEntry.category.category_label}</td>             
+      <td><button className="edit-button">{timeEntry.task.task_name}</button></td>
+      <td><button className="edit-button">{timeEntry.category.category_label}</button></td>             
       <td>{timeEntry.duration}</td>
     </tr>
   );

@@ -29,6 +29,18 @@ function Labels() {
       });      
   }
 
+  function openEditForm(i) {
+    document.querySelectorAll("div.label-edit-form")[i].style.display = "block";
+  }
+
+  function closeEditForm(i) {
+    document.querySelectorAll("div.label-edit-form")[i].style.display = "none";
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+
   return (
     <div style={{display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center", textAlign: "left", backgroundColor: "rgb(78,78,78,0.1)", paddingTop: "1rem"}}>
       <button style={{marginLeft: "3rem"}}>Add Label</button>
@@ -40,13 +52,23 @@ function Labels() {
             <th>Active</th>
           </tr>
           {
-            labels && labels.map(label => (
+            labels && labels.map((label, i) => (
               <tr key={uuid()} >
                 <td className="delete-cell">
                   <button onClick={() => handleDelete(label.id)}>delete</button>
                 </td>
                 <td className="cell-width">
-                  <button style={{border: "none", backgroundColor: "transparent"}}>{label}</button>
+                  <button className="edit-button" onClick={() => openEditForm(i)}>{label}</button>
+                  <div className="form-popup label-edit-form">
+                    <form onSubmit={handleSubmit}>
+                      <label htmlFor="category-label"></label>
+                      <input 
+                        type="text"
+                        placeholder="enter a new category label"
+                      />
+                      <button type="submit" onClick={() => closeEditForm(i)}>save</button>
+                    </form>
+                  </div>
                 </td>
                 <td className="active-cell"><input type="checkbox" /></td>
               </tr>
