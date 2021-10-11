@@ -9,6 +9,7 @@ function TimeItPage({
   setTask, setTaskID,
   taskname, setTaskname,
   setCategory, setCategoryID,
+  categoryLabel, setCategoryLabel,
   sessionLength, setSessionLength,
   breakLength, setBreakLength,
   timerLabel, setTimerLabel,
@@ -27,11 +28,14 @@ function TimeItPage({
       <AddTaskForm 
         setTask={setTask} 
         setTaskID={setTaskID} 
+        taskname={taskname}
         setTaskname={setTaskname}
       />
       <AddCategoryForm 
         setCategory={setCategory}
         setCategoryID={setCategoryID} 
+        categoryLabel={categoryLabel}
+        setCategoryLabel={setCategoryLabel}
       />
       <Timer 
         sessionLength={sessionLength}
@@ -49,6 +53,7 @@ function TimeItPage({
         category={category}
         timerRunning={timerRunning}
         setTimerRunning={setTimerRunning}
+        timeEntry={timeEntry}
         setTimeEntry={setTimeEntry} 
         enableLongBreak={enableLongBreak}
         setEnableLongBreak={setEnableLongBreak}
@@ -60,9 +65,11 @@ function TimeItPage({
       
       <div className="reset-reminder">
         {
-          timeEntry !== 0
-          ? <p style={{width: "10rem", textAlign: "center"}}>{`${timeEntry} min. session is saved`}</p>
-          : <></>
+          timeEntry === undefined
+          ? <p style={{width: "10rem", textAlign: "center"}}>Session failed to save</p>
+          : timeEntry === 0
+          ? <></>
+          : <p style={{width: "10rem", textAlign: "center"}}>{`${timeEntry} min. session is saved`}</p>
         }
       </div>
     </div>

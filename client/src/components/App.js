@@ -14,7 +14,8 @@ function App() {
   const [task, setTask] = useState("");
   const [taskname, setTaskname] = useState("");
   const [taskID, setTaskID] = useState(15);
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("");  
+  const [categoryLabel, setCategoryLabel] = useState("");
   const [categoryID, setCategoryID] = useState(15);
 
   const [sessionLength, setSessionLength] = useState(0);
@@ -125,6 +126,8 @@ function App() {
               setTimerLabel={setTimerLabel}
               timerRunning={timerRunning}
               setTimerRunning={setTimerRunning}
+              timeEntry={timeEntry}
+              setTimeEntry={setTimeEntry}
               userID={userID}
               task={task}
               taskID={taskID}
@@ -134,6 +137,8 @@ function App() {
               setTaskname={setTaskname}
               categoryID={categoryID}
               category={category}
+              categoryLabel={categoryLabel}
+              setCategoryLabel={setCategoryLabel}
               setCategory={setCategory} 
               setCategoryID={setCategoryID}
               enableLongBreak={enableLongBreak}

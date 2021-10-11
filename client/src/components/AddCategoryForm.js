@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 
-function AddCategoryForm({ setCategory, setCategoryID }) {
-  const [categoryLabel, setCategoryLabel] = useState("");
+function AddCategoryForm({ setCategory, setCategoryID, categoryLabel, setCategoryLabel }) {
   const [categoryArray, setCategoryArray] = useState([]);
 
   useEffect(() => {
