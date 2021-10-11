@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { v4 as uuid} from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 function Labels() {
   const [labels, setLabels] = useState([]);
@@ -15,6 +15,8 @@ function Labels() {
             labelsSet.add(label.category_label);
           }
         });
+        console.log(labelsSet);
+        console.log(Array.from(labelsSet));
         setLabels(Array.from(labelsSet));
       })
   }, []);
@@ -53,29 +55,53 @@ function Labels() {
           </tr>
           {
             labels && labels.map((label, i) => (
-              <tr key={uuid()} >
-                <td className="delete-cell">
-                  <button className="delete-button" onClick={() => handleDelete(label.id)}>delete</button>
-                </td>
-                <td className="cell-width">
-                  <button className="edit-button" onClick={() => openEditForm(i)}>{label}</button>
-                  <div className="form-popup label-edit-form">
-                    <form onSubmit={handleSubmit}>
-                      <label htmlFor="category-label"></label>
-                      <input 
-                        type="text"
-                        placeholder="enter a new category label"
-                      />
-                      <button type="submit" className="save-button" 
-                        onClick={() => closeEditForm(i)}>
-                          save
-                      </button>
-                    </form>
-                  </div>
-                </td>
-                <td className="active-cell"><input type="checkbox" /></td>
-              </tr>
-            ))
+                label === '(missing)'
+                ? <tr key={uuidv4()} style={{display: 'none'}}>
+                    <td className="delete-cell">
+                      <button className="delete-button" onClick={() => handleDelete(label.id)}>delete</button>
+                    </td>
+                    <td className="cell-width">
+                      <button className="edit-button" onClick={() => openEditForm(i)}>{label}</button>
+                      <div className="form-popup label-edit-form">
+                        <form onSubmit={handleSubmit}>
+                          <label htmlFor="category-label"></label>
+                          <input 
+                            type="text"
+                            placeholder="enter a new category label"
+                          />
+                          <button type="submit" className="save-button" 
+                            onClick={() => closeEditForm(i)}>
+                              save
+                          </button>
+                        </form>
+                      </div>
+                    </td>
+                    <td className="active-cell"><input type="checkbox" /></td>
+                  </tr>
+                : <tr key={uuidv4()} >
+                    <td className="delete-cell">
+                      <button className="delete-button" onClick={() => handleDelete(label.id)}>delete</button>
+                    </td>
+                    <td className="cell-width">
+                      <button className="edit-button" onClick={() => openEditForm(i)}>{label}</button>
+                      <div className="form-popup label-edit-form">
+                        <form onSubmit={handleSubmit}>
+                          <label htmlFor="category-label"></label>
+                          <input 
+                            type="text"
+                            placeholder="enter a new category label"
+                          />
+                          <button type="submit" className="save-button" 
+                            onClick={() => closeEditForm(i)}>
+                              save
+                          </button>
+                        </form>
+                      </div>
+                    </td>
+                    <td className="active-cell"><input type="checkbox" /></td>
+                  </tr>
+              )
+            )
           }
         </tbody>
       </table>
@@ -83,4 +109,4 @@ function Labels() {
   )
 }
 
-export default Labels
+export default Labels;

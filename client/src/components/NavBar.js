@@ -21,7 +21,7 @@ function NavBar({ user, setUser }) {
       </div>
       {
         user
-        ? <div style={{margin: "0 10px"}}>Good timing, {user.username}, 🤓</div>
+        ? <div style={{margin: "0 10px"}}>(ಥ _ ಥ) ~ {user.username}</div>
         : <></>
       }
       <div className="navigation">

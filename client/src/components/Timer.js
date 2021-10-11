@@ -88,12 +88,12 @@ function Timer({
     if (timerRunning && secondsLeft > 0) {
       intervalID = setInterval(() => {
         setSecondsLeft(secondsLeft - 1);
-      }, 10);
+      }, 1000);
     } 
     else if (timerRunning && secondsLeft === 0) {
       intervalID = setInterval(() => {
         setSecondsLeft(secondsLeft - 1);
-      }, 10);
+      }, 1000);
       handleSwitch();
     }
     else {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-function AddTaskForm({ setTask, setTaskID }) {
-  const [taskname, setTaskname] = useState("");
+function AddTaskForm({ setTask, setTaskID, setTaskname, taskname }) {
+  
   const [taskArray, setTaskArray] = useState([]);
 
   useEffect(() => {

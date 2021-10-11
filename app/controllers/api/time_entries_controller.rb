@@ -27,16 +27,23 @@ class Api::TimeEntriesController < ApplicationController
     render json: filtered.to_json(
       only: [:id, :user_id, :created_at, :updated_at, :time_posted, :duration, :category, :task], 
       include: [
-        task: { only: [:task_name]}, 
-        category: { only: [:category_label]}
+        task: { only: [:task_name] }, 
+        category: { only: [:category_label] }
       ]
     )
   end
 
   def update
     time_entry = TimeEntry.find(params[:id])
-    time_entry.update
-    render json: time_entry
+    task = Task.find(params[:taskID] || 24)
+    category = Category.find(params[:categoryID] || 17)
+    time_entry.update(task_id: task.id, category_id: category.id)
+    render json: time_entry.to_json(
+      include: [
+        task: { only: [:task_name] },
+        category: { only: [:category_label] }
+      ]
+    )
   end
 
   def destroy

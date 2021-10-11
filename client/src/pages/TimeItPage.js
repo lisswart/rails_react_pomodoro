@@ -1,13 +1,13 @@
-import { useState } from 'react';
-
 import Timer from '../components/Timer';
 import AddCategoryForm from '../components/AddCategoryForm';
 import AddTaskForm from '../components/AddTaskForm';
 
 function TimeItPage({ 
   task, category, errors,
+  timeEntry, setTimeEntry,
   userID, taskID, categoryID,
-   setTask, setTaskID,
+  setTask, setTaskID,
+  taskname, setTaskname,
   setCategory, setCategoryID,
   sessionLength, setSessionLength,
   breakLength, setBreakLength,
@@ -20,8 +20,6 @@ function TimeItPage({
   setNumberOfSessionsBeforeLongBreak,
   setLongBreakLength
  }) {
-
-  const [timeEntry, setTimeEntry] = useState(0);
     
   return (
     <div id="timer-component">
@@ -29,6 +27,7 @@ function TimeItPage({
       <AddTaskForm 
         setTask={setTask} 
         setTaskID={setTaskID} 
+        setTaskname={setTaskname}
       />
       <AddCategoryForm 
         setCategory={setCategory}

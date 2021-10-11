@@ -8,7 +8,12 @@ import Labels from '../components/Labels';
 import TimeEntriesFilteredByTask from "../components/TimeEntriesFilteredByTask";
 import TimeEntriesFilteredByCategory from "../components/TimeEntriesFilteredByCategory";
 
-function AllTimeEntries() {
+function AllTimeEntries({
+  taskID, setTaskID, userID,
+  categoryID, setCategoryID,
+  timeEntry, setTimeEntry,
+  setTask, setTaskname, taskname
+}) {
 
   const [timeEntries, setTimeEntries] = useState([]);
   const [value1, onChangeOne] = useState(new Date());
@@ -74,11 +79,21 @@ function AllTimeEntries() {
               <th>duration</th>
             </tr>
             {
-              timeArr.map((timeEntry, i) => {
+              timeArr.map((timeEntryFetched, i) => {
                 return (
                   <TimeEntry key={uuid()} i={i}
+                    userID={userID}
+                    taskID={taskID}
+                    setTaskID={setTaskID}
+                    categoryID={categoryID}
+                    setCategoryID={setCategoryID}
                     deleteTimeEntry={deleteTimeEntry}
-                    timeEntry={timeEntry}/>
+                    timeEntryFetched={timeEntryFetched}
+                    setTask={setTask}
+                    taskname={taskname}
+                    setTaskname={setTaskname}
+                    timeEntry={timeEntry}
+                    setTimeEntry={setTimeEntry} />
                 );
               })
             }

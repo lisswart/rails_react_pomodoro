@@ -12,6 +12,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [userID, setUserID] = useState("");
   const [task, setTask] = useState("");
+  const [taskname, setTaskname] = useState("");
   const [taskID, setTaskID] = useState(15);
   const [category, setCategory] = useState("");
   const [categoryID, setCategoryID] = useState(15);
@@ -25,6 +26,7 @@ function App() {
 
   const [timerLabel, setTimerLabel] = useState('Session');
   const [timerRunning, setTimerRunning] = useState(false);
+  const [timeEntry, setTimeEntry] = useState(0);
 
   const [errors, setErrors] = useState("");
 
@@ -84,7 +86,19 @@ function App() {
       <div className="page-on-view">
         <Switch>
           <Route path='/time-entries'>
-            <AllTimeEntries />
+            <AllTimeEntries
+              userID={userID}
+              taskID={taskID}
+              setTaskID={setTaskID}
+              categoryID={categoryID}
+              setCategoryID={setCategoryID}
+              setTask={setTask}
+              taskname={taskname}
+              setTaskname={setTaskname}
+              setCategory={setCategory}
+              timeEntry={timeEntry}
+              setTimeEntry={setTimeEntry}
+            />
           </Route>
           <Route path='/preferences'>
             <PreferenceForm 
@@ -116,6 +130,8 @@ function App() {
               taskID={taskID}
               setTask={setTask} 
               setTaskID={setTaskID}
+              taskname={taskname}
+              setTaskname={setTaskname}
               categoryID={categoryID}
               category={category}
               setCategory={setCategory} 
