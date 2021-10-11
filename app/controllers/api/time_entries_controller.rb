@@ -51,7 +51,6 @@ class Api::TimeEntriesController < ApplicationController
     else
       category = Category.find_by(category_label: params[:categoryLabel])
     end
-    byebug
     time_entry.update(task_id: task.id, category_id: category.id)
     render json: time_entry.to_json(
       include: [

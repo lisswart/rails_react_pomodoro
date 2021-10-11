@@ -44,7 +44,7 @@ function Labels() {
   }
 
   return (
-    <div style={{display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center", textAlign: "left", backgroundColor: "rgb(78,78,78,0.1)", paddingTop: "1rem"}}>
+    <div style={{display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center", textAlign: "left", backgroundColor: "rgb(78,78,78,0.08)", paddingTop: "1rem"}}>
       <button className="add-button" style={{marginLeft: "3rem", display: "none"}}>Add Label</button>
       <table className="table">
         <tbody>

@@ -121,7 +121,8 @@ function TimeEntry({
       <td>{ new Date(timeEntryFetched.created_at).toString()}</td>
       <td>
         <button className="edit-button"
-          onClick={() => openEditForm(i, "task")}>
+          // onClick={() => openEditForm(i, "task")}
+        >
           {timeEntryFetched.task.task_name}
         </button>
         <div className="form-popup time-entry-task-edit">
@@ -147,7 +148,8 @@ function TimeEntry({
       </td>
       <td>
         <button className="edit-button"
-          onClick={() => openEditForm(i, "label")}>
+          // onClick={() => openEditForm(i, "label")}
+        >
           {timeEntryFetched.category.category_label}
         </button>
         <div className="form-popup time-entry-label-edit">

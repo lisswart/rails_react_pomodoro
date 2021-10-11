@@ -3,8 +3,8 @@ import DatePicker from 'react-date-picker';
 import { v4 as uuid} from 'uuid';
 
 import TimeEntry from '../components/TimeEntry';
-import Tasks from '../components/Tasks';
-import Labels from '../components/Labels';
+// import Tasks from '../components/Tasks';
+// import Labels from '../components/Labels';
 import TimeEntriesFilteredByTask from "../components/TimeEntriesFilteredByTask";
 import TimeEntriesFilteredByCategory from "../components/TimeEntriesFilteredByCategory";
 
@@ -50,8 +50,8 @@ function AllTimeEntries({
 
   return (
     <div>
-      <Tasks />
-      <Labels />
+      {/* <Tasks />
+      <Labels /> */}
       <div className="time">
         <div className="datepicker-container">
           <div className="datepicker">

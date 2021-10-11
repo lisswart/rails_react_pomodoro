@@ -277,7 +277,7 @@ td {
 }
 
 tr:hover {
-  background-color: rgba(255, 255, 240, 0.438);
+  background-color: rgba(245, 53, 111, 0.1);
   cursor: cell;
 }
 
@@ -356,9 +356,9 @@ tr:hover {
   background-color: transparent;
 }
 
-.edit-button:hover {
+/* .edit-button:hover {
   text-decoration: underline;
-}
+} */
 
 .save-button, .delete-button, .add-button {
   line-height: 1.2em;
