@@ -43,7 +43,7 @@ function Tasks() {
 
   return (
     <div style={{display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center", textAlign: "left", paddingTop: "1rem", backgroundColor: "rgb(118,118,118,0.08)"}}>
-      <button className="add-button" style={{marginLeft: "3rem", marginTop: "2rem"}}>Add Task</button>
+      <button className="add-button" style={{marginLeft: "3rem", marginTop: "2rem", display: "none"}}>Add Task</button>
       <table className="table tasks">
         <tbody>
           <tr>
@@ -71,10 +71,10 @@ function Tasks() {
                           type="text"
                           placeholder="enter a new taskname"
                         />
-                        <button type="submit" className="save-button"
+                        {/* <button type="submit" className="save-button"
                           onClick={() => closeEditForm(i)}>
                             save
-                        </button>
+                        </button> */}
                       </form>
                     </div>
                   </td>

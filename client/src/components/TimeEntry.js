@@ -1,11 +1,19 @@
+import { useState, useEffect } from 'react';
+
 function TimeEntry({ 
   timeEntryFetched, deleteTimeEntry, i,
   userID, taskID, setTaskID,
   categoryID, setCategoryID,
-  taskname, setTask, setTaskname,
-  categoryLabel, setCategory,
+  taskname, setTask, task, setTaskname,
+  categoryLabel, setCategory, setCategoryLabel,
   timeEntry, setTimeEntry
  }) {
+
+  const [editTask, setEditTask] = useState("");
+
+  useEffect(() => {
+    
+  }, [])
 
   function handleDeleteClick() {
     deleteTimeEntry(timeEntryFetched.id);
@@ -28,38 +36,40 @@ function TimeEntry({
   }
 
   function handleTaskChange(e) {
-    const fieldname = e.target.name;
-    const userInput = e.target.value;
-    setTaskname({
-      [fieldname]: userInput
-    });
+    setEditTask(e.target.value);
+    console.log(editTask);
   }
 
   function handleTaskSubmit(e) {
     e.preventDefault();
-    // console.log(taskname);
+    closeEditForm(i, "task");
     fetch('/api/tasks', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({taskname})
+      body: JSON.stringify({editTask})
     }).then((r) => r.json())
       .then((task) => {
         console.log(task);
         setTask(task.task_name);
         setTaskID(task.id);
-      });
+        console.log("taskID: ", task.id);
+        // setCategoryLabel("(missing)");
+      }).then(patchTask(taskname));
+  }
 
+  function patchTask(taskID) {
     fetch(`/api/time_entries/${timeEntryFetched.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({userID, taskID})
+      body: JSON.stringify({userID, taskname, categoryLabel})
     }).then((r) => {
       if (r.ok) {
         r.json().then(updatedTimeEntryObj => {
+          console.log("taskID: ", taskID);
           console.log(updatedTimeEntryObj);
           timeEntryFetched = updatedTimeEntryObj;
         });
@@ -71,6 +81,7 @@ function TimeEntry({
 
   function handleLabelSubmit(e) {
     e.preventDefault();
+    closeEditForm(i, "label");
     console.log(categoryLabel);
     fetch('/api/categories', {
       method: "POST",
@@ -117,13 +128,15 @@ function TimeEntry({
           <form onSubmit={handleTaskSubmit}>
             <label htmlFor="task-name"></label>
             <input
+              required
               type="text"
               placeholder="enter taskname"
-              name="taskname"
-              value={taskname}
+              name="task"
+              value={editTask}
               onChange={handleTaskChange} 
             />
             {/* <button 
+              type="submit"
               className="save-button"
               onClick={() => closeEditForm(i, "task")}
             >
@@ -141,6 +154,7 @@ function TimeEntry({
           <form onSubmit={handleLabelSubmit}>
             <label htmlFor="label"></label>
             <input
+              required
               type="text"
               placeholder="enter label" />
             {/* <button type="submit"

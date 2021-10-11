@@ -13,10 +13,10 @@ function App() {
   const [userID, setUserID] = useState("");
   const [task, setTask] = useState("");
   const [taskname, setTaskname] = useState("");
-  const [taskID, setTaskID] = useState(15);
+  const [taskID, setTaskID] = useState("");
   const [category, setCategory] = useState("");  
   const [categoryLabel, setCategoryLabel] = useState("");
-  const [categoryID, setCategoryID] = useState(15);
+  const [categoryID, setCategoryID] = useState("");
 
   const [sessionLength, setSessionLength] = useState(0);
   const [breakLength, setBreakLength] = useState(0);
@@ -93,10 +93,12 @@ function App() {
               setTaskID={setTaskID}
               categoryID={categoryID}
               setCategoryID={setCategoryID}
+              setCategory={setCategory}
+              categoryLabel={categoryLabel}
+              task={task}
               setTask={setTask}
               taskname={taskname}
               setTaskname={setTaskname}
-              setCategory={setCategory}
               timeEntry={timeEntry}
               setTimeEntry={setTimeEntry}
             />

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DatePicker from 'react-date-picker';
 import { v4 as uuid} from 'uuid';
 
@@ -9,6 +9,7 @@ import TimeEntriesFilteredByTask from "../components/TimeEntriesFilteredByTask";
 import TimeEntriesFilteredByCategory from "../components/TimeEntriesFilteredByCategory";
 
 function AllTimeEntries({
+  task, setCategory, categoryLabel,
   taskID, setTaskID, userID,
   categoryID, setCategoryID,
   timeEntry, setTimeEntry,
@@ -19,7 +20,7 @@ function AllTimeEntries({
   const [value1, onChangeOne] = useState(new Date());
   const [value2, onChangeTwo] = useState(new Date());
 
-  function getTimeEntries() {
+  useEffect(() => {
     fetch('/api/time_entries')
       .then((r) => {
         if (r.ok) {
@@ -33,7 +34,7 @@ function AllTimeEntries({
           });
         }
       });
-  }
+  }, []);
 
   const timeArr = timeEntries.filter(timeEntry => new Date(timeEntry.created_at.toString()) > value1 && new Date(timeEntry.created_at.toString()) < value2);
 
@@ -58,7 +59,6 @@ function AllTimeEntries({
             <DatePicker
               onChange={onChangeOne}
               value={value1} 
-              onClick={getTimeEntries}
             />
           </div>
           <div className="datepicker">
@@ -86,10 +86,13 @@ function AllTimeEntries({
                     taskID={taskID}
                     setTaskID={setTaskID}
                     categoryID={categoryID}
+                    setCategory={setCategory}
                     setCategoryID={setCategoryID}
+                    categoryLabel={categoryLabel}
                     deleteTimeEntry={deleteTimeEntry}
                     timeEntryFetched={timeEntryFetched}
                     setTask={setTask}
+                    task={task}
                     taskname={taskname}
                     setTaskname={setTaskname}
                     timeEntry={timeEntry}
