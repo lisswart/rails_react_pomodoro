@@ -56,7 +56,7 @@ function TimeEntry({
         setTaskID(task.id);
         console.log("taskID: ", task.id);
         // setCategoryLabel("(missing)");
-      }).then(patchTask(taskname));
+      }).then(patchTask(task.id));
   }
 
   function patchTask(taskID) {
@@ -65,7 +65,7 @@ function TimeEntry({
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({userID, taskname, categoryLabel})
+      body: JSON.stringify({userID, taskID, categoryLabel})
     }).then((r) => {
       if (r.ok) {
         r.json().then(updatedTimeEntryObj => {

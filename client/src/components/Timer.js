@@ -12,7 +12,7 @@ function Timer({
  }) {
 
   const [counter, setCounter] = useState(1);
-  const [timerLabel, setTimerLabel] = useState("Session");  
+  const [timerLabel, setTimerLabel] = useState("Deep Work");  
   const [secondsLeft, setSecondsLeft] = useState(sessionLength * 60);
   const [timerRunning, setTimerRunning] = useState(false);
 
