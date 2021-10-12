@@ -20,7 +20,6 @@ function Login({ onLogin, setUserID }) {
               <p>
                 Don't have an account? &nbsp;
                 <button onClick={() => setShowLogin(false)}
-                  style={{width: "fit-content", marginTop: "1em", padding: "0.5em", borderRadius: 5, border: "none"}}
                 >
                   Sign Up
                 </button>
@@ -35,7 +34,6 @@ function Login({ onLogin, setUserID }) {
               <p>
                 Already have an account? &nbsp;
                 <button onClick={() => setShowLogin(true)}
-                  style={{width: "fit-content", marginTop: "1em", padding: "0.5em", borderRadius: 5, border: "none"}}
                 >Log In</button>
               </p>
             </div>

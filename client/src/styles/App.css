@@ -1,10 +1,18 @@
+:root {
+  --bottom-thirds: gray;
+  --middle-thirds: gray;
+  --top-thirds: gray;
+}
+
 html {
-  background: linear-gradient(rgb(235, 227, 213), rgb(203, 220, 235));
+  /* background: linear-gradient(rgb(235, 227, 213), rgb(203, 220, 235)); */
+  background: linear-gradient(var(--top-thirds), var(--middle-thirds), var(--bottom-thirds));
   display: flex;
   justify-content: center;
 }
 .App {
-  background: linear-gradient(rgb(216, 237, 253), rgb(214, 255, 214), floralwhite);
+  background: linear-gradient(var(--top-thirds), var(--middle-thirds), var(--bottom-thirds));
+  color: cornsilk;
   font-family: monospace;
   position: relative;
   min-height: 100vh;
@@ -28,32 +36,32 @@ html {
 
 h2 > a {
   text-decoration: none;
-  color: navy;
+  color: floralwhite;
 }
 
 h2 > a:hover {
-  color: tomato;
+  color: aliceblue;
 }
 
 h2 > a:focus {
-  color: maroon;
+  color: lemonchiffon;
 }
 
 h4 > a {
   text-decoration: none;
-  color: navy;
+  color: cornsilk;
 }
 
 h4 > a:hover {
-  color: maroon;
+  color: aliceblue;
 }
 
 h4 > a:focus {
-  color: orangered;
+  color: oldlace;
 }
 
 #footer {
-  color: black;
+  color: aliceblue;
   position: absolute;
   height: 2.5rem;
   bottom: 0;
@@ -65,7 +73,7 @@ h4 > a:focus {
 
 #footer > span {
   padding: 0.5rem; 
-  border: 2px solid floralwhite; 
+  border: 2px solid var(--bottom-thirds); 
   margin: 15px 0; 
   border-radius: 15px;
 }
@@ -73,7 +81,7 @@ h4 > a:focus {
 .navbar {
   height: 8rem;
   background-color: transparent;
-  color: navy;
+  color: cornsilk;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -84,16 +92,17 @@ h4 > a:focus {
   min-width: 115px;
   min-height: 115px;
   margin-left: 1rem;
-  background-color: floralwhite;
+  background-color: chocolate;
   border-radius: 50%;
-  border: 0.5rem solid chocolate;
+  border: 0.5rem solid floralwhite;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 #logo > h2 {
-  font-size: 1.5em;
+  font-size: 1.5em;  
+  color: floralwhite;
 }
 
 .navbar > div.navigation {
@@ -105,8 +114,9 @@ h4 > a:focus {
   padding: 0 0.25em;
   margin-left: 0.5em;
   color: cornsilk;
-  border-top: 0.15rem solid chocolate;
-  border-bottom: 0.15rem solid chocolate;
+  background-color: chocolate;
+  border-top: 0.15rem solid oldlace;
+  border-bottom: 0.15rem solid oldlace;
   display: flex;
   align-items: center;
 }
@@ -116,7 +126,7 @@ h4 > a:focus {
   border-radius: 5px; 
   border: 2px solid chocolate; 
   background-color: transparent; 
-  color: navy;  
+  color: cornsilk;  
 }
 
 form.preferences {
@@ -134,9 +144,10 @@ form.preferences {
 }
 
 .login {
-  background: linear-gradient(rgb(229, 243, 255), rgb(229, 253, 229));
+  /* background: linear-gradient(rgb(229, 243, 255), rgb(229, 253, 229)); */
+  background: linear-gradient(var(--top-thirds), var(--middle-thirds), var(--bottom-thirds));
   min-height: 100vh;
-  color: black;
+  color: cornsilk;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -153,16 +164,17 @@ form.preferences {
 
 label {
   margin-top: 1em;
+  color:cornsilk;
 }
 
 input {
   background-color: transparent;
-  color: navy;
+  color: cornsilk;
   line-height: 1.2em;
   padding: 0.5em;
   border-radius: 5px;
   border: none;
-  border: 2px solid dimgray;
+  border: 2px solid floralwhite;
 }
 
 input:focus {
@@ -170,12 +182,17 @@ input:focus {
 }
 
 ::placeholder {
-  color: maroon;
+  color: cornsilk;
 }
 
 button {
-  background-color: cornsilk;
-  color: rgb(43, 42, 42);
+  background-color: chocolate;
+  color: cornsilk;
+  width: fit-content; 
+  margin-top: 1em; 
+  padding: 0.5em; 
+  border-radius: 5px; 
+  border: none;
 }
 
 .signup-login-question-container {
@@ -196,8 +213,8 @@ button {
 }
 
 .timer-container {
-  border: 10px solid chocolate;
-  background-color: floralwhite;
+  border: 10px solid floralwhite;
+  background-color: chocolate;
   height: 20em; 
   width: 20em; 
   border-radius: 50%; 
@@ -211,13 +228,13 @@ button {
 .timer-label {
   font-size: 2em;
   margin-bottom: 20px;
-  color: rgb(58, 58, 58);
+  color: oldlace;
 }
 
 .time-left {
   font-size: 3em;
   margin-bottom: 30px;
-  color: rgb(58, 58, 58);
+  color: oldlace;
 }
 
 .button-container {
@@ -231,7 +248,7 @@ button.start-stop, button.reset {
   margin-top: 10px;
   border-radius: 10px;
   padding: 5px 9px;
-  background-color: dodgerblue;
+  background-color: dimgray;
   color: aliceblue;
   border: 2px solid dimgray;
 }
@@ -265,7 +282,8 @@ th {
 }
 
 th, tr {
-  height: 2rem;
+  height: 2rem;  
+  color:cornsilk;
 }
 
 th {
@@ -274,10 +292,11 @@ th {
 
 td {
   padding: 1rem;
+  color:cornsilk;
 }
 
 tr:hover {
-  background-color: rgba(245, 53, 111, 0.1);
+  background-color: rgba(255, 137, 2, 0.1);
   cursor: cell;
 }
 
@@ -354,6 +373,7 @@ tr:hover {
 .edit-button {
   border: none; 
   background-color: transparent;
+  color: cornsilk;
 }
 
 /* .edit-button:hover {
@@ -364,6 +384,8 @@ tr:hover {
   line-height: 1.2em;
   padding: 0.5em;
   border-radius: 5px;
+  background-color: chocolate;
+  color: oldlace;
 }
 
 .form-popup {
