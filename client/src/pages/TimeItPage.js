@@ -69,7 +69,7 @@ function TimeItPage({
           ? <p style={{width: "10rem", textAlign: "center", backgroundColor: "tomato", color: "whitesmoke"}}>Session failed to save</p>
           : timeEntry === 0
           ? <></>
-          : <p style={{width: "10rem", textAlign: "center"}}>{`${timeEntry} min. session is saved`}</p>
+          : <p style={{width: "10rem", textAlign: "center", color: "floralwhite"}}>{`${timeEntry} min. session is saved`}</p>
         }
       </div>
     </div>

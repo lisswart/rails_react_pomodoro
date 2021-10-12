@@ -8,6 +8,11 @@ function Login({ onLogin, setUserID }) {
 
   return (
     <div className="login">
+      <div id="logo">
+      <h2>
+        Clockit
+      </h2>
+      </div>
       {
         showLogin
         ? (

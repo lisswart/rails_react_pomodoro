@@ -21,12 +21,20 @@ function NavBar({ user, setUser }) {
       </div>
       {
         user
-        ? <div style={{margin: "0 10px"}}>(ಥ _ ಥ) ~ {user.username}</div>
+        ? <div className="greetings">◊  {user.username}  ◊</div>
         : <></>
       }
       <div className="navigation">
-        <h4><Link to="/time-entries">Time Entries</Link></h4>
-        <h4><Link to="/preferences">Preferences</Link></h4>
+        <h4>
+          <Link to="/time-entries">
+            Time Entries
+          </Link>
+        </h4>
+        <h4>
+          <Link to="/preferences">
+            Preferences
+          </Link>
+        </h4>
         <button onClick={handleLogoutClick}>
           Logout
         </button>

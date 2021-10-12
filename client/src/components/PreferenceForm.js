@@ -50,7 +50,7 @@ function PreferenceForm({
           ? setBreakLength(e.target.value) 
           : <></>}
       />
-      <>
+      <div id="checkbox-container">
         <label htmlFor="enable_long_break">
           Enable Long Break
         </label>
@@ -60,7 +60,7 @@ function PreferenceForm({
           checked={enableLongBreak}
           onChange={e => {setEnableLongBreak(e.target.checked)}}
         />
-      </>
+      </div>
       <label htmlFor="no_of_sessions_before_long_break">
         Long break after # of sessions
       </label>
