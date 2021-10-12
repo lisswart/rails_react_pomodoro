@@ -43,7 +43,7 @@ function AddTaskForm({ setTask, setTaskID, setTaskname, taskname }) {
     <form onSubmit={handleSubmit}>
       <label htmlFor="taskname" />
       <input list="task-list" 
-        onChange={e => setTaskname(e.target.value)}
+        onChange={e => {setTaskname(e.target.value); handleSubmit(e)}}
         name="taskname"
         value={taskname}
         placeholder="Choose a task or type in a new one AND PRESS ENTER..."
@@ -54,7 +54,6 @@ function AddTaskForm({ setTask, setTaskID, setTaskname, taskname }) {
           taskArray.map((task, i) => (
               <option key={i}
                 value={task}
-                onChange={e => {setTaskname(e.target.value); handleSubmit(e)}}
               />
             ))
         }
