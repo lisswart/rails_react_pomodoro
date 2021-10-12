@@ -111,7 +111,7 @@ h4 > a:focus {
 }
 
 .navigation > h4 {
-  padding: 0 0.25em;
+  padding: 0 0.5rem;
   margin-left: 0.5em;
   color: cornsilk;
   background-color: chocolate;
@@ -315,6 +315,12 @@ tr:hover {
 
 .datepicker {
   padding: 0 5rem 1rem 2rem;
+  color: black;
+}
+
+.react-calendar__navigation__label__labelText,
+.react-calendar__tile {
+  color: black;
 }
 
 .fadeout {
