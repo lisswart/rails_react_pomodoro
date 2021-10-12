@@ -25,7 +25,7 @@ function App() {
   const [numberOfSessionsBeforeLongBreak, setNumberOfSessionsBeforeLongBreak] = useState(0);
   const [longBreakLength, setLongBreakLength] = useState(0);
 
-  const [timerLabel, setTimerLabel] = useState('Session');
+  const [timerLabel, setTimerLabel] = useState('Deep Work');
   const [timerRunning, setTimerRunning] = useState(false);
   const [timeEntry, setTimeEntry] = useState(0);
 

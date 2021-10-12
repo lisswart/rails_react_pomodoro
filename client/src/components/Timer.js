@@ -56,7 +56,7 @@ function Timer({
     function handleSwitch() {
       setTimeEntry(0);
       if (enableLongBreak) {
-        if (timerLabel === 'Session') {
+        if (timerLabel === 'Deep Work') {
           if (counter >= numberOfSessionsBeforeLongBreak) {
             setTimerLabel('Long Break');
             setSecondsLeft(longBreakLength * 60);
@@ -69,16 +69,16 @@ function Timer({
             setCounter(counter => counter + 1);
           }
         } else if (timerLabel === 'Short Break' || timerLabel === 'Long Break') {
-          setTimerLabel('Session');
+          setTimerLabel('Deep Work');
           setSecondsLeft(sessionLength * 60);
         }
       } else {
-        if (timerLabel === 'Session') {
+        if (timerLabel === 'Deep Work') {
           setTimerLabel('Break');
           setSecondsLeft(breakLength * 60);
           handleAddTime(sessionLength);
         } else if (timerLabel === 'Break') {
-          setTimerLabel('Session');
+          setTimerLabel('Deep Work');
           setSecondsLeft(sessionLength * 60);
         }
       }
@@ -127,7 +127,7 @@ function Timer({
     setSessionLength(sessionLength);
     setBreakLength(breakLength);
     setSecondsLeft(sessionLength * 60);
-    setTimerLabel('Session');
+    setTimerLabel('Deep Work');
     setTimerRunning(false);
   }
 
