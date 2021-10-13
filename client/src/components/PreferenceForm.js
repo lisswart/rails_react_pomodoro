@@ -29,26 +29,25 @@ function PreferenceForm({
       <label htmlFor="session_length">
         Session Length
       </label>
-      <input
+      <input 
         type="number"
         id="session_length"
+        min="0"
+        max="60"
         value={sessionLength}
-        onChange={e => 
-          e.target.value <= 60 && e.target.value >= 0 
-          ? setSessionLength(e.target.value) 
-          : <></>}
+        onChange={e => setSessionLength(e.target.value)}
       />
+      <span className="validity"></span>
       <label htmlFor="break_length">
         Break Length
       </label>
-      <input
+      <input 
         type="number"
         id="break_length"
+        min="0"
+        max="60"
         value={breakLength}
-        onChange={e => 
-          e.target.value <= 60 && e.target.value >= 0
-          ? setBreakLength(e.target.value) 
-          : <></>}
+        onChange={e => setBreakLength(e.target.value)}
       />
       <div id="checkbox-container">
         <label htmlFor="enable_long_break">
@@ -67,11 +66,10 @@ function PreferenceForm({
       <input
         type="number"
         id="no_of_sessions_before_long_break"
+        min="0"
+        max="60"
         value={numberOfSessionsBeforeLongBreak}
-        onChange={e => 
-          e.target.value >= 0 
-          ? setNumberOfSessionsBeforeLongBreak(e.target.value) 
-          : <></>}
+        onChange={e => setNumberOfSessionsBeforeLongBreak(e.target.value)}
       />
       <label htmlFor="long_break_length">
         Long Break Length
@@ -79,11 +77,10 @@ function PreferenceForm({
       <input
         type="number"
         id="long_break_length"
+        min="0"
+        max="60"
         value={longBreakLength}
-        onChange={e => 
-          e.target.value <= 60 && e.target.value >= 0 
-          ? setLongBreakLength(e.target.value) 
-          : <></>}
+        onChange={e => setLongBreakLength(e.target.value)}
       />
       <button type="submit">Submit</button>
     </form>

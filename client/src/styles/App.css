@@ -66,8 +66,8 @@ h4 > a:hover {
   background-color: floralwhite;
 }
 
-h4 > a:focus {
-  color: oldlace;
+h4 > a:focus, h4 > a:active {
+  color: orangered;
 }
 
 #footer {
@@ -156,6 +156,22 @@ form.preferences {
   color: black;
 }
 
+/* input + span {
+  padding-right: 30px;
+} */
+
+/* input:invalid + span:after {
+  position: absolute;
+  content: 'X';
+  padding-left: 5px;
+}
+
+input:valid + span:after {
+  position: absolute;
+  content: '✔️';
+  padding-left: 5px;
+} */
+
 .page-on-view {
   display: flex;
   flex-direction: column;
@@ -205,7 +221,7 @@ input {
   border-radius: 5px;
   border: none;
   border: 2px solid floralwhite;
-  width: 50vw;
+  width: 40vw;
 }
 
 input:focus {
@@ -305,12 +321,12 @@ li {
 }
 
 .time {
-  background-color: rgba(49, 49, 49, 0.459);
+  background-color: rgba(110, 110, 110, 0.199);
   padding-top: 1rem;
 }
 
 th {
-  border-bottom: 5px solid chocolate;
+  border-bottom: 5px solid orangered;
 }
 
 th, tr {
@@ -423,7 +439,7 @@ tr:hover {
   line-height: 1.2em;
   padding: 0.5em;
   border-radius: 5px;
-  background-color: chocolate;
+  background-color: maroon;
   color: oldlace;
 }
 
