@@ -1,8 +1,9 @@
 :root {
-  --bottom-thirds: rgb(219, 58, 13);
-  --middle-thirds: chocolate;
-  --top-thirds: royalblue;
-  --accent: navy;
+  --bottom-thirds: black;
+  --middle-thirds: darkred;
+  --top-thirds: black;
+  --accent: darkgreen;
+  --clockface: black;
   --font: cursive;
 }
 
@@ -100,7 +101,7 @@ h4 > a:focus {
 #logo {
   min-width: 125px;
   min-height: 125px;
-  background-color: var(--bottom-thirds);
+  background-color: var(--clockface);
   border-radius: 50%;
   border: 0.5rem solid floralwhite;
   display: flex;
@@ -115,7 +116,7 @@ h4 > a:focus {
 
 .greetings {
   padding: 5px;
-  background-color: var(--bottom-thirds);
+  background-color: var(--accent);
   color: floralwhite;
   font-weight: bolder;
   border-radius: 5px;
@@ -125,7 +126,7 @@ h4 > a:focus {
   padding: 15px 0;
   border-radius: 5px;
   border: 5px solid floralwhite;
-  background-color: var(--top-thirds);
+  background-color: transparent;
 }
 
 .navigation > h4 {
@@ -145,7 +146,7 @@ h4 > a:focus {
 }
 
 .navigation > button:hover {
-  background-color: var(--bottom-thirds);
+  background-color: var(--accent);
 }
 
 form.preferences {
@@ -244,7 +245,7 @@ button {
 
 .timer-container {
   border: 10px solid floralwhite;
-  background-color: var(--bottom-thirds);
+  background-color: var(--clockface);
   height: 20em; 
   width: 20em; 
   border-radius: 50%; 

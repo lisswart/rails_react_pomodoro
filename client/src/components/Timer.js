@@ -91,12 +91,12 @@ function Timer({
     if (timerRunning && secondsLeft > 0) {
       intervalID = setInterval(() => {
         setSecondsLeft(secondsLeft - 1);
-      }, 10);
+      }, 500);
     } 
     else if (timerRunning && secondsLeft === 0) {
       intervalID = setInterval(() => {
         setSecondsLeft(secondsLeft - 1);
-      }, 10);
+      }, 500);
       // myAudio.current.play();
       handleSwitch();
     }
