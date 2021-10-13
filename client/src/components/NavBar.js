@@ -21,7 +21,7 @@ function NavBar({ user, setUser }) {
       </div>
       {
         user
-        ? <div className="greetings">◊  {user.username}  ◊</div>
+        ? <div className="greetings">◊  {user.firstname}  ◊</div>
         : <></>
       }
       <div className="navigation">

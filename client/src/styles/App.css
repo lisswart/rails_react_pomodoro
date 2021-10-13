@@ -87,7 +87,7 @@ h4 > a:focus {
 }
 
 .navbar {
-  height: 8rem;
+  height: 10rem;
   background-color: transparent;
   color: cornsilk;
   display: flex;
@@ -99,7 +99,6 @@ h4 > a:focus {
 #logo {
   min-width: 125px;
   min-height: 125px;
-  margin-left: 1rem;
   background-color: chocolate;
   border-radius: 50%;
   border: 0.5rem solid floralwhite;
@@ -115,15 +114,22 @@ h4 > a:focus {
 
 .greetings {
   padding: 5px;
-  background-color: floralwhite;
-  color: chocolate;
+  background-color: var(--middle-thirds);
+  color: floralwhite;
   font-weight: bolder;
+  border-radius: 5px;
+}
+
+.navigation {
+  padding: 15px 0;
+  border-radius: 5px;
+  border: 5px solid floralwhite;
+  background-color: var(--middle-thirds);
 }
 
 .navigation > h4 {
   font-family: var(--font);
   padding: 0 0.5rem;
-  margin-left: 0.5em;
   color: cornsilk;
   margin-bottom: 8px;
 }
@@ -295,7 +301,7 @@ li {
 }
 
 .time {
-  background-color: rgba(92, 92, 92, 0.144);
+  background-color: rgba(49, 49, 49, 0.459);
   padding-top: 1rem;
 }
 

@@ -53,7 +53,6 @@ function AddCategoryForm({ setCategory, setCategoryID, categoryLabel, setCategor
           categoryArray.map((category, i) => (
               <option key={i}
                 value={category}
-                onChange={e => {setCategoryLabel(e.target.value); handleSubmit(e)}}
               />
             ))
         }

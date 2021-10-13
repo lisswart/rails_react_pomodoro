@@ -5,9 +5,9 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true
 
-  validates :session_length, numericality: true, on: :update
+  # validates :session_length, numericality: true, on: :update
 
-  validates :break_length, numericality: true, on: :update
+  # validates :break_length, numericality: true, on: :update
 
   has_secure_password
 end

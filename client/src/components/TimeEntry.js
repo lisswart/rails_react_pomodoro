@@ -19,13 +19,13 @@ function TimeEntry({
     deleteTimeEntry(timeEntryFetched.id);
   }
 
-  function openEditForm(i, str) {
-    if (str === "task") {
-      document.querySelectorAll("div.time-entry-task-edit")[i].style.display = "block";
-    } else if (str === "label") {
-      document.querySelectorAll("div.time-entry-label-edit")[i].style.display = "block";
-    }
-  }
+  // function openEditForm(i, str) {
+  //   if (str === "task") {
+  //     document.querySelectorAll("div.time-entry-task-edit")[i].style.display = "block";
+  //   } else if (str === "label") {
+  //     document.querySelectorAll("div.time-entry-label-edit")[i].style.display = "block";
+  //   }
+  // }
 
   function closeEditForm(i, str) {
     if (str === "task") {
