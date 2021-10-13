@@ -1,7 +1,8 @@
 :root {
-  --bottom-thirds: rgb(41, 41, 41);
-  --middle-thirds: rgb(68, 68, 68);
-  --top-thirds: rgb(133, 133, 133);
+  --bottom-thirds: rgb(219, 58, 13);
+  --middle-thirds: chocolate;
+  --top-thirds: royalblue;
+  --accent: navy;
   --font: cursive;
 }
 
@@ -99,7 +100,7 @@ h4 > a:focus {
 #logo {
   min-width: 125px;
   min-height: 125px;
-  background-color: chocolate;
+  background-color: var(--bottom-thirds);
   border-radius: 50%;
   border: 0.5rem solid floralwhite;
   display: flex;
@@ -114,7 +115,7 @@ h4 > a:focus {
 
 .greetings {
   padding: 5px;
-  background-color: var(--middle-thirds);
+  background-color: var(--bottom-thirds);
   color: floralwhite;
   font-weight: bolder;
   border-radius: 5px;
@@ -124,7 +125,7 @@ h4 > a:focus {
   padding: 15px 0;
   border-radius: 5px;
   border: 5px solid floralwhite;
-  background-color: var(--middle-thirds);
+  background-color: var(--top-thirds);
 }
 
 .navigation > h4 {
@@ -144,7 +145,7 @@ h4 > a:focus {
 }
 
 .navigation > button:hover {
-  background-color: chocolate;
+  background-color: var(--bottom-thirds);
 }
 
 form.preferences {
@@ -213,7 +214,7 @@ input:focus {
 }
 
 button {
-  background-color: chocolate;
+  background-color: var(--accent);
   color: cornsilk;
   width: fit-content; 
   margin-top: 1em; 
@@ -241,7 +242,7 @@ button {
 
 .timer-container {
   border: 10px solid floralwhite;
-  background-color: chocolate;
+  background-color: var(--bottom-thirds);
   height: 20em; 
   width: 20em; 
   border-radius: 50%; 
@@ -276,7 +277,7 @@ button.start-stop, button.reset {
   margin-top: 10px;
   border-radius: 10px;
   padding: 5px 9px;
-  background-color: rgb(63, 62, 62);
+  background-color: var(--accent);
   color: aliceblue;
   border: 2px solid dimgray;
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 function Timer({ 
   userID, taskID,
@@ -16,6 +16,9 @@ function Timer({
   const [secondsLeft, setSecondsLeft] = useState(sessionLength * 60);
   const [timerRunning, setTimerRunning] = useState(false);
 
+  // const myAudio = useRef();
+  // const context = new AudioContext();
+
   let minutes = Math.floor(secondsLeft / 60);
   let seconds = secondsLeft % 60;
 
@@ -29,7 +32,7 @@ function Timer({
         setLongBreakLength(userObj.long_break_length);
         setNumberOfSessionsBeforeLongBreak(userObj.no_of_sessions_before_long_break);
       });
-  }, [setBreakLength, setEnableLongBreak, setLongBreakLength, setSecondsLeft,
+  }, [setBreakLength, setEnableLongBreak,      setLongBreakLength, setSecondsLeft,
       setNumberOfSessionsBeforeLongBreak]);
 
   useEffect(() => {
@@ -94,6 +97,7 @@ function Timer({
       intervalID = setInterval(() => {
         setSecondsLeft(secondsLeft - 1);
       }, 10);
+      // myAudio.current.play();
       handleSwitch();
     }
     else {
@@ -102,7 +106,6 @@ function Timer({
 
     return () => {
       clearInterval(intervalID);
-      // setTimeEntry(0);
     }
 
   }, [sessionLength, breakLength, timerLabel, 
@@ -115,6 +118,7 @@ function Timer({
   ]);
 
   function handleStart() {
+    // context.resume();
     setTimerRunning(true);
     setBreakLength(breakLength);
   }
@@ -129,6 +133,8 @@ function Timer({
     setSecondsLeft(sessionLength * 60);
     setTimerLabel('Deep Work');
     setTimerRunning(false);
+    // myAudio.current.pause();
+    // myAudio.current.currentTime = 0;
   }
 
   return (
@@ -164,6 +170,12 @@ function Timer({
           </button>
         </div>
       </div>
+      {/* <audio
+        id="beep"
+        ref={myAudio}
+        src="https://assets.coderrocketfuel.com/pomodoro-times-up.mp3"
+        type="audio"
+      ></audio> */}
     </div>
   );
 }
