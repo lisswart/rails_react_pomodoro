@@ -165,6 +165,7 @@ form.preferences {
 .login {
   background: linear-gradient(var(--top-thirds), var(--middle-thirds), var(--bottom-thirds));
   min-height: 100vh;
+  font-family: var(--font);
   color: cornsilk;
   display: flex;
   flex-direction: column;
@@ -175,6 +176,7 @@ form.preferences {
 
 .login > div#logo {
   margin: auto auto auto 0;
+  font-family: var(--font);
 }
 
 .form {
