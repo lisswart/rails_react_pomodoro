@@ -67,7 +67,6 @@ function App() {
       } else {
         r.json().then(err => {
           console.log(err);
-          // alert(err.errors);
           setErrors(err.errors);
         });
       }

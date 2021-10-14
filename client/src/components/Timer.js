@@ -36,7 +36,6 @@ function Timer({
       setNumberOfSessionsBeforeLongBreak]);
 
   useEffect(() => {
-
     function handleAddTime(sessionLength) {
       fetch('/api/time_entries', {
         method: "POST",
@@ -91,12 +90,12 @@ function Timer({
     if (timerRunning && secondsLeft > 0) {
       intervalID = setInterval(() => {
         setSecondsLeft(secondsLeft - 1);
-      }, 500);
+      }, 1000);
     } 
     else if (timerRunning && secondsLeft === 0) {
       intervalID = setInterval(() => {
         setSecondsLeft(secondsLeft - 1);
-      }, 500);
+      }, 1000);
       // myAudio.current.play();
       handleSwitch();
     }

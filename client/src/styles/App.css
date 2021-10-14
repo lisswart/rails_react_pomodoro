@@ -66,7 +66,7 @@ h4 > a:hover {
   background-color: floralwhite;
 }
 
-h4 > a:focus, h4 > a:active {
+h4 > a:focus {
   color: orangered;
 }
 
@@ -301,7 +301,7 @@ button.start-stop, button.reset {
   border: 2px solid dimgray;
 }
 
-.reset-reminder {
+.session-saved {
   display: flex;
   justify-content: center;
   padding: 4px 1rem;

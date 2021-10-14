@@ -63,7 +63,7 @@ function TimeItPage({
         setLongBreakLength={setLongBreakLength}
       />
       
-      <div className="reset-reminder">
+      <div className="session-saved">
         {
           timeEntry === undefined
           ? <p style={{width: "10rem", textAlign: "center", backgroundColor: "tomato", color: "whitesmoke"}}>Session failed to save</p>

@@ -13,8 +13,7 @@ function AddTaskForm({ setTask, setTaskID, setTaskname, taskname }) {
   }, []);
 
   function handleSubmit(e) {
-    e.preventDefault(e);
-    console.log(taskname);
+    e.preventDefault();
     fetch('/api/tasks', {
       method: "POST",
       headers: {
