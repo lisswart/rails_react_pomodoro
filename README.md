@@ -8,5 +8,5 @@
 
 This app uses authentication. If you want to play around with the app without signing up, then you can use the following demo user:
 
-username: anna_karenina
-password: vladivostok
+- username: anna_karenina
+- password: vladivostok
