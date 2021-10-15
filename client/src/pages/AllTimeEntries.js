@@ -74,8 +74,8 @@ function AllTimeEntries({
             <tr>
               <th></th>
               <th>date</th>
-              <th>task</th>
-              <th>category</th>
+              <th>topic</th>
+              <th>subject</th>
               <th>duration</th>
             </tr>
             {

@@ -32,7 +32,7 @@ function Timer({
         setLongBreakLength(userObj.long_break_length);
         setNumberOfSessionsBeforeLongBreak(userObj.no_of_sessions_before_long_break);
       });
-  }, [setBreakLength, setEnableLongBreak,      setLongBreakLength, setSecondsLeft,
+  }, [setBreakLength, setEnableLongBreak, setLongBreakLength, setSecondsLeft,
       setNumberOfSessionsBeforeLongBreak]);
 
   useEffect(() => {

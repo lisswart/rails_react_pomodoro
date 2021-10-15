@@ -54,7 +54,7 @@ function LoginForm({ onLogin, setUserID }) {
         autoComplete="current-password"
         onChange={e => setPassword(e.target.value)}
       />
-      <button type="submit" style={{width: "fit-content", marginTop: "1em", padding: "0.5em", borderRadius: 5, border: "none"}}>
+      <button type="submit" style={{width: "fit-content", marginTop: "1em", padding: "0.5em", borderRadius: 5}}>
         {
           isLoading
           ? "Loading..."

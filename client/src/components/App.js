@@ -25,8 +25,8 @@ function App() {
   const [numberOfSessionsBeforeLongBreak, setNumberOfSessionsBeforeLongBreak] = useState(0);
   const [longBreakLength, setLongBreakLength] = useState(0);
 
-  const [timerLabel, setTimerLabel] = useState('Deep Work');
-  const [timerRunning, setTimerRunning] = useState(false);
+  // const [timerLabel, setTimerLabel] = useState('Deep Work');
+  // const [timerRunning, setTimerRunning] = useState(false);
   const [timeEntry, setTimeEntry] = useState(0);
 
   const [errors, setErrors] = useState("");
@@ -123,10 +123,10 @@ function App() {
               setSessionLength={setSessionLength}
               breakLength={breakLength}
               setBreakLength={setBreakLength}
-              timerLabel={timerLabel}
-              setTimerLabel={setTimerLabel}
-              timerRunning={timerRunning}
-              setTimerRunning={setTimerRunning}
+              // timerLabel={timerLabel}
+              // setTimerLabel={setTimerLabel}
+              // timerRunning={timerRunning}
+              // setTimerRunning={setTimerRunning}
               timeEntry={timeEntry}
               setTimeEntry={setTimeEntry}
               userID={userID}

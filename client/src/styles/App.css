@@ -2,8 +2,10 @@
   --bottom-thirds: black;
   --middle-thirds: darkred;
   --top-thirds: black;
-  --accent: darkgreen;
+  --accent: black;
   --clockface: black;
+  --border-color: lightyellow;
+  --border-thickness: 10px;
   --font: cursive;
 }
 
@@ -59,11 +61,13 @@ h4 > a {
   text-decoration: none;
   color: cornsilk;
   padding: 0 5px;
+  border: 1px solid transparent;
 }
 
 h4 > a:hover {
-  color: chocolate;
-  background-color: floralwhite;
+  color: floralwhite;
+  border: 1px solid var(--middle-thirds);
+  background-color: var(--top-thirds);
 }
 
 h4 > a:focus {
@@ -103,7 +107,7 @@ h4 > a:focus {
   min-height: 125px;
   background-color: var(--clockface);
   border-radius: 50%;
-  border: 0.5rem solid floralwhite;
+  border: var(--border-thickness) solid var(--border-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -116,7 +120,7 @@ h4 > a:focus {
 
 .greetings {
   padding: 5px;
-  background-color: var(--accent);
+  background-color: var(--top-thirds);
   color: floralwhite;
   font-weight: bolder;
   border-radius: 5px;
@@ -125,7 +129,7 @@ h4 > a:focus {
 .navigation {
   padding: 15px 0;
   border-radius: 5px;
-  border: 5px solid floralwhite;
+  /* border: 5px solid floralwhite; */
   background-color: transparent;
 }
 
@@ -219,7 +223,6 @@ input {
   line-height: 1.2em;
   padding: 0.5em;
   border-radius: 5px;
-  border: none;
   border: 2px solid floralwhite;
   width: 40vw;
 }
@@ -233,13 +236,13 @@ input:focus {
 }
 
 button {
-  background-color: var(--accent);
+  background-color: transparent;
   color: cornsilk;
   width: fit-content; 
   margin-top: 1em; 
   padding: 0.5em; 
   border-radius: 5px; 
-  border: none;
+  border: 1px solid var(--border-color);
 }
 
 .signup-login-question-container {
@@ -260,7 +263,7 @@ button {
 }
 
 .timer-container {
-  border: 10px solid floralwhite;
+  border: var(--border-thickness) solid var(--border-color);
   background-color: var(--clockface);
   height: 20em; 
   width: 20em; 
@@ -327,6 +330,7 @@ li {
 
 th {
   border-bottom: 5px solid orangered;
+  /* padding: 0 0.75rem; */
 }
 
 th, tr {
@@ -371,7 +375,7 @@ tr:hover {
   color: black;
 }
 
-.fadeout {
+/* .fadeout {
   animation: fadeOut ease 60s;
   -webkit-animation: fadeOut ease 60s;
   -moz-animation: fadeOut ease 60s;
@@ -422,13 +426,13 @@ tr:hover {
   100% {
     opacity:0;
   }
-}
+} */
 
 .edit-button {
   border: none; 
   background-color: transparent;
   color: cornsilk;
-  font-size: medium;
+  /* font-size: medium; */
 }
 
 /* .edit-button:hover {

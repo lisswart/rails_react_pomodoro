@@ -45,7 +45,7 @@ function AddTaskForm({ setTask, setTaskID, setTaskname, taskname }) {
         onChange={e => {setTaskname(e.target.value)}}
         name="taskname"
         value={taskname}
-        placeholder="Choose a task or type in a new one AND PRESS ENTER..."
+        placeholder="Choose a topic or type in a new one AND PRESS ENTER..."
         className="task-input"
       />
       <datalist id="task-list">

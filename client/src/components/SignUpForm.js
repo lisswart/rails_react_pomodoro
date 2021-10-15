@@ -90,7 +90,7 @@ function SignUpForm({ onLogin }) {
         onChange={e => setPasswordConfirmation(e.target.value)}
       />
       <button type="submit" 
-        style={{width: "fit-content", marginTop: "1em", padding: "0.5em", borderRadius: 5, border: "none"}}
+        style={{width: "fit-content", marginTop: "1em", padding: "0.5em", borderRadius: 5}}
       >
         {
           isLoading
